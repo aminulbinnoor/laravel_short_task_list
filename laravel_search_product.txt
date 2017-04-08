@@ -1,0 +1,27 @@
+<!--Search Form -->
+<div class="search">
+				<form action="{{ route('search.product') }}" method="POST">					
+					<div class="input-group">
+						<input type="text" name="search_product" class="form-control search-in" placeholder="type product name..">
+						<span class="input-group-btn">
+				  <button class="btn btn-Search" type="submit"><i class="fa fa-search"></i>
+				 <input type="hidden" name="_token" value="{{ csrf_token() }}">		  
+			    </button>
+			  </span>
+			</div>
+		  </form>
+	    </div>
+<!-- End-->
+
+<!--Route -->
+Route::post('products','FrontController@search_product')->name('search.product');
+<!--End -->
+
+<!-- Controller For search Option-->
+public function search_product(Request $request){
+        $categories=Category::all();    
+        $search=$request->search_product;
+        $products=DB::table('products')->where('name','like',"%$search%")->get();
+        return view('hs.product',compact('products','categories'));
+    }
+<!-- End Controller-->
