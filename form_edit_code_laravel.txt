@@ -1,0 +1,23 @@
+{{ Form::model($user, array('route' => array('user.update', $user->id), 'method' => 'PUT')) }}
+
+            <div class="form-group">
+                {{ Form::label('name', 'Name') }}
+                {{ Form::text('name', null, array('class' => 'form-control','placeholder'=>'name..')) }}
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('email', 'Email') }}
+                {{ Form::text('email', null, array('class' => 'form-control','placeholder'=>'email')) }}
+            </div>
+            <div class="form-group">
+                 <label for="password">Password</label>                           
+                    <input type="password" placeholder="password" class="form-control" name="password">                       
+            </div>
+
+                <div class="form-group">
+                    <label for="password-confirm">Confirm Password</label>                 
+                        <input type="password" placeholder="confirm password" class="form-control" name="password_confirmation">
+                </div>         
+                
+            {{ Form::submit('Update', array('class' => 'btn btn-success')) }}
+            {!! Form::close() !!}

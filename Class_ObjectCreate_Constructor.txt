@@ -1,0 +1,34 @@
+<!-- Class Part-->
+<?php
+namespace App;
+class Foo{
+	public function bar(){
+		return 'This is aminul islam ';
+	}
+
+	public function two(){
+		return 'This is tahsan islam ';
+	}
+}
+
+<!-- Constructor Part-->
+use App\Foo;
+use App\Cart;
+
+
+class FormController extends Controller
+{
+	protected $foo;
+	protected $cart;
+
+	public function __construct(Foo $foo, Cart $cart)
+	{
+		$this->foo=$foo;
+		$this->cart=$cart;
+	}
+
+    public function index(){
+    	dd($this->foo->bar());
+    	return view('createform');
+    }
+*/
