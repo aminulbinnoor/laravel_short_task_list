@@ -1,0 +1,37 @@
+<!--first-->
+<?php
+$fol=array(
+    array('mango','10','8'),
+    array('apple','20','18'),
+    array('orange','30','20'),
+    array('bnana','40','20')
+);
+for($row=0;$row<4;$row++){
+  echo "<p><b>Row number $row</b></p>";
+    echo "<ul>";
+    for($col=0;$col<3;$col++){
+        echo "<li>".$fol[$row][$col]."</li>";
+    }
+    echo "</ul>";
+}
+?>
+<!--End-->
+
+<!--Second-->
+<?php
+$cars = array
+  (
+  array(      
+  array("Volvo",22,18),
+  array("BMW",15,13),
+  array("Saab",5,2),
+  array("Land Rover",17,15)
+  )
+);
+  
+echo $cars[0][0][0].": In stock: ".$cars[0][0][1].", sold: ".$cars[0][0][2].".<br>";
+echo $cars[0][1][0].": In stock: ".$cars[0][1][1].", sold: ".$cars[0][1][2].".<br>";
+echo $cars[0][2][0].": In stock: ".$cars[0][2][1].", sold: ".$cars[0][2][2].".<br>";
+echo $cars[0][3][0].": In stock: ".$cars[0][3][1].", sold: ".$cars[0][3][2].".<br>";
+?>
+<!--End-->
