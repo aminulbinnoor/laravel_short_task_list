@@ -31,9 +31,9 @@ class FollowController extends Controller
                 'target_id' => $user->id,
             ]);
 
-            return back()->with('success', 'You are now friends with '. $user->name);
+            return back()->with('status', 'You are now friends with '. $user->name);
         } else{
-            return back()->with('error', 'You are already following this person');
+            return back()->with('status', 'You are already following this person');
         }
 
     }
@@ -44,9 +44,9 @@ class FollowController extends Controller
             $follow = Auth::user()->follows()->where('target_id', $user->id)->first();
             $follow->delete();
 
-            return back()->with('success', 'You are no longer friends with '. $user->name);
+            return back()->with('status', 'You are no longer friends with '. $user->name);
         } else {
-            return back()->with('error', 'You are not following this person');
+            return back()->with('status', 'You are not following this person');
         }
     }
 }
@@ -217,10 +217,16 @@ class Follow extends Model
 	 <!-- Following -->
 	  <div class="panel panel-default">
 	 <div class="panel-heading">
+	@if(session('status'))
+	 <div class="alert alert-warning">
+	   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>{{ session('status') }}</strong> 
+	 </div>
+	 @endif
 	All Users
 	</div>
 <div class="panel-body">
-<table class="table table-striped task-table">
+  <table class="table table-striped task-table">
     <thead>
         <th>User</th>
         <th> </th>
