@@ -1,0 +1,274 @@
+<!-- Routing Part -->
+Route::group(['middleware' => ['auth']], function () { 
+    Route::get('/users', 'FollowController@index');
+    Route::post('/follow/{user}', 'FollowController@follow');
+    Route::delete('/unfollow/{user}', 'FollowController@unfollow');
+});
+<!-- End Routing Part -->
+
+<!-- Controller Part-->
+ <?php
+
+namespace App\Http\Controllers;
+use App\User;
+use App\Follow;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
+class FollowController extends Controller
+{
+     public function index()
+    {
+    	$users=User::all();
+        return view('users.index', compact('users'));
+    }
+
+    public function follow(User $user)
+    {
+        if (!Auth::user()->isFollowing($user->id)) {
+            // Create a new follow instance for the authenticated user
+            Auth::user()->follows()->create([
+                'target_id' => $user->id,
+            ]);
+
+            return back()->with('success', 'You are now friends with '. $user->name);
+        } else{
+            return back()->with('error', 'You are already following this person');
+        }
+
+    }
+
+    public function unfollow(User $user)
+    {
+        if (Auth::user()->isFollowing($user->id)) {
+            $follow = Auth::user()->follows()->where('target_id', $user->id)->first();
+            $follow->delete();
+
+            return back()->with('success', 'You are no longer friends with '. $user->name);
+        } else {
+            return back()->with('error', 'You are not following this person');
+        }
+    }
+}
+
+<!-- End Controller Part-->
+
+<!-- User Model Part-->
+<?php
+
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function follows() {
+        return $this->hasMany(Follow::class);
+    }
+    public function isFollowing($target_id)
+    {
+        return (bool)$this->follows()->where('target_id', $target_id)->first(['id']);
+    }
+}
+
+<!-- End User Model Part-->
+<!-- Follow Model Part-->
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Follow extends Model
+{
+    protected $fillable = ['target_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}
+
+<!-- End Follow Model Part-->
+<!-- Layouts.app-->
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- Branding Image -->
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @yield('content')
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+            window.Laravel = <?php echo json_encode([
+                'csrfToken' => csrf_token(),
+            ]); ?>
+     </script>
+</body>
+</html>
+
+<!-- End layouts.app-->
+
+<!-- View Part-->
+
+@extends('layouts.app')
+@section('content')
+	<div class="container">
+	 <div class="col-sm-offset-2 col-sm-8">
+
+	 <!-- Following -->
+	  <div class="panel panel-default">
+	 <div class="panel-heading">
+	All Users
+	</div>
+<div class="panel-body">
+<table class="table table-striped task-table">
+    <thead>
+        <th>User</th>
+        <th> </th>
+    </thead>
+    <tbody>
+        @foreach ($users as $user)
+            <tr>
+                <td clphpass="table-text"><div>{{ $user->name }}</div></td>
+                @if (Auth::User()->isFollowing($user->id))
+			    <td>
+			        <form action="{{url('unfollow/' . $user->id)}}" method="POST">
+			            {{ csrf_field() }}
+			            {{ method_field('DELETE') }}
+			            <button type="submit" id="delete-follow-{{ $user->target_id }}" class="btn btn-danger">
+			            <i class="fa fa-btn fa-trash"></i>Unfollow
+			            </button>
+			        </form>
+			    </td>
+			@else
+			    <td>
+			        <form action="{{url('follow/' . $user->id)}}" method="POST">
+			            {{ csrf_field() }}
+
+			            <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
+			            <i class="fa fa-btn fa-user"></i>Follow
+			            </button>
+			        </form>
+			    </td>
+			@endif
+            </tr>
+        @endforeach
+     </tbody>
+   </table>
+  </div>
+</div>
+</div>
+</div>
+
+@endsection
+<!-- End View Part-->
+<!-- DB_table Part-->
+ public function up()
+    {
+        Schema::create('follows', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->index();
+            $table->integer('target_id')->index();
+            $table->timestamps();
+        });
+    }
+<!--End DB table Part-->
