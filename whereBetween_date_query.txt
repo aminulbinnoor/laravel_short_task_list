@@ -1,29 +1,99 @@
-public function accessSessionData(Request $req){
+== Controller ==
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\User;
+
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('home');
+    }
+
+    public function show()
+    {
+        return view('show');
+    }
+    public function CreateDateForm()
+    {
+        return view('date_form');
+    }
+     public function search_date(Request $request)
+    {
+
+     $dateS = new Carbon($request->input('s_date'));
+     $dateE = new Carbon($request->input('e_date'));
+     $results = User::whereBetween('created_at', [$dateS->format('Y-m-d'), $dateE->format('Y-m-d')])->get();
+     //dd($results);
+     return view('show',compact('results'));        
+    }
+    }
+== end Controller ==
+<!--public function accessSessionData(Request $req){
     // $s_d=$req->input('start_date');
     // $e_d=$req->input('end_date');   
      $dateS = new Carbon();
      $dateE = new Carbon();
      $result = User::whereBetween('created_at', [$dateS->format('2017-03-13'), $dateE->format('2017-06-13')])->get();
      dd($result);
-return view('show',compact('results'));
+return view('show',compact('results'));-->
 <!-- Show results-->
+== Create Form ==
+@extends('layouts.app')
+@section('content')
+<style>
+	.a{
+		margin-top: 10px;
+	}
+</style>
+<div class="container">
+	<form action="{{ url('/search_date')}}" method="POST" role="form" class="form-inline">
+{{ csrf_field() }}
+	<legend>Search Date wise</legend>
 
+	<div class="form-group col-md-2">
+		<label for="">Start Date</label>
+		<input type="text" name="s_date" class="form-control" id="" placeholder="From date">
+	</div><p>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="//code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<title></title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-<br>
-<hr>
+	<div class="form-group col-md-2">
+		<label for="">Start Date</label>
+		<input type="text" name="e_date" class="form-control" id="" placeholder="To date">
+	</div><p>
+	<div class="form-group col-md-2">
+	<label for=""></label>
+	<button type="submit" class="btn btn-primary a">Search</button>
+	</div><p>
+</form>
+
+</div>
+
+@endsection
+== EndCreate ==
+
+== Show Result==
+@extends('layouts.app')
+
+@section('content')
 <div class="container">
 	<table class="table table-hover table-bordered table-striped">
 		<thead>
@@ -42,5 +112,12 @@ return view('show',compact('results'));
 		@endforeach
 	</table>
 </div>	
-</body>
-</html>
+@endsection
+== End Show==
+
+== Routes ==
+Route::get('/home', 'HomeController@index');
+Route::get('/dateform', 'HomeController@CreateDateForm');
+Route::get('/show', 'HomeController@show');
+Route::post('/search_date', 'HomeController@search_date');
+== End Routes
