@@ -1,6 +1,9 @@
 /* Using Laravel Random number generate and saving into database*/
 
-Place these three methods into your controller where you are going to handle client registration. In store method you can add more client parameters. You will need to import Client Model in your controller can be done by writing use App\Client; and also request handler.In second method I am checking in table if client number exist or not.
+Place these three methods into your controller where you are going to handle client registration.
+In store method you can add more client parameters. You will need to import
+Client Model in your controller can be done by writing use App\Client;
+and also request handler.In second method I am checking in table if client number exist or not.
 //controller
     public function store(Request $request)
         {
