@@ -5,3 +5,4 @@ https://stackoverflow.com/questions/42549280/i-cant-insert-data-to-db-using-ajax
 
 <!-- google analytics for tracking user-->
 https://www.youtube.com/watch?v=3ll-TV7TcMs
+Getting Google Analytics Data into your Laravel App
