@@ -2,3 +2,6 @@
 <!-- ajax insert data in db laravel mvc-->
 
 https://stackoverflow.com/questions/42549280/i-cant-insert-data-to-db-using-ajax-in-laravel-5-2
+
+<!-- google analytics for tracking user-->
+https://www.youtube.com/watch?v=3ll-TV7TcMs
