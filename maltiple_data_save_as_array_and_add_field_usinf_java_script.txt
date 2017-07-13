@@ -1,0 +1,83 @@
+                                                 <!--save data as array in database-->
+						=======================================
+/*Html input field*/
+===================
+<!--plus sign-->
+	<div id="appendsection">
+	  <div class="form-group"  >
+	    <label for="">Experience Requirements</label>
+		<div class="input-group">
+		  <input type="text" class="form-control" name="experience_requirements[]" id="experience_requirements0" placeholder=" Type Experience Requirements">
+		   <span class="input-group-addon addOne"><i class="fa fa-plus"></i></span>						
+		</div>
+		<p id="msg0" style="color: red"></p>
+	   </div>
+      </div>
+
+
+/* controller */
+=================
+
+ public function store_job_post(Request $request){
+
+            //exit("work");
+
+            $validator = Validator::make($request->all(), [
+                'designation' => 'required',            
+                'company_name' => 'required',            
+                'vacancy' => 'required',            
+            ]);
+            if ($validator->fails()) {
+                return redirect()->route('job_post_form')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+
+            $request->merge([
+                'experience_requirements' => implode('_', (array) $request->get('experience_requirements'))
+               ]);            
+            $request->merge([
+               'job_requirements' => implode('_', (array) $request->get('job_requirements'))
+              ]);                     
+
+               JobPost::create($request->all());               
+
+                return redirect()
+                ->route('job_post_success')
+                ->with('status','Congratulations! Your Job post successfull. Thank You');
+
+        }   
+/* java script for add field*/   
+=============================
+<!--no field creat if do not type any character-->
+<!--Experience Requirements-->
+<script type="text/javascript">
+	var count = 0 ;
+	var appandedSection = function () {
+	return  '<div id="removesection">'+
+				'<div class="form-group">'+					
+					'<div class="input-group" style="margin-bottom:0">'+
+						'<input type="text" class="form-control" name="experience_requirements[]"'+
+						'id="experience_requirements'+count+'" placeholder="Experience Requirements">'+
+						'<span class="input-group-addon removeOne"><i class="fa fa-minus"></i></span>'+					
+					'</div>'+
+					'<p id="msg'+count+'" style="color:red"></p>'+
+			    '</div>'+			 
+			'</div>';
+	}
+	$(document).on("click", ".addOne", function(){
+		var experience_requirements = $('#experience_requirements'+count).val();
+		if(experience_requirements.length <= 0){
+			$('#msg'+count).html('This field is required');
+			return false;
+		}
+	     count++;	
+		$( "#appendsection" ).append( appandedSection );
+	});
+
+	$(document).on("click", ".removeOne", function(){
+		console.log('removeOne working');
+	$( this ).closest("#removesection").remove();
+	});
+	</script>
+<!--End Experience Requirements-->
