@@ -1,0 +1,169 @@
+<!--data_save_in_child_table_using_controller-->
+================================================
+
+============
+ Controller
+============
+public function StoreEmployer_register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|min:6|confirmed',            
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()
+                    ->route('employer_register')
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+            $input = $request->except('jobscategory_id');
+            $jobscategory_id = $request->input('jobscategory_id');
+            //return $jobscategory_id;
+            $employer = JobRegistration::create([
+                'user_type' => 'job_employer',                
+                'username'  => $request['username'],
+                'password'  => bcrypt($request['password']),                
+                'email'     => $request['email'],
+                'address'   => $request['address'],
+                'organization_name'  => $request['organization_name'],
+                'phone'     => $request['phone'],
+                'mobile'    => $request['mobile'],
+                'website'   => $request['website'],
+            ]);
+  
+          <!--save data in child table-->
+
+            if(count( $jobscategory_id) > 0){
+                foreach ($jobscategory_id as  $value) {
+                    $job = new JobRegistrationCategory();
+                    $job->jobregistration_id = $employer->id ;
+                    $job->jobscategory_id = $value ;
+                    $job->save();
+                }
+            }
+                  
+                return redirect()
+                ->route('employer_login')
+                ->with('status','Employer have Succesfully registered!');
+        }
+
+ Migration table there will be used two tables
+==============================================
+
+=======================
+<!--job_reg_category-->
+=======================
+
+public function up()
+    {
+        Schema::create('job_reg_category', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('jobregistration_id',false,11);
+            $table->integer('jobscategory_id',false,11);
+            $table->timestamps();
+            $table->engine = 'InnoDB';
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('job_reg_category');
+        $table->foreign('jobregistration_id')->references('id')->on('jobregistration');
+        $table->foreign('jobscategory_id')->references('id')->on('jobscategory');
+    }
+
+============================
+<!--jobregistration table-->
+============================
+ public function up()
+    {
+        Schema::create('job_registration', function (Blueprint $table) {
+            $table->increments('id');
+            $table->enum('user_type',array('job_seeker','job_employer','electronics_computers_vendor','electronics_computers_customer'))->nullable();
+            $table->string('first_name',64)->nullable(); 
+            $table->string('middle_name',64)->nullable(); 
+            $table->string('last_name',64)->nullable(); 
+            $table->string('username',64)->nullable();
+            $table->string('password', 60)->nullable();
+            $table->enum('gender',array('male','female'))->nullable();
+            $table->string('email',64)->nullable(); 
+            $table->string('address',64)->nullable(); 
+            $table->string('organization_name',64)->nullable(); 
+            $table->string('phone',64)->nullable(); 
+            $table->string('mobile',64)->nullable(); 
+            $table->string('website',64)->nullable(); 
+            $table->timestamps();
+            $table->engine = 'InnoDB';
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('job_registration');
+    }
+
+========
+ Model
+========
+
+class JobRegistration extends Model
+{
+    protected $table = 'job_registration';
+
+    protected $fillable=[
+    'user_type',
+    'first_name',
+    'middle_name',
+    'last_name',
+    'username',
+    'password',
+    'gender',
+    'email',
+    'address',
+    'organization_name',
+    'phone',
+    'mobile',
+    'website'
+    ];
+
+}
+
+ Model
+=======
+class JobRegistrationCategory extends Model
+{
+    protected $table = 'job_reg_category';
+
+    protected $fillable=[
+    'jobregistration_id',
+    'jobscategory_id',    
+    ];
+
+}
+
+ View Page
+===========
+
+<legend>Jobs Category</legend>
+  <div class="checkbox">
+    @if(isset($jobscategories))
+        @foreach ($jobscategories as $jobscategory)
+	  <label>
+	    <input type="checkbox" name="jobscategory_id[]" value="{{ $jobscategory->id }}"> {{ $jobscategory->title }}
+	  </label>
+	@endforeach
+    @endif							
+</div> 
+
+
+
