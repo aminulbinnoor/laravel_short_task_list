@@ -1,0 +1,29 @@
+					
+					Bootsnipp.com all needed designs are available here
+					===================================================
+Search like this
+=================
+
+1.  New d* theme - Profile
+2.  eCommerce Quick view Popup & Product row
+3.  circle progress bar
+4.  Simple Chat
+5.  Advance Password Validation
+6.  Product Detail Page - Ecommerce
+7.  Contact Form - One page 
+8.  JS Typewriter (Text Animation)
+9.  Radio Button - Payment method selector
+10. Calendar Design
+11. Register Page Design
+12. Flipkart like navbar
+13. eCommerce Product Detail
+14. Responsive Mail Inbox and Compose
+15. Receipt
+16. Flat Responsive Dashboard Design
+17. Easy Table Filter
+18. Responsive Column Chart
+19. Back to Top Scroll Feature
+20. Bootstrap Mega Menu
+21. mega menu slider bootstrap navbar navigation menu
+22. Image Crop jQuery
+23. Mega menu slide down on hover with carousel
