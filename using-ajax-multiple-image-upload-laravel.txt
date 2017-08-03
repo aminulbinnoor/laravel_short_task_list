@@ -1,0 +1,106 @@
+                              Multiple Image Upload using ajax
+                              =================================
+ view
+======
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>multi image upload</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="post-upload" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <legend>multi image upload</legend>
+                    @if(Session::has('success'))
+                        
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>{{Session('success')}}</strong>
+                        </div>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    <label for=""> Image</label>
+                    <input type="file" name="file[]" id="upload" class="form-control" multiple>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+            <div id="message"></div>
+
+            <script>
+                var form = document.getElementById('upload');
+                var  request= new XMLHttpRequest();
+                form.addEventListener('submit',function(e){
+                    e.preventDefault();
+                    var formData=new FormData(form);
+                    request.open('post','/post-upload');
+                    request.addEventListener("load",transferComplete());
+                    request.send(formData);
+
+                });
+                function transferComplete(data){
+                    response = JSON.parse(data.currentTarget.response);
+                    if(response.success){
+                        document.getElementById('message').innerHTML="Upload image successfully!";
+                    }
+                }
+
+            </script>
+            <script>
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+==========
+Controller
+===========
+
+ public function getUpload()
+   {   
+     return view('multi-image-upload');
+   }
+   
+   public function postUpload(Request $request)
+   {   
+     $files= $request->file('file');
+       if(!empty($files)):
+           foreach($files as $file):
+
+               Storage::put($file->getClientOriginalName(), file_get_contents($file));
+               endforeach;
+           endif;
+       return back()->with('success','Upload image successfully');
+       //return \Response::json(["success" => true]);
+
+
+   }
+
+
+======
+route
+=======
+Route::get('/get-upload','AjaxController@getUpload');
+
+Route::post('/post-upload','AjaxController@postUpload');
