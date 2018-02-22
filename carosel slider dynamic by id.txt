@@ -1,0 +1,33 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+  	<?php 
+	 $a=0;
+	 ?>
+  	@foreach($slider as $slide)
+      <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $a; ?>" class="<?php if($a==0){echo 'active';} $a++; ?>"></li>    
+    @endforeach
+    
+  </ol>
+  	
+  <div class="carousel-inner">
+  	<?php 
+	 $a=0;
+	 ?>
+	@foreach($slider as $slide)
+    <div class="carousel-item <?php $a++; if($a==1){echo 'active';} ?>">
+    	@if($slide->pic != '')<img src="{{ asset('uploads') . '/'.  $slide->pic }}" alt="First slide">@endif
+      
+    </div>
+    @endforeach
+    
+  </div>
+   
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
