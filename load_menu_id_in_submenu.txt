@@ -1,0 +1,54 @@
+View menu and submenu create page:
+==================================
+
+<div class="form-group">
+    {!! Form::label('menulists_id', 'Select Menu', array('class'=>'col-sm-2 control-label','style'=>'color:green')) !!}
+    <div class="col-sm-3">
+        {!! Form::select('menulists_id', $menulists, old('menulists_id'), array('id'=>'main_menu','class'=>'form-control')) !!}
+        
+    </div>
+
+    {!! Form::label('submenu_id', 'Sub Menu', array('class'=>'col-sm-2 control-label','style'=>'color:green')) !!}
+    <div class="col-sm-3">
+        {!! Form::select('submenu_id', $submenu, old('submenu_id'), array('id'=>'submenu','class'=>'form-control')) !!}
+        
+    </div>
+</div>
+
+
+using javascript load main menu id in sub menu:
+===============================================
+
+@section('javascript')
+    <script>
+        $('#main_menu').change(function(e){
+            var id = $(this).val();
+            if(id.length <= 0)
+            return false;
+            $.get('{{url('menu/load-submenu')}}/'+id,function(data){
+                $('#submenu').html(data);
+            });
+        })
+    </script>
+@endsection
+
+Controller code:
+================
+
+public function load_submenu($id){
+        $str = '<option value="">Select</option>';
+        if(!empty($id)){
+            $data = SubMenu::where('menulists_id',$id)->get();
+            foreach($data as $value){
+                $str .= '<option value="'.$value->id.'">'.$value->sub_menu.'</option>';
+            }
+        }
+        return $str;
+    }
+
+
+Route Code:
+===========
+
+Route::get('menu/load-submenu/{id}', 'RolesController@load_submenu');
+
