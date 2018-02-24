@@ -1,0 +1,30 @@
+FB Share Image details fb meta tag: its work good for single page 
+==================================================================
+
+<meta property="og:url" content="{{Request::url()}}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ $bollywoods->title }}" />
+<meta property="og:description" content="{{ $bollywoods->text_one }}" />
+<meta property="og:app_id" content="122154345271266" />
+<meta property="og:image"  content="https://orbittimes.com/uploads/thumb/{{ $bollywoods->pic }}" />
+
+
+View page
+==========
+
+      <a class="btn  btn-info" style="border-radius:4px;margin-left:10px;"
+       target="_blank"  href="https://www.facebook.com/sharer/sharer.php?u={{urlencode(Request::url())}}&amp;src=sdkpreparse"
+       onclick="SubmitShare();"> <i class="fa fa-share-alt"id="share__button"  ></i> Share {{$shareCounts}}</a>
+		<script>
+		 function SubmitShare(){
+						  
+		  document.getElementById('share-form').submit();  
+					   }
+	       </script>
+		<form action="{{route('share') }}" method="POST" id="share-form">
+		{{csrf_field()}}
+		<input type="hidden" name="dreamploy_id" value="{{Auth::id()}}" /> 
+		<input type="hidden" name="category" value="bollywood"/>
+		<input type="hidden" name="category_id" value="{{ $id }}"/>
+		<input type="hidden" name="share_on" value="{{ Request::url() }}"/>
+	     </form>
