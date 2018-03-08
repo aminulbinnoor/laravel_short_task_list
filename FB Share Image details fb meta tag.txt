@@ -28,3 +28,30 @@ View page
 		<input type="hidden" name="category_id" value="{{ $id }}"/>
 		<input type="hidden" name="share_on" value="{{ Request::url() }}"/>
 	     </form>
+	     
+	     Controller
+	     ===========
+	     public function share(Request $r){
+                
+                if(!ShareCount::where('dreamploy_id',$r->dreamploy_id)
+                    ->where('share',$r->share)
+                    ->first()){
+                        
+                
+                 if($r->dreamploy_id!=null)
+                 {
+                   ShareCount::create([
+                     'dreamploy_id' => $r->dreamploy_id,
+                     'share'=>1,                     
+                     'blogpost_id'  => $r->blogpost_id,
+                   ]);
+                    return redirect()->back();
+                 }else{
+                    return redirect()->route('get-login');
+                 }  
+                }                  
+            }
+	    use this function on another function like this
+	    ===============================================
+	    
+	    $share = $this->shareCount();
