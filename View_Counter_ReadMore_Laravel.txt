@@ -1,0 +1,60 @@
+View Counter
+============
+controller
+==========
+
+public function readMore($id)
+    {
+
+       
+
+        $x = $this->unitCount();      
+        $unit =  $x*0.000200;    
+        $total_unit = number_format(floor($x),6);
+        //dd($total_unit);
+    
+        $view  = $this->viewCount();        
+        $likes = $this->likeCounts();        
+        $share = $this->shareCount();
+     
+
+        $m = $this->mostVisited;
+        $n =  $this->mostViewBlog;
+        $blogpost=BlogPost::orderBy('id','desc')->get();
+        $categories = Categories::all();   
+        $post = BlogPost::where('id',$id)->first();
+
+        //view Counter function call here
+        $this->viewCounter($post->categories_id);
+
+        $this->viewBlog($post->id);
+        $comment = Comment::where('blogpost_id',$id)->paginate(5);
+        $likeCount = LikeCount::where('dreamploy_id',Auth::id())
+                    ->where('blogpost_id',$id)
+                    ->first();
+        $buCount=LikeCount::where('blogpost_id',$id)
+                    ->sum('likes');
+
+        $shareCounts =  ShareCount::where('blogpost_id',$id)->count();
+
+        // $img = $this->getLocation();
+
+         return view('read',compact('post','categories','m','n','id','comment','blogpost','likeCount','buCount','shareCounts','view','likes','share','total_unit','t_p_m_u'));
+    }
+
+
+public function viewCounter($id){
+
+        if(ViewCountPage::where('categories_id',$id)->first()!=null){
+           $lastCount = ViewCountPage::where('categories_id',$id)->first()->total_views;
+           ViewCountPage::where('categories_id',$id)->update([
+             'total_views'=>intval($lastCount) + 1
+           ]);
+        }else{
+          ViewCountPage::create([
+                      'dreamploy_id'=>Auth::id(),
+                      'categories_id'=>$id,
+                      'total_views'=>1
+                  ]);
+        } 
+  }
