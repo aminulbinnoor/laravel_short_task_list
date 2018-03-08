@@ -1,0 +1,74 @@
+SignUp SignIn Laravel
+======================
+
+Controller
+==========
+
+
+public function storeSignUp(Request $request)
+        {
+            $validator = Validator::make($request->all(), [
+                'email'    =>'required|email|unique:users',
+                'password' => 'required|min:6|confirmed',
+            ]);
+            if ($validator->fails()) {
+            return redirect()->route('sign-up')
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+         User::create([
+            
+                'name'           => $request['name'],            
+                'email'          => $request['email'],
+                'password'       => Hash::make($request['password']),
+                'remember_token' => str_random(60),
+                'role_id'        => 25,            
+            ]);
+
+            return redirect()
+            ->route('home')
+            ->with('status','You have Succesfully registered! please Sign In');
+        } 
+
+  public function postSignIn(Request $request)
+    {
+      
+      $userdata = array(
+        'email'   => $request->email,
+        'password'  => $request->password,
+        'role_id'=>25
+      );
+      
+      if(Auth::attempt($userdata)) {       
+        return redirect()->route('home')->with('info','Welcome !');
+      } else {
+        
+        return redirect()->back()->with('error','Your email and password does not match please try again');
+      }
+    
+    }
+
+SignUp View 
+============
+<div class="login">
+	<h1>Login</h1>
+     @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form method="post" action="{{ route('store') }}">
+        {{ csrf_field() }}
+    	<input type="text" name="name" placeholder="Username">
+       	<input type="text" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password_confirmation" placeholder="Confirm Password">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Sign Up</button>
+    </form>
+</div>
