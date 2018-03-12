@@ -1,0 +1,28 @@
+Using API get country name:
+==================================
+
+<div class="col-md-6">
+                                    <?php
+                                    function getRealIpAddr()
+                                    {
+                                        if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+                                        {
+                                            $ip=$_SERVER['HTTP_CLIENT_IP'];
+                                        }
+                                        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+                                        {
+                                            $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+                                        }
+                                        else
+                                        {
+                                            $ip=$_SERVER['REMOTE_ADDR'];
+                                        }
+                                        return $ip;
+                                    }
+                                    $xml = simplexml_load_file("http://www.geoplugin.net/xml.gp?ip=".getRealIpAddr());
+                                    echo '<h5>'.$xml->geoplugin_countryName.'</h5>' ;
+
+                                    ?>
+                                    <input type="hidden" class="form-control" name="countryname" value="{{$xml->geoplugin_countryName}}">
+                                </div>
+
