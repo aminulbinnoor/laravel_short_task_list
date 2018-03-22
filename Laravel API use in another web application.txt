@@ -1,0 +1,201 @@
+API Route
+=========
+
+use App\UnitApi;
+
+
+Route::get('/api/v1/{id}/{token}',function($id,$token){
+
+   $userApi = new UnitApi($id,$token);
+
+   $userApi->encodeJsonData();
+
+});
+
+
+API Class
+=========
+<?php
+
+namespace App;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\User;
+use App\LikeCount;
+use App\Comments;
+use App\Views;
+use App\Share;
+use Validator;
+use Auth;
+use DB;
+
+class UnitApi{
+	protected $unitCount;
+	protected $userId;
+	protected $perUnit;
+        protected $token;
+        protected $apiPassword ;
+	
+	public function __construct($userId,$token){
+		 $this->userId = $userId;
+		 $this->perUnit = 0.005000;
+		 $this->token = $token;
+		 $this->apiPassword ="dreamploy12345";
+         $this->setUnitCount();
+	}
+	
+	public function setUnitCount(){
+	  if($this->userId){
+			/*current month*/
+	  $start = \Carbon\Carbon::now()->startOfMonth()->format('Y-m-d');
+	  $end   = \Carbon\Carbon::now()->format('Y-m-d');
+			
+	  $likeCount = LikeCount::where('dreamploy_id',$this->userId)
+		//->whereBetween('created_at', [$start, $end ])
+		->count();
+			
+	$shareCount = Share::where('dreamploy_id',$this->userId)
+		//->whereBetween('created_at', [$start, $end ])
+		->count();
+			
+	$viewCount = Views::where('dreamploy_id',$this->userId)
+	//->whereBetween('created_at', [$start, $end ])
+		->count();
+			
+        $this->unitCount =  (($likeCount + $shareCount + $viewCount) / 3) * $this->perUnit;
+	}else{
+	 throw new \Exception("Please enter id ");
+	}
+			
+	return $this;
+	}
+
+	public function  getUnitCount(){
+	return $this->unitCount ? ["unit"=>number_format($this->unitCount,6)] : null;
+	}
+
+        protected function checkToken(){	
+	  if($this->token!=null){
+		  return password_verify($this->apiPassword,$this->token) ? true :false;
+	  }else{ 
+	      throw new \Exception("Please enter token first");
+	  }
+	  return false;
+	}	
+	public function encodeJsonData(){
+		if($this->checkToken()){
+			echo json_encode($this->getUnitCount());
+		}else{
+			echo "Please enter valid api key";
+		}
+	}
+	
+}
+
+
+API decode in another Web Application
+=====================================
+
+<?php
+
+namespace App;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\User;
+use App\LikeCount;
+use App\Comments;
+use App\Views;
+use App\Share;
+use Validator;
+use Auth;
+use DB;
+class Unit{
+	public static function get($id){
+		return json_decode(file_get_contents('https://orbittimes.com/api/v1/'.$id.'/$2y                $10$8teNj0vD2vNEb1ZuzvNehe9nY7.NcUxUwbIe7exRuQTRQkyR6N5F2'));
+	}
+	
+}
+
+API results view in blade
+==========================
+
+@php 
+$c=1;
+@endphp
+<tr>
+       <td rowspan="2"><p><strong>Self</strong></p></td>
+       <td>D$ 0</td>
+       <td>D$ 0</td>
+	@if(Auth::id())
+          <td rowspan="2"><p>D$ {{ Unit::get(Auth::id()) ? Unit::get(Auth::id())->unit : 0 }}          </p></td>
+	@else
+	<td rowspan="2"><p>D$0</p></td>	
+	@endif
+        <td rowspan="2"><p>D$ 0</p></td>
+      <td rowspan="2"><p>D$ 0</p></td>
+   </tr>
+
+  <tr>
+    <td>D$ 0</td>
+    <td>D$ 0</td>
+    </tr>
+    @foreach($levels as $lv)
+    <tr>
+   <td rowspan="2"><p><strong>G-{{$c}}</strong></p></td>
+    <td>D$ 0</td>
+   <td>D$ 0</td>
+@if($lv !=0)
+      <td rowspan="2"><p>D$ {{ Unit::get($lv) ? Unit::get($lv)->unit : 0 }}</p></td>
+	@else
+	<td rowspan="2"><p>D$0</p></td>	
+ @endif
+       <td rowspan="2"><p>D$ 0</p></td>
+       <td rowspan="2"><p>D$ 0</p></td>
+      </tr>
+
+      <tr>
+        <td>D$ 0</td>
+   <td>D$ 0</td>
+ </tr>
+@php 
+$c++;
+@endphp
+
+Using API count generation in Controller
+========================================
+public function dashboard(){
+
+
+ $levels = [];
+		
+ $level = DB::table('upline_level')->where('userid',Auth::id())->first();
+		
+ $levels[] = $level->level1;
+		
+ $levels[] = $level->level2;
+		
+ $levels[] = $level->level3;
+		
+ $levels[] = $level->level4;
+		
+ $levels[] = $level->level5;
+		
+ $levels[] = $level->level6;
+		 
+ $levels[] = $level->level7;
+		 
+ $levels[] = $level->level8;
+		
+ $levels[] = $level->level9;
+		 
+ $levels[] = $level->level10;
+	
+
+			
+        
+return view('main.dashboards',['levels'=>$levels]);
+ 
+
+  }
