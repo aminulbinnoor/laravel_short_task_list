@@ -1,0 +1,89 @@
+Route
+======
+<?php
+
+Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.'], function () {
+
+        Route::resource('elearning', 'ElearningController', ['except' => ['create', 'edit']]);
+		
+       
+
+
+});
+
+
+controller
+============
+
+<?php
+
+namespace App\Http\Controllers\Api\V1;
+
+use App\Http\Controllers\Controller;
+use App\Elearning;
+use App\Http\Requests\Admin\CreateElearningRequest;
+use App\Http\Requests\Admin\UpdateElearningRequest;
+use Illuminate\Http\Request;
+
+class ElearningController extends Controller {
+
+	
+	public function index(Request $request){   
+	
+	    $subject = [];
+		$chapter = [];
+        if(isset($request->role)){
+		 switch($request->role){
+			case 1:
+			   $elearning = Elearning::where('class_name',$request->class_name)->get();
+				
+				if(count($elearning)){
+				    $arr =[];
+					foreach($elearning as $el){ 
+					  $arr[] = $el->subject_name;				   
+					}
+					  $subject["subject"] =  $arr;
+				}else{
+					    $subject["error"] = "true";
+				}
+			return response()->json(['elearning'=>$subject]);
+			break;
+			case 2:
+			 $elearning = Elearning::where('class_name',$request->class_name)
+			     ->where('subject_name',$request->subject_name)
+			     ->get();
+			 if(count($elearning))
+				$arr =[];
+		       foreach($elearning  as $el){
+				 $arr[] = $el->chapter_name;
+			   }
+			 	 $chapter["chapter"] =  $arr;
+			 return response()->json(['elearning'=>$chapter]);
+			 break;
+			case 3:
+			 $elearning = Elearning::where('class_name',$request->class_name)
+			    ->where('subject_name',$request->subject_name)
+			    ->where('chapter_name',$request->chapter_name)
+			    ->get();
+			 if(count($elearning))
+		       foreach($elearning  as $el){
+				 $chapter["lecture"] =$el->lecture;
+				 $chapter["scripts"] =$el->scripts;
+				 $chapter["key_point"] =$el->key_point;
+				 $chapter["exam"] =$el->exam;
+				 $chapter["video_url"] =$el->video_url;
+				 
+			   }
+			 return response()->json(['elearning'=>$chapter]);
+			
+		 }	
+		}else{
+			return response()->json(['elearning'=>"Please enter role first"]);
+		}     
+			   
+        return ;
+
+        
+	}   
+
+}
