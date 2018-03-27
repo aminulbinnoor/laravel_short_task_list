@@ -288,3 +288,8 @@ class ElearningController extends Controller {
 
 }
 
+API data Get url
+=================
+
+https://education.dreamploy.com/api/v1/elearning?role=1&class_name=one&subject_name=Math
+
