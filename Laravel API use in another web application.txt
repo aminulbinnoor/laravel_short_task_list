@@ -199,3 +199,92 @@ return view('main.dashboards',['levels'=>$levels]);
  
 
   }
+  
+  
+  In API Controller Api josn response code
+  =========================================
+  <?php
+
+namespace App\Http\Controllers\Api\V1;
+
+use App\Http\Controllers\Controller;
+use App\Elearning;
+use App\Http\Requests\Admin\CreateElearningRequest;
+use App\Http\Requests\Admin\UpdateElearningRequest;
+use Illuminate\Http\Request;
+
+class ElearningController extends Controller {
+
+	
+	public function index(Request $request){   
+	
+	    $subject = [];
+		$chapter = [];
+        if(isset($request->role)){
+		 switch($request->role){
+			case 1:
+			   $elearning = Elearning::where('class_name',$request->class_name)
+			   ->distinct()->get(['subject_name']);			
+				if(count($elearning)){
+				    $arr =[];
+					
+					foreach($elearning as $el){ 
+					  $arr[]["subject"] = $el->subject_name;				   
+					}					 
+				}else{
+					  $subject["error"] = "true";
+				}
+			return response()->json(['elearning'=>$arr,"success"=>1]);
+			break;
+			case 2:
+			 $elearning = Elearning::where('class_name',$request->class_name)
+			     ->where('subject_name',$request->subject_name)
+			     ->distinct()
+				 ->get(['chapter_name']);
+			 if(count($elearning))
+				$arr =[];
+		       foreach($elearning  as $el){
+				 $arr[]["chapter"] = $el->chapter_name;
+			   }
+			 	 
+			 return response()->json(['elearning'=>$arr,"success"=>1]);
+			 break;
+			case 3:
+			 $elearning = Elearning::where('class_name',$request->class_name)
+			    ->where('subject_name',$request->subject_name)
+			    ->where('chapter_name',$request->chapter_name)
+			    ->get();
+			 if(count($elearning))
+				 $arr =[];
+		       foreach($elearning  as $el){
+				 $arr[]["lecture"] =$el->lecture;
+			   }
+			 return response()->json(['elearning'=>$arr,"success"=>1]);
+			 break;
+			 case 4:
+			 $elearning = Elearning::where('class_name',$request->class_name)
+			    ->where('subject_name',$request->subject_name)
+			    ->where('chapter_name',$request->chapter_name)
+				->where('lecture',$request->lecture)
+			    ->get();
+			 if(count($elearning))
+				 $arr=[];
+		       foreach($elearning  as $el){				 
+				 $arr[]["scripts"]   =$el->scripts;
+				 $arr[]["key_point"] =$el->key_point;
+				 $arr[]["exam"]      =$el->exam;
+				 $arr[]["video_url"] =$el->video_url;
+			   }
+			 return response()->json(['elearning'=>$arr,"success"=>1]);		
+		 }	
+		}else{
+			return response()->json(['elearning'=>"Please enter role first"]);
+		}     
+			   
+        return ;
+
+        
+	}   
+
+}
+
