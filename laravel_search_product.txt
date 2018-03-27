@@ -1,3 +1,9 @@
+Laravel advanced search Link very usefull
+=========================================
+https://m.dotdev.co/writing-advanced-eloquent-search-query-filters-de8b6c2598db
+
+
+
 <!--Search Form -->
 <div class="search">
 				<form action="{{ route('search.product') }}" method="POST">					
