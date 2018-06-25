@@ -1,0 +1,72 @@
+using Authentication make cakephp API
+=====================================
+
+
+
+public function contentSearchAPI()
+    {
+        $this->loadModel('ApiUser');
+        $rArr=['status'=>'unauthorized access'];
+        $input = $this->ApiUser->find()
+            ->select([
+                'id'=>'ApiUser.id',
+                'apiuser'=>'ApiUser.apiuser',
+                'apipass'=>'ApiUser.apipass',
+
+            ])
+            ->where(['ApiUser.status'=>1])
+            ->hydrate(false)
+            ->toArray();
+        //pr($input);die();
+        if ($this->request->is('post')) {
+            $data = $this->request->data;
+            if($input[0]['apiuser']==$data['apiuser'] && $input[0]['apipass']==md5($data['apipass'])){
+                $this->loadModel('Videos');
+                $condition= ['Programs.status !='=>99];
+                $err =   ['messase'=>'no data found'];
+                $path =($_SERVER['HTTP_HOST'].'/'.'files/videoImages/image/');
+                $path_video =($_SERVER['HTTP_HOST'].'/'.'files/uploaded/');
+                $path_chennel =($_SERVER['HTTP_HOST'].'/'.'files/channels/logo/');
+
+                $topViewContents = $this->Videos->find()
+                    ->select([
+                        'program_id'=>'Programs.id',
+                        'category_type'=>'ProgramTypes.name',
+                        'program_title'=>'Programs.title',
+                        'program_description'=>'Programs.description',
+                        'video_title'=>'Videos.title',
+                        'video_description'=>'Videos.description',
+                        'video_image'=>"CONCAT('$path',Videos.image)",
+                        'video'=>"CONCAT('$path_video',Videos.path)",
+                        'program_slug'=>'Programs.slug',
+                        'channel_name'=>'Channels.name',
+                        'channel_logo'=>"CONCAT('$path_chennel',Channels.logo)",
+                        'channel_url'=>'Channels.live_url',
+                        'channel_slug'=>'Channels.slug',
+                        'program_start_time'=>'Programs.program_start_time',
+                        'program_end_time'=>'Programs.program_end_time',
+
+                    ])
+                    ->contain(['Programs','Programs.ProgramTypes','Dvds','Channels'])
+                    ->where(['Programs.title LIKE '=> "%". $this->request->query['content_title']. "%", $condition])
+                    ->contain(['ProgramTypes'])
+                    ->order(['Videos.id'=>'desc'])
+                    ->hydrate(false)
+                    ->toArray();
+                if(!empty($topViewContents)){
+                    $this->response->type('json');
+                    $this->response->body(json_encode($topViewContents));
+                    return $this->response;
+                }
+                $this->response->type('json');
+                $this->response->body(json_encode($err));
+                return $this->response;
+            }
+            else{
+                $this->response->type('json');
+                $this->response->body(json_encode($rArr));
+                return $this->response;
+            }
+        }
+
+    }
