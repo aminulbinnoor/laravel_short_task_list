@@ -1,0 +1,27 @@
+Restful API In Laravel 5.6 Using passport:
+=========================================
+https://tutsforweb.com/laravel-passport-create-rest-api-with-authentication/
+
+
+Restful API In Laravel 5.6 Using Jwt Authentication:
+====================================================
+https://tutsforweb.com/restful-api-in-laravel-56-using-jwt-authentication/ 
+
+
+cron job:
+=========
+https://tutsforweb.com/how-to-set-up-task-scheduling-cron-job-in-laravel/
+
+
+hasMany Relation:
+================
+https://appdividend.com/2018/05/17/laravel-many-to-many-relationship-example/
+
+
+login in one field:
+==================
+https://tutsforweb.com/laravel-auth-login-email-username-one-field/
+
+Laravel caching details:
+========================
+https://scotch.io/tutorials/caching-in-laravel-with-speed-comparisons
