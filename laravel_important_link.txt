@@ -25,3 +25,7 @@ https://tutsforweb.com/laravel-auth-login-email-username-one-field/
 Laravel caching details:
 ========================
 https://scotch.io/tutorials/caching-in-laravel-with-speed-comparisons
+
+inserting in different tables from one form in Laravel
+======================================================
+https://stackoverflow.com/questions/45564871/inserting-in-different-tables-from-one-form-in-laravel-5
