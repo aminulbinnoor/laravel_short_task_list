@@ -30,3 +30,7 @@ inserting in different tables from one form in Laravel
 ======================================================
 https://stackoverflow.com/questions/45564871/inserting-in-different-tables-from-one-form-in-laravel-5
 https://www.youtube.com/watch?v=HalLXGSglks
+
+Eloquent example for laravel
+============================
+https://eloquentbyexample.com/
