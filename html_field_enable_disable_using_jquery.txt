@@ -1,0 +1,608 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <form enctype="multipart/form-data" method="post" accept-charset="utf-8" id="institute-form"
+                  class="form-horizontal" role="form" action="/industry-registration">
+                <div style="display:none;">
+                    <div class="col-sm-9 container__method"><input value="POST" class="form-control" type="hidden"
+                                                                   name="_method"></div>
+                    <div class="col-sm-9 container__csrfToken"><input
+                                value="4ac2d438405c4b74fda7dd7334a483e448afd3c1ef343622420205f7d0c295b5fa5563f3f4d622a0c9fd7c814f7854e15d72822d7389d4b2fccd3d65c0e0219d"
+                                class="form-control" type="hidden" name="_csrfToken"></div>
+                </div>
+                <br><br>
+                <div class="portlet  light bordered">
+                    <div class="portlet-title fix">
+                        <div class="caption green-heading">?????????? ???????</div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group input select required"><label for="institute-type"
+                                                                                                 class="col-sm-3 control-label text-right">????????????
+                                                    ???</label>
+                                                <div id="container_institute_type" class="col-sm-9"><select
+                                                            name="institute_type" required="required"
+                                                            id="institute-type" class="form-control">
+                                                        <option value="">???????? ????</option>
+                                                        <option value="1">Government</option>
+                                                        <option value="2">Corporation</option>
+                                                        <option value="3">Private</option>
+                                                        <option value="4">NGO</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group input text required"><label for="institute-name"
+                                                                                               class="col-sm-3 control-label text-right">????????????
+                                                    ???</label>
+                                                <div class="col-sm-9 container_institute_name"><input
+                                                            required="required" maxlength="255" id="institute-name"
+                                                            class="form-control" type="text" name="institute_name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group input select"><label for="loc-division-id"
+                                                                                        class="col-sm-3 control-label text-right">?????</label>
+                                                <div id="container_loc_division_id" class="col-sm-9"><select
+                                                            name="loc_division_id" required="required"
+                                                            id="loc-division-id" class="form-control">
+                                                        <option value="">???????? ????</option>
+                                                        <option value="1">??????</option>
+                                                        <option value="2">?????????</option>
+                                                        <option value="3">????</option>
+                                                        <option value="4">?????</option>
+                                                        <option value="5">???????</option>
+                                                        <option value="6">?????</option>
+                                                        <option value="7">?????</option>
+                                                        <option value="9">????????</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group input select"><label for="loc-district-id"
+                                                                                        class="col-sm-3 control-label text-right">????</label>
+                                                <div id="container_loc_district_id" class="col-sm-9"><select
+                                                            name="loc_district_id" id="loc-district-id"
+                                                            class="form-control">
+                                                        <option value="">???????? ????</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 non-gov-form">
+                                            <div class="form-group input select"><label for="loc-upazila-id"
+                                                                                        class="col-sm-3 control-label text-right">??????</label>
+                                                <div id="container_loc_upazila_id" class="col-sm-9"><select
+                                                            name="loc_upazila_id" id="loc-upazila-id"
+                                                            class="form-control">
+                                                        <option value="">???????? ????</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 non-gov-form">
+                                            <div class="form-group input select"><label for="loc-union-id"
+                                                                                        class="col-sm-3 control-label text-right">??????</label>
+                                                <div id="container_loc_union_id" class="col-sm-9"><select
+                                                            name="loc_union_id" id="loc-union-id" class="form-control">
+                                                        <option value="">???????? ????</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 gov-form">
+                                            <div class="form-group input text required"><label for="ministry-name"
+                                                                                               class="col-sm-3 control-label text-right">??????????/?????</label>
+                                                <div class="col-sm-9 container_ministry_name"><input required="required"
+                                                                                                     maxlength="255"
+                                                                                                     id="ministry-name"
+                                                                                                     class="form-control"
+                                                                                                     type="text"
+                                                                                                     name="ministry_name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group input email required"><label for="email"
+                                                                                                class="col-sm-3 control-label text-right">?????</label>
+                                                <div class="col-sm-9 container_email"><input required="required"
+                                                                                             maxlength="255" id="email"
+                                                                                             class="form-control"
+                                                                                             type="email" name="email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group input text required"><label for="office-phone"
+                                                                                               class="col-sm-3 control-label text-right">????
+                                                    ???</label>
+                                                <div class="col-sm-9 container_office_phone"><input required="required"
+                                                                                                    maxlength="255"
+                                                                                                    id="office-phone"
+                                                                                                    class="form-control"
+                                                                                                    type="text"
+                                                                                                    name="office_phone">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 non-gov-form">
+                                            <div class="form-group input number required"><label for="postal-code"
+                                                                                                 class="col-sm-3 control-label text-right">???????
+                                                    ???</label>
+                                                <div class="col-sm-9 container_postal_code"><input required="required"
+                                                                                                   id="postal-code"
+                                                                                                   class="form-control"
+                                                                                                   type="number"
+                                                                                                   name="postal_code">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 non-gov-form">
+                                            <div class="form-group input textarea required"><label for="address"
+                                                                                                   class="col-sm-3 control-label text-right">??????</label>
+                                                <div class="col-sm-9"><textarea class="form-control" name="address"
+                                                                                rows="2" required="required"
+                                                                                id="address"></textarea></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--add more-->
+                        <div class="element-wrp" data-index-no="0">
+                            <div class="element portlet-body form fix">
+                                <div class="form-body">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="" style="padding-left:10px "> ???????? ???? <span
+                                                            style="color:red">*</span></label>
+                                                <!--                                                <input  type="text" name="approved_occupation[]" class="form-control">-->
+                                                <select name="approved_occupation[]"
+                                                        data-placeholder="???????? ????" multiple
+                                                        class="form-control select2me">
+                                                    <option></option>
+                                                    <option value="1">AutomotiveMechanic</option>
+                                                    <option value="2">AutomotiveMechanics</option>
+                                                    <option value="3">Baking</option>
+                                                    <option value="4">BeautyCare</option>
+                                                    <option value="5">BlockBatikandScreenPrinting</option>
+                                                    <option value="6">Carpentry</option>
+                                                    <option value="7">CBT&A</option>
+                                                    <option value="8">Coking</option>
+                                                    <option value="9">ConsumerElectrical</option>
+                                                    <option value="10">ConsumerElectronic</option>
+                                                    <option value="11">ConsumerElectronics</option>
+                                                    <option value="12">Cooking</option>
+                                                    <option value="13">
+                                                        ElectricalInstallation&Maintenance(CivilConstruction)
+                                                    </option>
+                                                    <option value="14">
+                                                        ElectricalInstallation&Maintenance(TransportSector)
+                                                    </option>
+                                                    <option value="15">Embroidery</option>
+                                                    <option value="16">Fitting</option>
+                                                    <option value="17">Food&BeverageService</option>
+                                                    <option value="18">Food&BeverageServicing</option>
+                                                    <option value="19">FoodProcessing&QualityControl</option>
+                                                    <option value="20">GraphicDesign</option>
+                                                    <option value="21">Housekeeping</option>
+                                                    <option value="22">ITSupport</option>
+                                                    <option value="23">LacquerPolishing</option>
+                                                    <option value="24">MachineOperation,FootWare</option>
+                                                    <option value="25">MachineShopPractic</option>
+                                                    <option value="26">MachineShopPractice</option>
+                                                    <option value="27">Masonary</option>
+                                                    <option value="28">Masonry</option>
+                                                    <option value="29">MobilePhoneServicing</option>
+                                                    <option value="30">MotorCycleServicing</option>
+                                                    <option value="31">Plumbing</option>
+                                                    <option value="32">Refrigeration&Airconditioning</option>
+                                                    <option value="33">RodBainding</option>
+                                                    <option value="34">RodBinding</option>
+                                                    <option value="35">SewingMachineOperation</option>
+                                                    <option value="36">SolarElectricalSystem</option>
+                                                    <option value="37">Tailoring&DressMaking</option>
+                                                    <option value="38">TileWorks</option>
+                                                    <option value="39">TourGuiding</option>
+                                                    <option value="40">UpholsteryWorks</option>
+                                                    <option value="41">WebDesign</option>
+                                                    <option value="42">Welding</option>
+                                                    <option value="43">WoodWorkingMachineOperation</option>
+                                                </select>
+                                            </div>
+                                            <!--<div class="col-md-1">
+                                                <button type="button" class="btn btn-circle btn-danger remove-element"
+                                                        style="float: right;margin-top: 20px; margin-left: 0px"><i class="fa fa-times"></i>
+                                                </button>
+                                            </div>-->
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--<div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-circle btn-warning add_element" style="float: right;margin-top: -29px; margin-bottom:15px">
+                                    <i class="fa fa-plus-square"></i> <? /*= __('??? ????') */ ?>
+                                </button>
+                            </div>
+                        </div>-->
+                        </div>
+                        <!--end add more-->
+
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix level-form">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label><input name="levels[pre_voc_1]" type="checkbox"
+                                                              value="pre_voc_1">
+                                                    Pre Voc-2 <input class="custom-input" type="number"
+                                                                     name="seat_number[pre_voc_1]"
+                                                                     placeholder="??? ??????"
+                                                                     style="margin-left: 50px;" min="1" required
+                                                                     disabled>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label><input name="levels[nsc_level_1]" type="checkbox"
+                                                              value="nsc_level_1">
+                                                    NSC Level-1 <input class="custom-input" type="number"
+                                                                       name="seat_number[nsc_level_1]"
+                                                                       placeholder="??? ??????"
+                                                                       style="margin-left: 50px" min="1" required
+                                                                       disabled>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label><input name="levels[nsc_level_2]" type="checkbox"
+                                                              value="nsc_level_2">
+                                                    NSC Level-2 <input class="custom-input" type="number"
+                                                                       name="seat_number[nsc_level_2]"
+                                                                       placeholder="??? ??????"
+                                                                       style="margin-left: 38px" min="1" required
+                                                                       disabled>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="checkbox">
+                                                <label><input name="levels[cbta_level_4]" type="checkbox"
+                                                              value="cbta_level_4">
+                                                    CBT&A Level-4 <input class="custom-input" type="number"
+                                                                         name="seat_number[cbta_level_4]"
+                                                                         placeholder="??? ??????"
+                                                                         style="margin-left: 33px" min="1" required
+                                                                         disabled>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="form-body">
+                                    <div class="col-md-4">
+                                        <div class="form-group input text required"><label for="user-username"
+                                                                                           class="col-sm-3 control-label text-right">???????????
+                                                ???</label>
+                                            <div class="col-sm-9 container_user[username]"><input required="required"
+                                                                                                  maxlength="255"
+                                                                                                  id="user-username"
+                                                                                                  class="form-control"
+                                                                                                  type="text"
+                                                                                                  name="user[username]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group input password required"><label for="user-password"
+                                                                                               class="col-sm-3 control-label text-right">?????????</label>
+                                            <div class="col-sm-9 container_user[password]"><input required="required"
+                                                                                                  id="user-password"
+                                                                                                  class="form-control"
+                                                                                                  type="password"
+                                                                                                  name="user[password]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group input password required"><label for="confirm-password"
+                                                                                               class="col-sm-3 control-label text-right">??????????
+                                                ?????????</label>
+                                            <div class="col-sm-9 container_confirm_password"><input required="required"
+                                                                                                    id="confirm-password"
+                                                                                                    class="form-control"
+                                                                                                    type="password"
+                                                                                                    name="confirm_password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text-center">
+                                <div class="submit"><input type="submit" class="btn green-meadow "
+                                                           value="??????? ???? "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/../assets/global/pages/form/jquery.validate.min.js"></script>
+<script src="/js/../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<script>
+    function changeInstituteType() {
+        var insitute_type = $('#institute-type').val();
+        if (insitute_type == 1) {
+            $('.non-gov-form').hide();
+            $('.gov-form').show();
+        }
+        else {
+            $('.non-gov-form').show();
+            $('.gov-form').hide();
+        }
+
+    }
+
+    $(document).ready(function () {
+        changeInstituteType();
+    });
+
+    $('#institute-type').change(function () {
+        changeInstituteType();
+    });
+
+    $('.level-form input[type="checkbox"]').click(function () {
+        var $this = $(this);
+        var seat_name = 'input[name="seat_number[' + $this.val() + ']"]';
+        if ($this.is(':checked')) {
+            $(seat_name).prop("disabled", false);
+        }
+        else {
+            $(seat_name).prop("disabled", true);
+        }
+    });
+
+    $(document).on('change', '#loc-division-id', function () {
+        var div = $(this).val();
+        $('#loc-district-id').html('<option value="">???????? ????</option>');
+        $('#loc-upazila-id').html('<option value="">???????? ????</option>');
+        $('#loc-union-id').html('<option value="">???????? ????</option>');
+        if (div) {
+            $.ajax({
+                url: 'http://skills.gov.bd/Common/getDistrictsByDivisionId',
+                type: 'POST',
+                data: {loc_division_id: div},
+                success: function (data, status) {
+                    var firstValue = false;
+                    $.each(JSON.parse(data), function (key, value) {
+
+                        $('#loc-district-id')
+                            .append($("<option></option>")
+                                .attr("value", value.id)
+                                .text(value.title));
+                    });
+                },
+                error: function (xhr, desc, err) {
+                    console.log("error");
+                }
+            });
+        }
+    });
+    $(document).on('change', '#loc-district-id', function () {
+        var district = $(this).val();
+        $('#loc-upazila-id').html('<option value="">???????? ????</option>');
+        $('#loc-union-id').html('<option value="">???????? ????</option>');
+        if (district) {
+            $.ajax({
+                url: 'http://skills.gov.bd/Common/getUpazilasByDistrictsId',
+                type: 'POST',
+                data: {loc_district_id: district},
+                success: function (data, status) {
+                    var firstValue = false;
+                    $.each(JSON.parse(data), function (key, value) {
+
+                        $('#loc-upazila-id')
+                            .append($("<option></option>")
+                                .attr("value", value.id)
+                                .text(value.title));
+                    });
+                },
+                error: function (xhr, desc, err) {
+                    console.log("error");
+                }
+            });
+        }
+    });
+
+    $(document).on('change', '#loc-upazila-id', function () {
+        var upazila = $(this).val();
+        $('#loc-union-id').html('<option value="">???????? ????</option>');
+        if (upazila) {
+            $.ajax({
+                url: 'http://skills.gov.bd/Common/getUnionByUpazilaId',
+                type: 'POST',
+                data: {loc_upazila_id: upazila},
+                success: function (data, status) {
+                    var firstValue = false;
+                    $.each(JSON.parse(data), function (key, value) {
+
+                        $('#loc-union-id')
+                            .append($("<option></option>")
+                                .attr("value", value.id)
+                                .text(value.title));
+                    });
+                },
+                error: function (xhr, desc, err) {
+                    console.log("error");
+                }
+            });
+        }
+    });
+
+    $("#institute-form").validate({
+        rules: {
+            'user[username]': {
+                required: true,
+                minlength: 4
+            },
+            /*email: {
+             email: true
+             },*/
+            'user[password]': {
+                minlength: 5,
+                maxlength: 25
+            },
+            confirm_password: {
+                required: true,
+                equalTo: "#user-password"
+            },
+            loc_division_id: {
+                required: true
+            },
+
+            office_phone: {
+                required: true
+            },
+            postal_code: {
+                required: true
+            },
+
+            address: {
+                required: true
+            },
+
+            ministry_name: {
+                required: true
+            },
+        },
+        messages: {
+            'user[username]': {
+                required: "???? ?????? ???? ???? ??? "
+            },
+
+
+            'email': {
+                required: "???? ?????? ???? ???? ??? "
+            },
+
+            'user[password]': {
+                required: "???? ?????? ???? ???? ??? "
+            },
+            'confirm_password': {
+                required: "???? ?????? ???? ???? ??? ",
+                equalTo: "??? ????????? ?????? ???? "
+            },
+            'loc_division_id': {
+                required: "???? ?????? ??????? ???? ??? "
+            },
+
+            'office_phone': {
+                required: "???? ?????? ???? ???? ??? "
+            },
+
+            'postal_code': {
+                required: "???? ?????? ???? ???? ??? "
+            },
+
+            'address': {
+                required: "???? ?????? ???? ???? ??? "
+            },
+
+            'ministry_name': {
+                required: "???? ?????? ???? ???? ??? "
+            }
+        },
+
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).next('label.error').remove();
+        },
+        submitHandler: function (form) {
+            form.submit();
+        },
+        errorPlacement: function (error, element) {
+            element.after(error);
+            if (element.closest('.portlet').find('.expand').length) {
+                element.closest('.portlet').find('.expand').trigger('click');
+            }
+        }
+    });
+
+
+    //add more
+
+    jQuery(document).on('click', '.add_element', function () {
+        var wrapper = jQuery('.element-wrp');
+        var element = jQuery('.element');
+        var index = parseInt(wrapper.data('index-no'));
+        wrapper.data('index-no', index + 1);
+        var html_element = jQuery('.element:last').clone().find('.form-control').each(function () {
+            this.name = this.name.replace(/\d+/, index + 1);
+            this.id = this.id.replace(/\d+/, index + 1);
+            this.value = '';
+        }).end();
+        $('.element-wrp').append(html_element);
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy'
+        });
+    });
+
+    //        Remove single row
+    jQuery(document).on('click', '.remove-element', function () {
+        var obj = jQuery(this);
+        var count = jQuery('.element').length;
+        if (count > 1) obj.closest('.element').remove();
+    });
+
+    $(document).ready(function () {
+        $("#main_css").attr("disabled", "disabled");
+        $("#bad1").attr("disabled", "disabled");
+        $("#bad2").attr("disabled", "disabled");
+        $("#bad3").attr("disabled", "disabled");
+        $("#bad4").attr("disabled", "disabled");
+        $("#bad5").attr("disabled", "disabled");
+        $("#bad6").attr("disabled", "disabled");
+        $("#bad7").attr("disabled", "disabled");
+        $('.select2me').select2();
+    });
+
+
+</script>
+<style type="text/css">
+    .custom-input {
+        padding: 5px 10px;
+        border: 1px solid #e5e5e5;
+        border-radius: 4px;
+    }
+
+    .form-body .checkbox {
+        margin-left: 25px;
+    }
+</style>
