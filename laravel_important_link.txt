@@ -1,36 +1,40 @@
-Restful API In Laravel 5.6 Using passport:
+=> Restful API In Laravel 5.6 Using passport:
 =========================================
 https://tutsforweb.com/laravel-passport-create-rest-api-with-authentication/
 
 
-Restful API In Laravel 5.6 Using Jwt Authentication:
+=> Restful API In Laravel 5.6 Using Jwt Authentication:
 ====================================================
 https://tutsforweb.com/restful-api-in-laravel-56-using-jwt-authentication/ 
 
 
-cron job:
+=> cron job:
 =========
 https://tutsforweb.com/how-to-set-up-task-scheduling-cron-job-in-laravel/
 
 
-hasMany Relation:
+=> hasMany Relation:
 ================
 https://appdividend.com/2018/05/17/laravel-many-to-many-relationship-example/
 
 
-login in one field:
+=> login in one field:
 ==================
 https://tutsforweb.com/laravel-auth-login-email-username-one-field/
 
-Laravel caching details:
+=> Laravel caching details:
 ========================
 https://scotch.io/tutorials/caching-in-laravel-with-speed-comparisons
 
-inserting in different tables from one form in Laravel
+=> inserting in different tables from one form in Laravel
 ======================================================
 https://stackoverflow.com/questions/45564871/inserting-in-different-tables-from-one-form-in-laravel-5
 https://www.youtube.com/watch?v=HalLXGSglks
 
-Eloquent example for laravel
+=> Eloquent example for laravel
 ============================
 https://eloquentbyexample.com/
+
+=> laravel ecommerce project tutorial 95 tutorial complete
+=======================================================
+https://www.youtube.com/watch?v=-t7oMHzIpBQ&list=PLLUtELdNs2ZY5drPxIWzpq5crhantlzp7
