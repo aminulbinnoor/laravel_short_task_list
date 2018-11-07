@@ -1,4 +1,6 @@
 
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -8,13 +10,14 @@
                     <div class="col-sm-9 container__method"><input value="POST" class="form-control" type="hidden"
                                                                    name="_method"></div>
                     <div class="col-sm-9 container__csrfToken"><input
+
                                 value="4ac2d438405c4b74fda7dd7334a483e448afd3c1ef343622420205f7d0c295b5fa5563f3f4d622a0c9fd7c814f7854e15d72822d7389d4b2fccd3d65c0e0219d"
                                 class="form-control" type="hidden" name="_csrfToken"></div>
                 </div>
                 <br><br>
                 <div class="portlet  light bordered">
                     <div class="portlet-title fix">
-                        <div class="caption green-heading">?????????? ???????</div>
+                        <div class="caption green-heading">প্রতিষ্ঠান নিবন্ধন</div>
                     </div>
                     <div class="portlet-body">
                         <div class="portlet light bordered fix">
@@ -23,12 +26,12 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group input select required"><label for="institute-type"
-                                                                                                 class="col-sm-3 control-label text-right">????????????
-                                                    ???</label>
+                                                                                                 class="col-sm-3 control-label text-right">প্রতিষ্ঠানের
+                                                    ধরণ</label>
                                                 <div id="container_institute_type" class="col-sm-9"><select
                                                             name="institute_type" required="required"
                                                             id="institute-type" class="form-control">
-                                                        <option value="">???????? ????</option>
+                                                        <option value="">নির্বাচন করুন</option>
                                                         <option value="1">Government</option>
                                                         <option value="2">Corporation</option>
                                                         <option value="3">Private</option>
@@ -38,8 +41,8 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group input text required"><label for="institute-name"
-                                                                                               class="col-sm-3 control-label text-right">????????????
-                                                    ???</label>
+                                                                                               class="col-sm-3 control-label text-right">প্রতিষ্ঠানের
+                                                    নাম</label>
                                                 <div class="col-sm-9 container_institute_name"><input
                                                             required="required" maxlength="255" id="institute-name"
                                                             class="form-control" type="text" name="institute_name">
@@ -50,55 +53,55 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group input select"><label for="loc-division-id"
-                                                                                        class="col-sm-3 control-label text-right">?????</label>
+                                                                                        class="col-sm-3 control-label text-right">বিভাগ</label>
                                                 <div id="container_loc_division_id" class="col-sm-9"><select
                                                             name="loc_division_id" required="required"
                                                             id="loc-division-id" class="form-control">
-                                                        <option value="">???????? ????</option>
-                                                        <option value="1">??????</option>
-                                                        <option value="2">?????????</option>
-                                                        <option value="3">????</option>
-                                                        <option value="4">?????</option>
-                                                        <option value="5">???????</option>
-                                                        <option value="6">?????</option>
-                                                        <option value="7">?????</option>
-                                                        <option value="9">????????</option>
+                                                        <option value="">নির্বাচন করুন</option>
+                                                        <option value="1">বরিশাল</option>
+                                                        <option value="2">চট্টগ্রাম</option>
+                                                        <option value="3">ঢাকা</option>
+                                                        <option value="4">খুলনা</option>
+                                                        <option value="5">রাজশাহী</option>
+                                                        <option value="6">রংপুর</option>
+                                                        <option value="7">সিলেট</option>
+                                                        <option value="9">ময়মনসিংহ</option>
                                                     </select></div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group input select"><label for="loc-district-id"
-                                                                                        class="col-sm-3 control-label text-right">????</label>
+                                                                                        class="col-sm-3 control-label text-right">জেলা</label>
                                                 <div id="container_loc_district_id" class="col-sm-9"><select
                                                             name="loc_district_id" id="loc-district-id"
                                                             class="form-control">
-                                                        <option value="">???????? ????</option>
+                                                        <option value="">নির্বাচন করুন</option>
                                                     </select></div>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4 non-gov-form">
                                             <div class="form-group input select"><label for="loc-upazila-id"
-                                                                                        class="col-sm-3 control-label text-right">??????</label>
+                                                                                        class="col-sm-3 control-label text-right">উপজেলা</label>
                                                 <div id="container_loc_upazila_id" class="col-sm-9"><select
                                                             name="loc_upazila_id" id="loc-upazila-id"
                                                             class="form-control">
-                                                        <option value="">???????? ????</option>
+                                                        <option value="">নির্বাচন করুন</option>
                                                     </select></div>
                                             </div>
                                         </div>
                                         <div class="col-md-4 non-gov-form">
                                             <div class="form-group input select"><label for="loc-union-id"
-                                                                                        class="col-sm-3 control-label text-right">??????</label>
+                                                                                        class="col-sm-3 control-label text-right">ইউনিয়ন</label>
                                                 <div id="container_loc_union_id" class="col-sm-9"><select
                                                             name="loc_union_id" id="loc-union-id" class="form-control">
-                                                        <option value="">???????? ????</option>
+                                                        <option value="">নির্বাচন করুন</option>
                                                     </select></div>
                                             </div>
                                         </div>
                                         <div class="col-md-4 gov-form">
                                             <div class="form-group input text required"><label for="ministry-name"
-                                                                                               class="col-sm-3 control-label text-right">??????????/?????</label>
+                                                                                               class="col-sm-3 control-label text-right">মন্ত্রণালয়/বিভাগ</label>
                                                 <div class="col-sm-9 container_ministry_name"><input required="required"
                                                                                                      maxlength="255"
                                                                                                      id="ministry-name"
@@ -110,7 +113,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group input email required"><label for="email"
-                                                                                                class="col-sm-3 control-label text-right">?????</label>
+                                                                                                class="col-sm-3 control-label text-right">ইমেইল</label>
                                                 <div class="col-sm-9 container_email"><input required="required"
                                                                                              maxlength="255" id="email"
                                                                                              class="form-control"
@@ -120,8 +123,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group input text required"><label for="office-phone"
-                                                                                               class="col-sm-3 control-label text-right">????
-                                                    ???</label>
+                                                                                               class="col-sm-3 control-label text-right">অফিস
+                                                    ফোন</label>
                                                 <div class="col-sm-9 container_office_phone"><input required="required"
                                                                                                     maxlength="255"
                                                                                                     id="office-phone"
@@ -133,8 +136,8 @@
                                         </div>
                                         <div class="col-md-4 non-gov-form">
                                             <div class="form-group input number required"><label for="postal-code"
-                                                                                                 class="col-sm-3 control-label text-right">???????
-                                                    ???</label>
+                                                                                                 class="col-sm-3 control-label text-right">পোস্টাল
+                                                    কোড</label>
                                                 <div class="col-sm-9 container_postal_code"><input required="required"
                                                                                                    id="postal-code"
                                                                                                    class="form-control"
@@ -145,7 +148,7 @@
                                         </div>
                                         <div class="col-md-4 non-gov-form">
                                             <div class="form-group input textarea required"><label for="address"
-                                                                                                   class="col-sm-3 control-label text-right">??????</label>
+                                                                                                   class="col-sm-3 control-label text-right">ঠিকানা</label>
                                                 <div class="col-sm-9"><textarea class="form-control" name="address"
                                                                                 rows="2" required="required"
                                                                                 id="address"></textarea></div>
@@ -162,11 +165,12 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <label for="" style="padding-left:10px "> ???????? ???? <span
+                                                <label for="" style="padding-left:10px "> অনুমোদিত পেশা <span
                                                             style="color:red">*</span></label>
-                                                <!--                                                <input  type="text" name="approved_occupation[]" class="form-control">-->
+                                                <!--                                                <input  type="text" name="approved_occupation[]" class="form-
+control">-->
                                                 <select name="approved_occupation[]"
-                                                        data-placeholder="???????? ????" multiple
+                                                        data-placeholder="নির্বাচন করুন" multiple
                                                         class="form-control select2me">
                                                     <option></option>
                                                     <option value="1">AutomotiveMechanic</option>
@@ -231,7 +235,7 @@
                         <!--<div class="row">
                             <div class="col-md-12">
                                 <button type="button" class="btn btn-circle btn-warning add_element" style="float: right;margin-top: -29px; margin-bottom:15px">
-                                    <i class="fa fa-plus-square"></i> <? /*= __('??? ????') */ ?>
+                                    <i class="fa fa-plus-square"></i> <? /*= __('যোগ করুন') */ ?>
                                 </button>
                             </div>
                         </div>-->
@@ -248,7 +252,7 @@
                                                               value="pre_voc_1">
                                                     Pre Voc-2 <input class="custom-input" type="number"
                                                                      name="seat_number[pre_voc_1]"
-                                                                     placeholder="??? ??????"
+                                                                     placeholder="আসন সংখ্যা"
                                                                      style="margin-left: 50px;" min="1" required
                                                                      disabled>
                                                 </label>
@@ -260,7 +264,7 @@
                                                               value="nsc_level_1">
                                                     NSC Level-1 <input class="custom-input" type="number"
                                                                        name="seat_number[nsc_level_1]"
-                                                                       placeholder="??? ??????"
+                                                                       placeholder="আসন সংখ্যা"
                                                                        style="margin-left: 50px" min="1" required
                                                                        disabled>
                                                 </label>
@@ -275,7 +279,7 @@
                                                               value="nsc_level_2">
                                                     NSC Level-2 <input class="custom-input" type="number"
                                                                        name="seat_number[nsc_level_2]"
-                                                                       placeholder="??? ??????"
+                                                                       placeholder="আসন সংখ্যা"
                                                                        style="margin-left: 38px" min="1" required
                                                                        disabled>
                                                 </label>
@@ -287,7 +291,7 @@
                                                               value="cbta_level_4">
                                                     CBT&A Level-4 <input class="custom-input" type="number"
                                                                          name="seat_number[cbta_level_4]"
-                                                                         placeholder="??? ??????"
+                                                                         placeholder="আসন সংখ্যা"
                                                                          style="margin-left: 33px" min="1" required
                                                                          disabled>
                                                 </label>
@@ -303,8 +307,8 @@
                                 <div class="form-body">
                                     <div class="col-md-4">
                                         <div class="form-group input text required"><label for="user-username"
-                                                                                           class="col-sm-3 control-label text-right">???????????
-                                                ???</label>
+                                                                                           class="col-sm-3 control-label text-right">ব্যবহারকারী
+                                                নাম</label>
                                             <div class="col-sm-9 container_user[username]"><input required="required"
                                                                                                   maxlength="255"
                                                                                                   id="user-username"
@@ -316,7 +320,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group input password required"><label for="user-password"
-                                                                                               class="col-sm-3 control-label text-right">?????????</label>
+                                                                                               class="col-sm-3 control-label text-right">পাসওয়ার্ড</label>
                                             <div class="col-sm-9 container_user[password]"><input required="required"
                                                                                                   id="user-password"
                                                                                                   class="form-control"
@@ -327,8 +331,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group input password required"><label for="confirm-password"
-                                                                                               class="col-sm-3 control-label text-right">??????????
-                                                ?????????</label>
+                                                                                               class="col-sm-3 control-label text-right">নিশ্চিতকরণ
+                                                পাসওয়ার্ড</label>
                                             <div class="col-sm-9 container_confirm_password"><input required="required"
                                                                                                     id="confirm-password"
                                                                                                     class="form-control"
@@ -343,7 +347,7 @@
                         <div class="row">
                             <div class="text-center">
                                 <div class="submit"><input type="submit" class="btn green-meadow "
-                                                           value="??????? ???? "></div>
+                                                           value="সংরক্ষণ করুন "></div>
                             </div>
                         </div>
                     </div>
@@ -392,9 +396,9 @@
 
     $(document).on('change', '#loc-division-id', function () {
         var div = $(this).val();
-        $('#loc-district-id').html('<option value="">???????? ????</option>');
-        $('#loc-upazila-id').html('<option value="">???????? ????</option>');
-        $('#loc-union-id').html('<option value="">???????? ????</option>');
+        $('#loc-district-id').html('<option value="">নির্বাচন করুন</option>');
+        $('#loc-upazila-id').html('<option value="">নির্বাচন করুন</option>');
+        $('#loc-union-id').html('<option value="">নির্বাচন করুন</option>');
         if (div) {
             $.ajax({
                 url: 'http://skills.gov.bd/Common/getDistrictsByDivisionId',
@@ -418,8 +422,8 @@
     });
     $(document).on('change', '#loc-district-id', function () {
         var district = $(this).val();
-        $('#loc-upazila-id').html('<option value="">???????? ????</option>');
-        $('#loc-union-id').html('<option value="">???????? ????</option>');
+        $('#loc-upazila-id').html('<option value="">নির্বাচন করুন</option>');
+        $('#loc-union-id').html('<option value="">নির্বাচন করুন</option>');
         if (district) {
             $.ajax({
                 url: 'http://skills.gov.bd/Common/getUpazilasByDistrictsId',
@@ -444,7 +448,7 @@
 
     $(document).on('change', '#loc-upazila-id', function () {
         var upazila = $(this).val();
-        $('#loc-union-id').html('<option value="">???????? ????</option>');
+        $('#loc-union-id').html('<option value="">নির্বাচন করুন</option>');
         if (upazila) {
             $.ajax({
                 url: 'http://skills.gov.bd/Common/getUnionByUpazilaId',
@@ -505,39 +509,39 @@
         },
         messages: {
             'user[username]': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
 
 
             'email': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
 
             'user[password]': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'confirm_password': {
-                required: "???? ?????? ???? ???? ??? ",
-                equalTo: "??? ????????? ?????? ???? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে ",
+                equalTo: "একই পাসওয়ার্ড প্রদান করুন "
             },
             'loc_division_id': {
-                required: "???? ?????? ??????? ???? ??? "
+                required: "ঘরটি অবশ্যই সিলেক্ট করতে হবে "
             },
 
             'office_phone': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
 
             'postal_code': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
 
             'address': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
 
             'ministry_name': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             }
         },
 
