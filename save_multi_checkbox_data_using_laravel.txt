@@ -1,0 +1,65 @@
+
+Route
+=====
+Route::get('checkbox-form','CheckboxController@create');
+Route::post('checkbox','CheckboxController@store')->name('checkbox');
+
+blade form
+==========
+
+ <form method="post" action="{{route('checkbox')}}">
+ 
+ {{csrf_field()}}
+
+   <div class="checkbox">
+     <label>
+       <input type="checkbox" name="hobby[]" value="footbal"> Football
+     </label>
+   </div>
+
+  <button class="btn btn-info" type="submit"> Save </button>
+
+ </form>
+
+
+Controller
+==========
+
+  public function create()
+ 
+ {     
+   return view('checkbox.create');
+ }
+
+  public function store(Request $req)
+  
+ {
+  // one way
+
+   foreach($req->hobby as $hobby)
+  {
+
+    $check = new Checkbox;
+    $check->name=$req->name;
+    $check->hobby = $hobby;
+    $check->save();  
+    return redirect()->back(); 
+
+  }
+
+  // another way
+
+    $check = new Checkbox;
+    $check->name  =$req->name;
+    $check->hobby = implode(",", $req->hobby);
+    $check->save();  
+    return redirect()->back();
+
+
+}
+
+
+
+
+
+
