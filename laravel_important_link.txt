@@ -39,6 +39,11 @@ https://eloquentbyexample.com/
 =======================================================
 https://www.youtube.com/watch?v=-t7oMHzIpBQ&list=PLLUtELdNs2ZY5drPxIWzpq5crhantlzp7
 
-=> image upload
+=> image upload laravel
+========================
 https://blog.hashvel.com/posts/laravel-image-upload
 https://laracasts.com/discuss/channels/laravel/laravel-5-uploading-and-display-image
+
+=> delete multiple recorde using ajax in laravel
+=================================================
+https://www.webslesson.info/2018/02/delete-multiple-data-using-checkbox-in-laravel.html
