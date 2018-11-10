@@ -51,3 +51,7 @@ https://www.webslesson.info/search?q=laravel
 
 => yajra datatable data type configure...
 https://github.com/yajra/laravel-datatables/issues/1575
+
+=> check uncheck all checkbox 
+=============================
+http://jsfiddle.net/arunpjohny/w3gQJ/
