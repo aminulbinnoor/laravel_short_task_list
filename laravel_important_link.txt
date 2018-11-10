@@ -48,3 +48,6 @@ https://laracasts.com/discuss/channels/laravel/laravel-5-uploading-and-display-i
 =================================================
 https://www.webslesson.info/2018/02/delete-multiple-data-using-checkbox-in-laravel.html
 https://www.webslesson.info/search?q=laravel
+
+=> yajra datatable data type configure...
+https://github.com/yajra/laravel-datatables/issues/1575
