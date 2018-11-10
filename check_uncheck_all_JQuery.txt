@@ -2,13 +2,6 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $("p").hide();
-    });
-});
-</script>
 </head>
 <body>
     
@@ -69,19 +62,18 @@ $(document).ready(function(){
 
     <script>
 
-      $("#checkall").change(function(){
-        $(".checkitem").prop("checked", $(this).prop("checked"))
-      })
-        $(".checkitem").change(function(){
-          if($(this).prop("checked")==false){
-            $("#checkall").prop("checked", false)
-        }
+     $("#checkall").change(function(){
+        $("input:checkbox").prop('checked', $(this).prop("checked")); 
+     });
 
-         if($(".checkitem:checked").length == $(".checkitem").length){
-            $("#checkall").prop("checked", true);
+      $('.checkitem').change(function(){
+        if(false == $(this).prop("checked")){
+            $("#checkall").prop('checked', false);
         }
-    })
-
+        if ($('.checkitem:checked').length == $('.checkitem').length ){
+            $("#checkall").prop('checked', true);
+        }
+    });
     </script>
 </body>
 </html>
