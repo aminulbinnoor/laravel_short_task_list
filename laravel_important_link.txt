@@ -11,6 +11,8 @@ https://tutsforweb.com/restful-api-in-laravel-56-using-jwt-authentication/
 => cron job:
 =========
 https://tutsforweb.com/how-to-set-up-task-scheduling-cron-job-in-laravel/
+email:notify cron job
+https://www.youtube.com/watch?v=jlCWLlLYEDc
 
 
 => hasMany Relation:
