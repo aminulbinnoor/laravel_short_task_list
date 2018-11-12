@@ -4,430 +4,430 @@
     <div class="container">
         <div class="breadcrumb-info">
             <!--<div class="tr-page-title" style="margin-top:50px;">
-                <h1 style="color:#000;">????? ??????</h1>
+                <h1 style="color:#000;">বিশেষ উদ্যোগ</h1>
             </div>
-            <p style="color:#000;">???? ???? ????????? ??????????? ?????????? ? ???????? ??????????? ??????? ??????? ??????????????? ????????? ???? ???? ????????? ?????? ????? ??????? ?????? ???? ?????</p>-->
+            <p style="color:#000;">সবার জন্য যথোপযুক্ত কর্মসংস্থান নিশ্চিতকরন ও মাথাপিছু রেমিট্যান্স বৃদ্ধির লক্ষ্যে এ্যাপ্রেনটিসশিপ প্রোগ্রাম দেশে দক্ষ শ্রমশক্তি তৈরিতে সুদূর প্রসারী ভূমিকা পালন করছে।</p>-->
         </div>
     </div><!-- /.container -->
 </div><!-- /.tr-breadcrumb -->
 
 <div class="container">
-	    <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <form enctype="multipart/form-data" method="post" accept-charset="utf-8" id="bitac-form" class="" role="form" action="/bitac-registration"><div style="display:none;"><input  value="POST" class="form-control" type="hidden" name="_method"><input  value="281d0c8aa4a482814e1495c710e86033fd2b9c9098df9b9ec845f5b1f64c186080ac6307dc895ac25f72534aea618eb4e49de22e9f504b9cda3f0cb26f9441cd" class="form-control" type="hidden" name="_csrfToken"></div>            <br><br>
-            <div class="portlet  light bordered">
-                <div class="portlet-title fix">
-                    <div class="caption green-heading">
+                <div class="portlet  light bordered">
+                    <div class="portlet-title fix">
+                        <div class="caption green-heading">
 
-                    </div>
-                    <div class="text-center">
-                        <p style="font-size: 22px">???????? ????? ??????? ?????? ??????? (?????, SEPA Project)</p>
-
-                        <p style="font-size: 17px; font-weight: 600">????? ????</p>
-                    </div>
-                </div>
-                <br>
-                <div class="portlet-body">
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="col-md-6">
-                                        <div class="form-group input text required"><label  for="name" class="control-label" >??? (?????)</label><input  required="required" id="name" class="form-control" type="text" name="name"></div>                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group input text required"><label  for="name-en" class="control-label" >??? (??????)</label><input  required="required" id="name-en" class="form-control" type="text" name="name_en"></div>                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group input text"><label  for="nid-no" class="control-label" >????? ????? ???? / ???????? ?????</label><input  id="nid-no" class="form-control" type="text" name="nid_no"></div>                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="col-md-6">
-                                        <div class="form-group input file required"><label  for="picture" class="control-label" >???</label><input  accept="image/*" required="required" id="picture" class="" type="file" name="picture"></div>                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group input file required"><label  for="applicant-signature" class="control-label" >????????</label><input  accept="image/*" required="required" id="applicant-signature" class="" type="file" name="applicant_signature"></div>                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group input file"><label  for="educational-certificate" class="control-label" >??????? ???????? ???</label><input  accept="image/*" id="educational-certificate" class="" type="file" name="educational_certificate"></div>                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group input file"><label  for="nid-or-passport" class="control-label" >????? ????? ???? / ????????</label><input  accept="image/*" id="nid-or-passport" class="" type="file" name="nid_or_passport"></div>                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group input text required"><label  for="father-name" class="control-label" >????? ??? (?????)</label><input  required="required" id="father-name" class="form-control" type="text" name="father_name"></div>                                    <div class="form-group input text required"><label  for="father-name-en" class="control-label" >????? ??? (??????)</label><input  required="required" id="father-name-en" class="form-control" type="text" name="father_name_en"></div>                                </div>
-                                <div class="col-md-2 col-md-offset-2">
-                                    <div class="form-group" id="fradio">
-                                        <label class="radio">
-                                            <input type="radio" name="father_alive_status" value="1"
-                                                   checked> ?????                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" name="father_alive_status" value="0"> ???                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 father-alive">
-                                    <div class="form-group" id="father_profession">
-                                                                                    <label class="radio">
-                                                <input type="radio" name="father_profession" value="1"
-                                                       checked> ??????????                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="father_profession" value="2"
-                                                       checked> ?????????                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="father_profession" value="3"
-                                                       checked> ????                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="father_profession" value="4"
-                                                       checked> ??????????? ?????                                              </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="father_profession" value="5"
-                                                       checked> ???????? ???? ???? ??                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="father_profession" value="6"
-                                                       checked> ????????                                            </label>
-                                                                            </div>
-                                </div>
-
-                                <div class="col-md-2 father-alive">
-                                    <div class="form-group input number"><label  for="father-monthly-income" class="control-label" >????? ?????</label><input  id="father-monthly-income" class="form-control" type="number" name="father_monthly_income"></div>                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group input text required"><label  for="mother-name" class="control-label" >????? ??? (?????)</label><input  required="required" id="mother-name" class="form-control" type="text" name="mother_name"></div>                                    <div class="form-group input text required"><label  for="mother-name-en" class="control-label" >????? ??? (??????)</label><input  required="required" id="mother-name-en" class="form-control" type="text" name="mother_name_en"></div>                                </div>
-                                <div class="col-md-2 col-md-offset-2">
-                                    <div class="form-group" id="mradio">
-                                        <label class="radio">
-                                            <input type="radio" name="mother_alive_status" value="1"
-                                                   checked> ?????                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" name="mother_alive_status" value="0"> ???                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 mother-alive">
-                                    <div class="form-group" id="mother_profession">
-                                                                                    <label class="radio">
-                                                <input type="radio" name="mother_profession" value="1"
-                                                       checked> ??????????                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="mother_profession" value="2"
-                                                       checked> ??????                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="mother_profession" value="3"
-                                                       checked> ??????????? ?????                                              </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="mother_profession" value="4"
-                                                       checked> ????????                                            </label>
-                                                                            </div>
-                                </div>
-
-                                <div class="col-md-2 mother-alive">
-                                    <div class="form-group input text"><label  for="mother-monthly-income" class="control-label" >????? ?????</label><input  id="mother-monthly-income" class="form-control" type="text" name="mother_monthly_income"></div>                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group input text"><label  for="husband-name" class="control-label" >??????? ??? (?????)</label><input  id="husband-name" class="form-control" type="text" name="husband_name"></div>                                    <div class="form-group input text"><label  for="husband-name-en" class="control-label" >??????? ??? (??????)</label><input  id="husband-name-en" class="form-control" type="text" name="husband_name_en"></div>                                </div>
-                                <div class="col-md-2 col-md-offset-2">
-                                    <div class="form-group" id="hradio">
-                                        <label class="radio">
-                                            <input type="radio" name="husband_alive_status" value="1"
-                                                   checked> ?????                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" name="husband_alive_status" value="0"> ???                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 husband-alive">
-                                    <div class="form-group" id="husband_profession">
-                                                                                    <label class="radio">
-                                                <input type="radio" name="husband_profession" value="1"
-                                                       checked> ??????????                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="husband_profession" value="2"
-                                                       checked> ?????????                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="husband_profession" value="3"
-                                                       checked> ????                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="husband_profession" value="4"
-                                                       checked> ??????????? ?????                                              </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="husband_profession" value="5"
-                                                       checked> ???????? ???? ???? ??                                            </label>
-                                                                                    <label class="radio">
-                                                <input type="radio" name="husband_profession" value="6"
-                                                       checked> ????????                                            </label>
-                                                                            </div>
-                                </div>
-
-                                <div class="col-md-2 husband-alive">
-                                    <div class="form-group input text"><label  for="husband-monthly-income" class="control-label" >????? ?????</label><input  id="husband-monthly-income" class="form-control" type="text" name="husband_monthly_income"></div>                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group input text required"><label  for="birthday" class="control-label" >???? ?????</label><input  class="form-control datepicker" data-date-autoclose="1" autocomplete="off" required="required" id="birthday" class="form-control" type="text" name="birthday"></div>                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group input select required"><label  for="maritial-status" class="control-label" >??????? ??????</label><select name="maritial_status" required="required" id="maritial-status" class="form-control"><option value="">???????? ????</option><option value="1">???????</option><option value="2">????????</option><option value="3">?????</option><option value="4">????????</option></select></div>                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group input text required"><label  for="present-address" class="control-label" >??????? ??????</label><input  required="required" id="present-address" class="form-control" type="text" name="present_address"></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input tel"><label  for="phone" class="control-label" >?????? ?????</label><input  id="phone" class="form-control" type="tel" name="phone"></div>                                </div>
-                            </div>
-                            <p><strong>?????? ??????</strong></p>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group input select required"><label  for="loc-division-id" class="control-label" >?????</label><select name="loc_division_id" required="required" id="loc-division-id" class="form-control"><option value="">???????? ????</option><option value="1">??????</option><option value="2">?????????</option><option value="3">????</option><option value="4">?????</option><option value="5">???????</option><option value="6">?????</option><option value="7">?????</option><option value="9">????????</option></select></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input select required"><label  for="loc-district-id" class="control-label" >????</label><select name="loc_district_id" required="required" id="loc-district-id" class="form-control"><option value="">???????? ????</option></select></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input select required"><label  for="loc-upazila-id" class="control-label" >??????</label><select name="loc_upazila_id" required="required" id="loc-upazila-id" class="form-control"><option value="">???????? ????</option></select></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input select"><label  for="loc-union-id" class="control-label" >??????</label><select name="loc_union_id" id="loc-union-id" class="form-control"><option value="">???????? ????</option></select></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input text"><label  for="village" class="control-label" >?????</label><input  id="village" class="form-control" type="text" name="village"></div>                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group input text required"><label  for="post-office" class="control-label" >????? ??? </label><input  required="required" id="post-office" class="form-control" type="text" name="post_office"></div>                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group input select required"><label  for="educational-qualification" class="control-label" >???????? ???????</label><select name="educational_qualification" required="required" id="educational-qualification" class="form-control"><option value="1">?? ??????? ????</option><option value="2">?? ?????? ???? ???  ??????</option><option value="3">?? ?? ??</option><option value="4">??? ?? ??</option><option value="5">??????  ( ?????? )</option><option value="6">?????????</option></select></div>                                </div>
-                                <div class="col-md-3 col-md-offset-1">
-                                    <div class="form-group">
-                                        <label class="control-label">???????? ??????????????</label><br>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="is_primary_scholarship" value="1"
-                                                   checked>????                                          </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="is_primary_scholarship" value="0">??                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="control-label">?????? ??????????????</label><br>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="is_junior_scholarship" value="1"
-                                                   checked>????                                          </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="is_junior_scholarship" value="0">??                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12 extra-curriculum">
-                                    <label class="control-label">???????? ?????????? ????????</label><br>
-                                                                            <label class="radio-inline">
-                                            <input type="radio" name="extra_curriculum"
-                                                   value="1"> ???                                        </label>
-                                                                            <label class="radio-inline">
-                                            <input type="radio" name="extra_curriculum"
-                                                   value="2"> ???                                        </label>
-                                                                            <label class="radio-inline">
-                                            <input type="radio" name="extra_curriculum"
-                                                   value="3"> ????? ?????                                        </label>
-                                                                            <label class="radio-inline">
-                                            <input type="radio" name="extra_curriculum"
-                                                   value="4"> ?????                                        </label>
-                                                                            <label class="radio-inline">
-                                            <input type="radio" name="extra_curriculum"
-                                                   value="5"> ??? ????                                        </label>
-                                                                            <label class="radio-inline">
-                                            <input type="radio" name="extra_curriculum"
-                                                   value="6"> ????????                                        </label>
-                                                                            <label class="radio-inline">
-                                            <input type="radio" name="extra_curriculum"
-                                                   value="7"> ????????                                        </label>
-                                                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group" id="isradio">
-                                        <label class="control-label">?????/ ???????? ?????? ?? ?? ?</label><br>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="is_empolyee" value="1">????                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="is_empolyee" value="0" checked>??                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 monthly-income">
-                                    <div class="form-group input number required"><label  for="monthly-income" class="control-label" >????? ??</label><input  disabled="disabled" required="required" id="monthly-income" class="form-control" type="number" name="monthly_income"></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input number required"><label  for="house-holder" class="control-label" >???????? ????? ??????</label><input  min="1" required="required" id="house-holder" class="form-control" type="number" name="house_holder"></div>                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <p>??????? ??????????? ????? ?????? ???? ???? ????: ????? ??????? ????????-?, ??????? ??????? ????????-?, ????? ??????? ????????-? ??? ?????? ??????? ????????-? ????? ?????? ?? ???? ???? ???</p>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <table class="table table-bordered table-female-trades">
-                                        <thead>
-                                        <tr>
-                                            <td colspan="2" class="text-center">
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="2"
-                                                           checked> ??????? ???? ????????                                                 </label>
-                                            </td>
-                                        </tr>
-                                        <tr class="female-trades">
-                                            <td>??????? ??????? ???? (??? ??? ??? ????)</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="sortable">
-
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="1">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>???? ?????????</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="2">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????????</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="3">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????????? ?????????????</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="4">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="5">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>??????????  ?????????   ????????????? </td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="6">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????? ( ???? ? ????? )</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="7">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>???????????? ???? ??????????????</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="8">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????? ( ??? ??? )</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="9">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>???? ????? ?????????? ?????????????</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="10">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????????</td>
-                                            </tr>
-                                                                                    <tr class=" ui-state-default female-trades">
-                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="11">
-                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????? ????????</td>
-                                            </tr>
-                                                                                </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-6">
-                                    <table class="table table-bordered table-male-trades">
-                                        <thead>
-                                        <tr>
-                                            <td colspan="2" class="text-center">
-                                                <label class="radio">
-                                                    <input type="radio" name="gender"
-                                                           value="1"> ??????? ???? ????????                                                 </label>
-                                            </td>
-                                        </tr>
-                                        <tr class="male-trades">
-                                            <td>??????? ??????? ???? (??? ??? ??? ????)</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="sortable2">
-
-                                                                                    <tr class="ui-state-default male-trades">
-                                                <td>
-                                                    <input name="sorting_order[]" type="hidden" class="trade-input male" value="3"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????????? ?????????????                                                </td>
-                                            </tr>
-                                                                                    <tr class="ui-state-default male-trades">
-                                                <td>
-                                                    <input name="sorting_order[]" type="hidden" class="trade-input male" value="7"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>???????????? ???? ??????????????                                                </td>
-                                            </tr>
-                                                                                    <tr class="ui-state-default male-trades">
-                                                <td>
-                                                    <input name="sorting_order[]" type="hidden" class="trade-input male" value="8"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>????????? ( ??? ??? )                                                </td>
-                                            </tr>
-                                                                                </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group input text required"><label  for="guardian-name" class="control-label" >????????? ???</label><input  required="required" id="guardian-name" class="form-control" type="text" name="guardian_name"></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input text required"><label  for="guardian-relationship" class="control-label" >????????? ????? ???????</label><input  required="required" id="guardian-relationship" class="form-control" type="text" name="guardian_relationship"></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input textarea"><label  for="guardian-address" class="control-label" >????????? ??????</label><textarea class="form-control" name="guardian_address" rows="2" id="guardian-address"></textarea></div>                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group input file"><label  for="gurdian-signature" class="control-label" >????????? ????????</label><input  accept="image/*" id="gurdian-signature" class="" type="file" name="gurdian_signature"></div>                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="portlet light bordered fix">
-                        <div class="portlet-body form fix">
-                            <p style="font-size: 25px">????  ???? </p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group input text required"><label  for="user-username" class="control-label" >??????????? ???</label><input  required="required" id="user-username" class="form-control" type="text" name="user[username]"></div><div class="form-group input password required"><label  for="user-password" class="control-label" >????????? </label><input  minlength="5" class="popovers form-control" required="required" id="user-password" class="form-control" type="password" name="user[password]"></div>                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group input email required"><label  for="user-email" class="control-label" >?????</label><input  required="required" id="user-email" class="form-control" type="email" name="user[email]"></div><div class="form-group input password required"><label  for="confirm-password" class="control-label" >?????????? ??????? ????</label><input  id="confirm-password" class="popovers form-control" required="required" class="form-control" type="password" name="confirm_password"></div>                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
                         <div class="text-center">
-                            <div class="submit"><input type="submit" class="btn green-meadow " id="upload" value="??????? ???? "></div>                        </div>
+                            <p style="font-size: 22px">বাংলাদেশ শিল্প কারিগরি সহায়তা কেন্দ্র (বিটাক, SEPA Project)</p>
+
+                            <p style="font-size: 17px; font-weight: 600">ভর্তি ফর্ম</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="portlet-body">
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-6">
+                                            <div class="form-group input text required"><label  for="name" class="control-label" >নাম (বাংলা)</label><input  required="required" id="name" class="form-control" type="text" name="name"></div>                                    </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group input text required"><label  for="name-en" class="control-label" >নাম (ইংরেজি)</label><input  required="required" id="name-en" class="form-control" type="text" name="name_en"></div>                                    </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group input text"><label  for="nid-no" class="control-label" >জাতীয় পরিচয় পত্র / পাসপোর্ট নম্বর</label><input  id="nid-no" class="form-control" type="text" name="nid_no"></div>                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-6">
+                                            <div class="form-group input file required"><label  for="picture" class="control-label" >ছবি</label><input  accept="image/*" required="required" id="picture" class="" type="file" name="picture"></div>                                    </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group input file required"><label  for="applicant-signature" class="control-label" >স্বাক্ষর</label><input  accept="image/*" required="required" id="applicant-signature" class="" type="file" name="applicant_signature"></div>                                    </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group input file"><label  for="educational-certificate" class="control-label" >সর্বশেষ শিক্ষাগত সনদ</label><input  accept="image/*" id="educational-certificate" class="" type="file" name="educational_certificate"></div>                                    </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group input file"><label  for="nid-or-passport" class="control-label" >জাতীয় পরিচয় পত্র / পাসপোর্ট</label><input  accept="image/*" id="nid-or-passport" class="" type="file" name="nid_or_passport"></div>                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group input text required"><label  for="father-name" class="control-label" >পিতার নাম (বাংলা)</label><input  required="required" id="father-name" class="form-control" type="text" name="father_name"></div>                                    <div class="form-group input text required"><label  for="father-name-en" class="control-label" >পিতার নাম (ইংরেজি)</label><input  required="required" id="father-name-en" class="form-control" type="text" name="father_name_en"></div>                                </div>
+                                    <div class="col-md-2 col-md-offset-2">
+                                        <div class="form-group" id="fradio">
+                                            <label class="radio">
+                                                <input type="radio" name="father_alive_status" value="1"
+                                                       checked> জীবিত                                        </label>
+                                            <label class="radio">
+                                                <input type="radio" name="father_alive_status" value="0"> মৃত                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 father-alive">
+                                        <div class="form-group" id="father_profession">
+                                            <label class="radio">
+                                                <input type="radio" name="father_profession" value="1"
+                                                       checked> চাকুরীজীবি                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="father_profession" value="2"
+                                                       checked> ব্যবসায়ী                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="father_profession" value="3"
+                                                       checked> কৃষক                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="father_profession" value="4"
+                                                       checked> শারীরিকভাবে অক্ষম                                              </label>
+                                            <label class="radio">
+                                                <input type="radio" name="father_profession" value="5"
+                                                       checked> পরিবারের সাথে থাকে না                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="father_profession" value="6"
+                                                       checked> অন্যান্য                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 father-alive">
+                                        <div class="form-group input number"><label  for="father-monthly-income" class="control-label" >মাসিক ইনকাম</label><input  id="father-monthly-income" class="form-control" type="number" name="father_monthly_income"></div>                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group input text required"><label  for="mother-name" class="control-label" >মাতার নাম (বাংলা)</label><input  required="required" id="mother-name" class="form-control" type="text" name="mother_name"></div>                                    <div class="form-group input text required"><label  for="mother-name-en" class="control-label" >মাতার নাম (ইংরেজি)</label><input  required="required" id="mother-name-en" class="form-control" type="text" name="mother_name_en"></div>                                </div>
+                                    <div class="col-md-2 col-md-offset-2">
+                                        <div class="form-group" id="mradio">
+                                            <label class="radio">
+                                                <input type="radio" name="mother_alive_status" value="1"
+                                                       checked> জীবিত                                        </label>
+                                            <label class="radio">
+                                                <input type="radio" name="mother_alive_status" value="0"> মৃত                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 mother-alive">
+                                        <div class="form-group" id="mother_profession">
+                                            <label class="radio">
+                                                <input type="radio" name="mother_profession" value="1"
+                                                       checked> চাকুরীজীবি                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="mother_profession" value="2"
+                                                       checked> গৃহিনী                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="mother_profession" value="3"
+                                                       checked> শারীরিকভাবে অক্ষম                                              </label>
+                                            <label class="radio">
+                                                <input type="radio" name="mother_profession" value="4"
+                                                       checked> অন্যান্য                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 mother-alive">
+                                        <div class="form-group input text"><label  for="mother-monthly-income" class="control-label" >মাসিক ইনকাম</label><input  id="mother-monthly-income" class="form-control" type="text" name="mother_monthly_income"></div>                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group input text"><label  for="husband-name" class="control-label" >স্বামীর নাম (বাংলা)</label><input  id="husband-name" class="form-control" type="text" name="husband_name"></div>                                    <div class="form-group input text"><label  for="husband-name-en" class="control-label" >স্বামীর নাম (ইংরেজি)</label><input  id="husband-name-en" class="form-control" type="text" name="husband_name_en"></div>                                </div>
+                                    <div class="col-md-2 col-md-offset-2">
+                                        <div class="form-group" id="hradio">
+                                            <label class="radio">
+                                                <input type="radio" name="husband_alive_status" value="1"
+                                                       checked> জীবিত                                        </label>
+                                            <label class="radio">
+                                                <input type="radio" name="husband_alive_status" value="0"> মৃত                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 husband-alive">
+                                        <div class="form-group" id="husband_profession">
+                                            <label class="radio">
+                                                <input type="radio" name="husband_profession" value="1"
+                                                       checked> চাকুরীজীবি                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="husband_profession" value="2"
+                                                       checked> ব্যবসায়ী                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="husband_profession" value="3"
+                                                       checked> কৃষক                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="husband_profession" value="4"
+                                                       checked> শারীরিকভাবে অক্ষম                                              </label>
+                                            <label class="radio">
+                                                <input type="radio" name="husband_profession" value="5"
+                                                       checked> পরিবারের সাথে থাকে না                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="husband_profession" value="6"
+                                                       checked> অন্যান্য                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 husband-alive">
+                                        <div class="form-group input text"><label  for="husband-monthly-income" class="control-label" >মাসিক ইনকাম</label><input  id="husband-monthly-income" class="form-control" type="text" name="husband_monthly_income"></div>                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group input text required"><label  for="birthday" class="control-label" >জন্ম তারিখ</label><input  class="form-control datepicker" data-date-autoclose="1" autocomplete="off" required="required" id="birthday" class="form-control" type="text" name="birthday"></div>                                </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group input select required"><label  for="maritial-status" class="control-label" >বৈবাহিক অবস্থা</label><select name="maritial_status" required="required" id="maritial-status" class="form-control"><option value="">নির্বাচন করুন</option><option value="1">বিবাহিত</option><option value="2">অবিবাহিত</option><option value="3">বিধবা</option><option value="4">অন্যান্য</option></select></div>                                </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group input text required"><label  for="present-address" class="control-label" >বর্তমান ঠিকানা</label><input  required="required" id="present-address" class="form-control" type="text" name="present_address"></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input tel"><label  for="phone" class="control-label" >মোবাইল নম্বর</label><input  id="phone" class="form-control" type="tel" name="phone"></div>                                </div>
+                                </div>
+                                <p><strong>স্থায়ী ঠিকানা</strong></p>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group input select required"><label  for="loc-division-id" class="control-label" >বিভাগ</label><select name="loc_division_id" required="required" id="loc-division-id" class="form-control"><option value="">নির্বাচন করুন</option><option value="1">বরিশাল</option><option value="2">চট্টগ্রাম</option><option value="3">ঢাকা</option><option value="4">খুলনা</option><option value="5">রাজশাহী</option><option value="6">রংপুর</option><option value="7">সিলেট</option><option value="9">ময়মনসিংহ</option></select></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input select required"><label  for="loc-district-id" class="control-label" >জেলা</label><select name="loc_district_id" required="required" id="loc-district-id" class="form-control"><option value="">নির্বাচন করুন</option></select></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input select required"><label  for="loc-upazila-id" class="control-label" >উপজেলা</label><select name="loc_upazila_id" required="required" id="loc-upazila-id" class="form-control"><option value="">নির্বাচন করুন</option></select></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input select"><label  for="loc-union-id" class="control-label" >ইউনিয়ন</label><select name="loc_union_id" id="loc-union-id" class="form-control"><option value="">নির্বাচন করুন</option></select></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input text"><label  for="village" class="control-label" >গ্রাম</label><input  id="village" class="form-control" type="text" name="village"></div>                                </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group input text required"><label  for="post-office" class="control-label" >পোস্ট কোড </label><input  required="required" id="post-office" class="form-control" type="text" name="post_office"></div>                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group input select required"><label  for="educational-qualification" class="control-label" >শিক্ষাগত যোগ্যতা</label><select name="educational_qualification" required="required" id="educational-qualification" class="form-control"><option value="1">৮ম শ্রেণীর নিচে</option><option value="2">৮ম শ্রেনী থেকে ১০ম  শ্রেনী</option><option value="3">এস এস সি</option><option value="4">এইচ এস সি</option><option value="5">অনার্স  ( সম্মান )</option><option value="6">মাস্টার্স</option></select></div>                                </div>
+                                    <div class="col-md-3 col-md-offset-1">
+                                        <div class="form-group">
+                                            <label class="control-label">প্রাথমিক বৃত্তিপ্রাপ্ত?</label><br>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="is_primary_scholarship" value="1"
+                                                       checked>হ্যা                                          </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="is_primary_scholarship" value="0">না                                        </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">জুনিয়র বৃত্তিপ্রাপ্ত?</label><br>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="is_junior_scholarship" value="1"
+                                                       checked>হ্যা                                          </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="is_junior_scholarship" value="0">না                                        </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 extra-curriculum">
+                                        <label class="control-label">এক্সট্রা কাররিকুলাম একটিভিটি</label><br>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="extra_curriculum"
+                                                   value="1"> গান                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="extra_curriculum"
+                                                   value="2"> নাচ                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="extra_curriculum"
+                                                   value="3"> কবিতা আবৃতি                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="extra_curriculum"
+                                                   value="4"> অভিনয়                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="extra_curriculum"
+                                                   value="5"> ছবি আঁকা                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="extra_curriculum"
+                                                   value="6"> খেলাধুলা                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="extra_curriculum"
+                                                   value="7"> অন্যান্য                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group" id="isradio">
+                                            <label class="control-label">চাকরি/ ব্যবসাতে কর্মরত কি না ?</label><br>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="is_empolyee" value="1">হ্যা                                        </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="is_empolyee" value="0" checked>না                                        </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 monthly-income">
+                                        <div class="form-group input number required"><label  for="monthly-income" class="control-label" >মাসিক আয়</label><input  disabled="disabled" required="required" id="monthly-income" class="form-control" type="number" name="monthly_income"></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input number required"><label  for="house-holder" class="control-label" >পরিবারের সদস্য সংখ্যা</label><input  min="1" required="required" id="house-holder" class="form-control" type="number" name="house_holder"></div>                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <p>পছন্দের ক্রমানুযায়ী নম্বর উল্লেখ করতে হবে। যেমন: প্রথম পছন্দের ক্ষেত্রে-১, দ্বিতীয় পছন্দের ক্ষেত্রে-২, তৃতীয় পছন্দের ক্ষেত্রে-৩ এবং চতুর্থ পছন্দের ক্ষেত্রে-৪ এভাবে সবগুলো ঘর পূরণ করতে হবে</p>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table table-bordered table-female-trades">
+                                            <thead>
+                                            <tr>
+                                                <td colspan="2" class="text-center">
+                                                    <label class="radio">
+                                                        <input type="radio" name="gender" value="2"
+                                                               checked> মেয়েদের জন্য প্রযোজ্য                                                 </label>
+                                                </td>
+                                            </tr>
+                                            <tr class="female-trades">
+                                                <td>ট্রেডের পছন্দের ক্রম (উপর নিচ করা যাবে)</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="sortable">
+
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="1">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>লাইট মেশিনারিজ</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="2">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>ইলেকট্রনিক্স</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="3">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>ইলেকট্রিক্যাল মেইনটেন্যান্স</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="4">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>অটোক্যাড</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="5">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>গার্মেন্টস  মেশিনারিজ   মেইনটেন্যান্স </td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="6">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>ওয়েল্ডিং ( আর্ক ও গ্যাস )</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="7">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>রেফ্রিজারেশন এন্ড এয়ারকন্ডিশনিং</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="8">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>ওয়েল্ডিং ( টিগ মিগ )</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="9">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>হাউস হোল্ড এপ্লায়েন্স মেইনটেন্যান্স</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="10">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>কার্পেন্ট্রি</td>
+                                            </tr>
+                                            <tr class=" ui-state-default female-trades">
+                                                <td><input name="sorting_order[]" type="hidden" class="trade-input female" value="11">
+                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>প্লাষ্টিক প্রসেসিং</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-bordered table-male-trades">
+                                            <thead>
+                                            <tr>
+                                                <td colspan="2" class="text-center">
+                                                    <label class="radio">
+                                                        <input type="radio" name="gender"
+                                                               value="1"> ছেলেদের জন্য প্রযোজ্য                                                 </label>
+                                                </td>
+                                            </tr>
+                                            <tr class="male-trades">
+                                                <td>ট্রেডের পছন্দের ক্রম (উপর নিচ করা যাবে)</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="sortable2">
+
+                                            <tr class="ui-state-default male-trades">
+                                                <td>
+                                                    <input name="sorting_order[]" type="hidden" class="trade-input male" value="3"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>ইলেকট্রিক্যাল মেইনটেন্যান্স                                                </td>
+                                            </tr>
+                                            <tr class="ui-state-default male-trades">
+                                                <td>
+                                                    <input name="sorting_order[]" type="hidden" class="trade-input male" value="7"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>রেফ্রিজারেশন এন্ড এয়ারকন্ডিশনিং                                                </td>
+                                            </tr>
+                                            <tr class="ui-state-default male-trades">
+                                                <td>
+                                                    <input name="sorting_order[]" type="hidden" class="trade-input male" value="8"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>ওয়েল্ডিং ( টিগ মিগ )                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group input text required"><label  for="guardian-name" class="control-label" >অভিভাবকের নাম</label><input  required="required" id="guardian-name" class="form-control" type="text" name="guardian_name"></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input text required"><label  for="guardian-relationship" class="control-label" >অভিভাবকের সঙ্গে সম্পর্ক</label><input  required="required" id="guardian-relationship" class="form-control" type="text" name="guardian_relationship"></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input textarea"><label  for="guardian-address" class="control-label" >অভিভাবকের ঠিকানা</label><textarea class="form-control" name="guardian_address" rows="2" id="guardian-address"></textarea></div>                                </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group input file"><label  for="gurdian-signature" class="control-label" >অভিভাবকের স্বাক্ষর</label><input  accept="image/*" id="gurdian-signature" class="" type="file" name="gurdian_signature"></div>                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="portlet light bordered fix">
+                            <div class="portlet-body form fix">
+                                <p style="font-size: 25px">লগইন  তথ্য </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group input text required"><label  for="user-username" class="control-label" >ব্যবহারকারী নাম</label><input  required="required" id="user-username" class="form-control" type="text" name="user[username]"></div><div class="form-group input password required"><label  for="user-password" class="control-label" >পাসওয়ার্ড </label><input  minlength="5" class="popovers form-control" required="required" id="user-password" class="form-control" type="password" name="user[password]"></div>                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group input email required"><label  for="user-email" class="control-label" >ইমেইল</label><input  required="required" id="user-email" class="form-control" type="email" name="user[email]"></div><div class="form-group input password required"><label  for="confirm-password" class="control-label" >পাসওয়ার্ড নিশ্চিত করুন</label><input  id="confirm-password" class="popovers form-control" required="required" class="form-control" type="password" name="confirm_password"></div>                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="text-center">
+                                <div class="submit"><input type="submit" class="btn green-meadow " id="upload" value="সংরক্ষণ করুন "></div>                        </div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </form>        </div>
     </div>
 </div>
 
 
 
-	<script src="/js/../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/js/../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 
-	<link rel="stylesheet" href="/css/../assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+<link rel="stylesheet" href="/css/../assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
 <script src="/js/../assets/global/pages/form/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
@@ -581,7 +581,7 @@
 
     $(document).on('change', '#loc-division-id', function () {
         var divisions = $(this).val();
-        $('#loc-district-id').html('<option value="">???????? ????</option>');
+        $('#loc-district-id').html('<option value="">নির্বাচন করুন</option>');
         if (divisions) {
             $.ajax({
                 url: 'http://skills.gov.bd/Common/getDistrictsByDivisionId',
@@ -608,7 +608,7 @@
     });
     $(document).on('change', '#loc-district-id', function () {
         var district = $(this).val();
-        $('#loc-upazila-id').html('<option value="">???????? ????</option>');
+        $('#loc-upazila-id').html('<option value="">নির্বাচন করুন</option>');
         if (district) {
             $.ajax({
                 url: 'http://skills.gov.bd/Common/getUpazilasByDistrictsId',
@@ -635,7 +635,7 @@
     });
     $(document).on('change', '#loc-upazila-id', function () {
         var upazila = $(this).val();
-        $('#loc-union-id').html('<option value="">???????? ????</option>');
+        $('#loc-union-id').html('<option value="">নির্বাচন করুন</option>');
         if (upazila) {
             $.ajax({
                 url: 'http://skills.gov.bd/Common/getUnionByUpazilaId',
@@ -692,7 +692,7 @@
                         var height = this.height;
                         var width = this.width;
                         if (height > 80 || width > 300) {
-                            alert("???????? ??? ???? ???*?? ??????? ??? ??? ");
+                            alert("স্বাক্ষর ছবি সাইজ ৩০০*৮০ পিক্সেল হতে হবে ");
                             $this.val("");
                             return false;
                         }
@@ -718,7 +718,7 @@
                         var height = this.height;
                         var width = this.width;
                         if (height > 400 || width > 400) {
-                            alert("??? ???? ???*??? ??????? ??? ??? ");
+                            alert("ছবি সাইজ ৪০০*৪০০ পিক্সেল হতে হবে ");
                             $this.val("");
                             return false;
                         }
@@ -733,89 +733,89 @@
     });
 
     /*jQuery.validator.addMethod("allRequired", function(value, elem){
-        // Use the name to get all the inputs and verify them
-        var name = elem.name;
-        return  $('input[name="'+name+'"]').map(
-            function(i,obj){
-                return $(obj).val();
-            }
-        ).get().every(function(v){ return v; });
-    });*/
+     // Use the name to get all the inputs and verify them
+     var name = elem.name;
+     return  $('input[name="'+name+'"]').map(
+     function(i,obj){
+     return $(obj).val();
+     }
+     ).get().every(function(v){ return v; });
+     });*/
 
     $("#bitac-form").validate({
         rules: {},
         messages: {
             'name': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'name_en': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'father_name': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'father_name_en': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'mother_name': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'mother_name_en': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'guardian_name': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'guardian_relationship': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
 
             'picture': {
-                required: "??? ???????? ????",
-                accept: "???? ????? ???? ??"
+                required: "ছবি নির্বাচন করুন",
+                accept: "ছবির ফরমেট সঠিক নয়"
             },
             'applicant_signature': {
-                required: "??? ???????? ????",
-                accept: "???? ????? ???? ??"
+                required: "ছবি নির্বাচন করুন",
+                accept: "ছবির ফরমেট সঠিক নয়"
             },
             'gurdian_signature': {
-                accept: "???? ????? ???? ??"
+                accept: "ছবির ফরমেট সঠিক নয়"
             },
             'house_holder': {
-                accept: "???? ????? ???? ??"
+                accept: "ছবির ফরমেট সঠিক নয়"
             },
 
             'birthday': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'present_address': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'village': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'post_office': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'monthly_income': {
-                required: "???? ?????? ???? ???? ??? "
+                required: "ঘরটি অবশ্যই পূরণ করতে হবে "
             },
             'education_qualification': {
-                required: "???? ?????? ??????? ???? ??? "
+                required: "ঘরটি অবশ্যই সিলেক্ট করতে হবে "
             },
 
             'gender': {
-                required: "???? ?????? ??????? ???? ??? "
+                required: "ঘরটি অবশ্যই সিলেক্ট করতে হবে "
             },
 
             'loc_district_id': {
-                required: "???? ?????? ??????? ???? ??? "
+                required: "ঘরটি অবশ্যই সিলেক্ট করতে হবে "
             },
             'loc_upazila_id': {
-                required: "???? ?????? ??????? ???? ??? "
+                required: "ঘরটি অবশ্যই সিলেক্ট করতে হবে "
             },
             'maritial_status': {
-                required: "???? ?????? ??????? ???? ??? "
+                required: "ঘরটি অবশ্যই সিলেক্ট করতে হবে "
             }
 
         },
@@ -827,10 +827,10 @@
             form.submit();
             /*if (checkChoiceList()){
 
-            } else {
-                alert('??????? ??? ??????? ???? ??? ?????');
-                return false;
-            }*/
+             } else {
+             alert('অনুগ্রহ করে পছন্দের ক্রম ঠিক করুন।');
+             return false;
+             }*/
         },
         errorPlacement: function (error, element) {
             element.after(error);
@@ -844,51 +844,51 @@
         $(this).rules('add', {
             required: true,
             messages: {
-                required: "??????? ???? ?????",
-                min: "??????? ???? ???? ????",
-                max: "??????? ???? ???? ????"
+                required: "পছন্দের ক্রম লিখুন",
+                min: "পছন্দের ক্রম সঠিক হয়নি",
+                max: "পছন্দের ক্রম সঠিক হয়নি"
             }
         });
     });
 
     /*function checkChoiceList() {
 
-        var gender = $("input[name='gender']:checked").val() - 0;
-        var check=true;
-        if (gender === 1) {
-            var inputs = $('.trade-input.female').map(function() {
-                return this.value-0;
-            }).get();
-            for(var i = 1; i <= inputs.length; i++){
-                if(jQuery.inArray(i, inputs) === -1){
-                    check=false;
-                }
-            }
-        }else if (gender ===2){
-            var inputs = $('.trade-input.male').map(function() {
-                return this.value-0;
-            }).get();
-            for(var i = 1; i <= inputs.length; i++){
-                if(jQuery.inArray(i, inputs) === -1){
-                    check=false;
-                }
-            }
-        }else {
-            check=false;
-        }
-        return check;
+     var gender = $("input[name='gender']:checked").val() - 0;
+     var check=true;
+     if (gender === 1) {
+     var inputs = $('.trade-input.female').map(function() {
+     return this.value-0;
+     }).get();
+     for(var i = 1; i <= inputs.length; i++){
+     if(jQuery.inArray(i, inputs) === -1){
+     check=false;
+     }
+     }
+     }else if (gender ===2){
+     var inputs = $('.trade-input.male').map(function() {
+     return this.value-0;
+     }).get();
+     for(var i = 1; i <= inputs.length; i++){
+     if(jQuery.inArray(i, inputs) === -1){
+     check=false;
+     }
+     }
+     }else {
+     check=false;
+     }
+     return check;
 
-    }*/
+     }*/
 
     /*$(document).on('focusin', '.female-trades input', function(){
-        console.log("Saving value " + $(this).val());
-        $(this).data('val', $(this).val());
-    }).on('change','input', function(){
-        var prev = $(this).data('val');
-        var current = $(this).val();
-        console.log("Prev value " + prev);
-        console.log("New value " + current);
-    });*/
+     console.log("Saving value " + $(this).val());
+     $(this).data('val', $(this).val());
+     }).on('change','input', function(){
+     var prev = $(this).data('val');
+     var current = $(this).val();
+     console.log("Prev value " + prev);
+     console.log("New value " + current);
+     });*/
 
 </script>
 
@@ -958,7 +958,7 @@
 
         <div class="col-sm-4">
             <div class="contect-info aos-init " ata-aos-duration="500" data-aos-delay="500">
-                <span style="font-family: Flaticon; font-size: 22px;font-weight:600;">????? ?? ???????? (?????) </span>
+                <span style="font-family: Flaticon; font-size: 22px;font-weight:600;">একসেস টু ইনফরমেশন (এটুআই) </span>
                 <br/>
                 <span>E-mail: <a href="#" style="color:#92278f">skills@a2i.gov.bd</a></span>
                 <br/>
@@ -968,7 +968,7 @@
         </div>
         <div class="col-sm-4">
             <div  class="contect-info aos-init pic" ata-aos-duration="600" data-aos-delay="600">
-                <span style="font-family: Flaticon; font-size: 22px; font-weight:600;">????????? ? ???????????</span>
+                <span style="font-family: Flaticon; font-size: 22px; font-weight:600;">পরিকল্পনা ও বাস্তবায়নে</span>
                 <br/>
                 <span><img style="margin-left: 39%;"  src="/skills/images/a2i_logo.png" alt="Imagr" class="img-responsive"></span>
                 <br/>
@@ -977,7 +977,7 @@
         </div>
         <div class="col-sm-4">
             <div class="contect-info aos-init " ata-aos-duration="700" data-aos-delay="700">
-                <span style="font-family: Flaticon; font-size: 22px; font-weight:600;">??????? ?????????</span>
+                <span style="font-family: Flaticon; font-size: 22px; font-weight:600;">কারিগরি সহায়তায়</span>
                 <br/>
                 <span> <img style="margin-left: 25%;"  src="/skills/images/softbdlogo.png" alt="Imagr" class="img-responsive"></span>
                 <br/>
