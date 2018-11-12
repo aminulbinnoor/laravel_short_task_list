@@ -55,3 +55,7 @@ https://github.com/yajra/laravel-datatables/issues/1575
 => check uncheck all checkbox 
 =============================
 http://jsfiddle.net/arunpjohny/w3gQJ/
+=> How to Encrypt File Uploads with Laravel
+===========================================
+https://stefanzweifel.io/posts/how-to-encrypt-file-uploads-with-laravel
+
