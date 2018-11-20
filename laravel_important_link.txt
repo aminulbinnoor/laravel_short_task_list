@@ -65,3 +65,6 @@ https://stefanzweifel.io/posts/how-to-encrypt-file-uploads-with-laravel
 =>Email Verification for New User After Registration in Laravel 5.5
 https://www.kodeajaib.com/2016/11/laravel-5-tutorial-email-verification.html
 
+=>Database Transactions block using try and catch in Laravel( page er last a total code deya ace)
+https://fideloper.com/laravel-database-transactions
+
