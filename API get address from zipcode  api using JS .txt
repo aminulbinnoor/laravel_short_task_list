@@ -2,7 +2,7 @@ Form view
 =========
 
 <tr>
-      <th scope="row">???? ?</th>
+      <th scope="row">郵便番号 ※</th>
       <td scope="row" >
         <div class="form-group row">
               <!--<label for="text" class="col-4 col-form-label">
@@ -24,7 +24,7 @@ Form view
     </tr>
 
     <tr>
-      <th scope="row" rowspan="3">?? ?</th>
+      <th scope="row" rowspan="3">住所 ※</th>
       <td scope="row">
         <div class="form-group row">
               <!--<label for="text" class="col-4 col-form-label">
@@ -33,54 +33,54 @@ Form view
               <div class="col-4">
                 <select id="todofuken" name="todofuken" class="custom-select custom-select-lg mb-3">
                   <option disabled selected value>  select an option  </option>
-                  <option label="???????" value="???????">???????</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="????" value="????">????</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="????" value="????">????</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="???" value="???">???</option>
-                  <option label="????" value="????">????</option>
-                  <option label="???" value="???">???</option>
+                  <option label="都道府県を選択" value="都道府県を選択">都道府県を選択</option>
+                  <option label="北海道" value="北海道">北海道</option>
+                  <option label="青森県" value="青森県">青森県</option>
+                  <option label="岩手県" value="岩手県">岩手県</option>
+                  <option label="宮城県" value="宮城県">宮城県</option>
+                  <option label="秋田県" value="秋田県">秋田県</option>
+                  <option label="山形県" value="山形県">山形県</option>
+                  <option label="福島県" value="福島県">福島県</option>
+                  <option label="茨城県" value="茨城県">茨城県</option>
+                  <option label="栃木県" value="栃木県">栃木県</option>
+                  <option label="群馬県" value="群馬県">群馬県</option>
+                  <option label="埼玉県" value="埼玉県">埼玉県</option>
+                  <option label="千葉県" value="千葉県">千葉県</option>
+                  <option label="東京都" value="東京都">東京都</option>
+                  <option label="神奈川県" value="神奈川県">神奈川県</option>
+                  <option label="新潟県" value="新潟県">新潟県</option>
+                  <option label="富山県" value="富山県">富山県</option>
+                  <option label="石川県" value="石川県">石川県</option>
+                  <option label="福井県" value="福井県">福井県</option>
+                  <option label="山梨県" value="山梨県">山梨県</option>
+                  <option label="長野県" value="長野県">長野県</option>
+                  <option label="岐阜県" value="岐阜県">岐阜県</option>
+                  <option label="静岡県" value="静岡県">静岡県</option>
+                  <option label="愛知県" value="愛知県">愛知県</option>
+                  <option label="三重県" value="三重県">三重県</option>
+                  <option label="滋賀県" value="滋賀県">滋賀県</option>
+                  <option label="京都府" value="京都府">京都府</option>
+                  <option label="大阪府" value="大阪府">大阪府</option>
+                  <option label="兵庫県" value="兵庫県">兵庫県</option>
+                  <option label="奈良県" value="奈良県">奈良県</option>
+                  <option label="和歌山県" value="和歌山県">和歌山県</option>
+                  <option label="鳥取県" value="鳥取県">鳥取県</option>
+                  <option label="島根県" value="島根県">島根県</option>
+                  <option label="岡山県" value="岡山県">岡山県</option>
+                  <option label="広島県" value="広島県">広島県</option>
+                  <option label="山口県" value="山口県">山口県</option>
+                  <option label="徳島県" value="徳島県">徳島県</option>
+                  <option label="香川県" value="香川県">香川県</option>
+                  <option label="愛媛県" value="愛媛県">愛媛県</option>
+                  <option label="高知県" value="高知県">高知県</option>
+                  <option label="福岡県" value="福岡県">福岡県</option>
+                  <option label="佐賀県" value="佐賀県">佐賀県</option>
+                  <option label="長崎県" value="長崎県">長崎県</option>
+                  <option label="熊本県" value="熊本県">熊本県</option>
+                  <option label="大分県" value="大分県">大分県</option>
+                  <option label="宮崎県" value="宮崎県">宮崎県</option>
+                  <option label="鹿児島県" value="鹿児島県">鹿児島県</option>
+                  <option label="沖縄県" value="沖縄県">沖縄県</option>
                 </select>
               </div>
             </div>
@@ -101,7 +101,7 @@ Form view
               </div>
             </div>
 			<br>
-      <label style="padding: 10px;">(??)</label><br>
+      <label style="padding: 10px;">（全角）</label><br>
       <p style="color:red;">{{ $errors->first('address2') }}</p>
       </div>
 	  
