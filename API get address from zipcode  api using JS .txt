@@ -1,0 +1,145 @@
+Form view
+=========
+
+<tr>
+      <th scope="row">???? ?</th>
+      <td scope="row" >
+        <div class="form-group row">
+              <!--<label for="text" class="col-4 col-form-label">
+                zip code
+              </label>-->
+              <div class="col-2">
+                <input class="form-control here" type="text" name="zip1" id="zip1" onkeyup="zipGenerator()">
+              </div>
+			  -
+              <div class="col-2">
+                <input class="form-control here" type="text" name="zip1" id="zip2" onkeyup="zipGenerator()">
+              </div>
+              <!--<div class="col-2">
+                <a class="btn btn-info" onclick="zipGenerator()">click</a>
+              </div>-->
+              <p style="color:red;" id="zipError"></p>
+            </div>
+     </td>
+    </tr>
+
+    <tr>
+      <th scope="row" rowspan="3">?? ?</th>
+      <td scope="row">
+        <div class="form-group row">
+              <!--<label for="text" class="col-4 col-form-label">
+                ToDoFuken
+              </label>-->
+              <div class="col-4">
+                <select id="todofuken" name="todofuken" class="custom-select custom-select-lg mb-3">
+                  <option disabled selected value>  select an option  </option>
+                  <option label="???????" value="???????">???????</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="????" value="????">????</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="????" value="????">????</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="???" value="???">???</option>
+                  <option label="????" value="????">????</option>
+                  <option label="???" value="???">???</option>
+                </select>
+              </div>
+            </div>
+      </td>
+    </tr>   
+    <tr>    
+      <td scope="row" >      
+	  <div class="form-group row">
+              <!--<label for="text" class="col-4 col-form-label">
+                Sub Prefecture
+              </label>-->
+              <div class="col-4">
+                <input class="form-control here" type="text" name="subprefecture" id="subprefecture">
+              </div>
+			  
+              <div class="col-4">
+                <input class="form-control here" type="text" name="address" >
+              </div>
+            </div>
+			<br>
+      <label style="padding: 10px;">(??)</label><br>
+      <p style="color:red;">{{ $errors->first('address2') }}</p>
+      </div>
+	  
+	  </td>
+      
+      
+    </tr>
+
+
+
+
+JS part
+=======
+
+function zipGenerator()
+	  {
+		var request = new XMLHttpRequest();
+		var url = 'https://ita01.colgis.com/cgi-bin/http_yubin_get.cgi?PASSWORD=colgis.co.jp&YUBINBANGO=';
+		var zip = String((document.getElementById('zip1').value)+(document.getElementById('zip2').value));
+		url = url.concat(zip);
+		request.open('GET',url,true);
+
+		request.onload = function(){
+		  var data = this.response;
+		  console.log (data);
+		  ward = data.split(" ");
+		  province = ward[0].split("==")
+		  if (ward[1]!== undefined){
+			document.getElementById("todofuken").value = province[1];
+			document.getElementById("subprefecture").value = ward[1];
+			document.getElementById("zipError").innerHTML = ""
+		  }
+		  else 
+		  {
+			document.getElementById("todofuken").value = "";
+			document.getElementById("subprefecture").value = "";
+			document.getElementById("zipError").innerHTML = "invalide postal code "
+		  }
+		};
+		request.send();
+	  }
