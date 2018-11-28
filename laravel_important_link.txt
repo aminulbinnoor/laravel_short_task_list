@@ -68,3 +68,6 @@ https://www.kodeajaib.com/2016/11/laravel-5-tutorial-email-verification.html
 =>Database Transactions block using try and catch in Laravel( page er last a total code deya ace)
 https://fideloper.com/laravel-database-transactions
 
+=>laravel crud full tutorial
+https://appdividend.com/2018/09/06/laravel-5-7-crud-example-tutorial/
+
