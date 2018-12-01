@@ -1,0 +1,4 @@
+
+command for accessing another pc local server
+===========================================
+php artisan serve --host=192.168.31.177 --port=80
