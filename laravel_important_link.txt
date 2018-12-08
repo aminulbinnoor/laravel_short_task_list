@@ -71,3 +71,6 @@ https://fideloper.com/laravel-database-transactions
 =>laravel crud full tutorial
 https://appdividend.com/2018/09/06/laravel-5-7-crud-example-tutorial/
 
+=>messenger chat integrate with website
+https://www.codementor.io/wizzydayo/adding-messenger-customer-chat-to-your-website-jdft3pjue
+
