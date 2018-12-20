@@ -73,4 +73,6 @@ https://appdividend.com/2018/09/06/laravel-5-7-crud-example-tutorial/
 
 =>messenger chat integrate with website
 https://www.codementor.io/wizzydayo/adding-messenger-customer-chat-to-your-website-jdft3pjue
+=> laravel group chat 
+https://pusher.com/tutorials/group-chat-laravel/
 
