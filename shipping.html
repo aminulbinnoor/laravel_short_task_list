@@ -1,0 +1,1141 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <!-- Character Set -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="style1.css">
+        <!--Bootstrap 4 Css-->
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <!--FontAwesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <!--Custom Css -->
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="style1.css" />
+    </head>
+    <body>
+
+        <!-- Main sidebar -->
+        <section class="menu_area">
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="sidebar-main" class="sidebar sidebar-default sidebar-separate sidebar-fixed">
+                        <div class="sidebar-content">
+                            <!-- /Sidebar Category -->
+                            <!-- /Sidebar Category -->
+                            <div class="sidebar-category sidebar-default">
+                                <div class="category-title">
+                                    <span>General menu</span>
+                                </div>
+                                <div class="category-content">
+                                    <ul id="fruits-nav" class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                Customer management
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="#other-fruits" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="other-fruits">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                Settings
+                                            </a>
+                                            <ul id="other-fruits" class="flex-column collapse">
+                                                <li class="nav-item">
+                                                    <a href="shop-set-VP.html" class="nav-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        Shop Setting
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item ">
+                                                    <a href="index.html" class="nav-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        Category
+                                                    </a>
+                                                </li>
+
+                                                <li class="nav-item ">
+                                                    <a href="subcategory.html" class="nav-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        Subcategory
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item ">
+                                                    <a href="point-list.html" class="nav-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        Point Setting
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item ">
+                                                    <a href="shippingview.html" class="nav-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        Shipping
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item ">
+                                                    <a href="mail-setting-view.html" class="nav-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        Mail
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item ">
+                                                    <a href="delivary_payment_setting_view.html" class="nav-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        Delivery & Payment
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item ">
+                                                    <a href="others_view_update.html" class="nav-link">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        Others
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <!-- /Sub Nav -->
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                Order management
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                various Settings
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- /Nav -->
+                                </div>
+                                <!-- /Category Content -->
+                            </div>
+                            <!-- /Sidebar Category -->
+                            <!-- /Sidebar Category -->
+                        </div>
+                    </div>
+                    <!-- /main sidebar -->
+                </div>
+                <!--col end-->
+
+                <!--======================Point Area==============================-->
+
+                <div class="col-md-9 mt-5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="">
+                                <div class="tab">
+                                    <button class="tablinks active" onclick="openCity(event, 'shipment')">Shipping Setting</button>
+                                    <button class="tablinks" onclick="openCity(event, 'prefecture')"> Setting by prefecture</button>
+                                    <button class="tablinks" onclick="openCity(event, 'calender')">Holiday calendar setting</button>
+                                </div>
+
+                                <div class="tab-contedrnt">
+                                    <div id="shipment" class=" row tabcontent active fadeIn" style="display:block">
+                                        <form action="shippingview.html" method="">
+                                            <div class="row mt-4 fontsizeb">
+                                                <div class="col-md-2">
+                                                    <div class="custom-control-inline mt-2">
+                                                        <label class="form_label" >Shipment closing time</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="custom-control-inline mt-2">
+                                                        <select class="form-control" name="black2">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                            <option  value="13">13</option>
+                                                            <option value="14">14</option>
+                                                            <option value="15">15</option>
+                                                            <option value="16">16</option>
+                                                            <option value="17">17</option>
+                                                            <option value="18">18</option>
+                                                            <option value="19">19</option>
+                                                            <option value="20">20</option>
+                                                            <option value="21">21</option>
+                                                            <option value="22">22</option>
+                                                            <option value="23">23</option>
+                                                            <option value="24">24</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="custom-control-inline">
+                                                        <label class="form_label" >time</label>
+                                                    </div>
+                                                    <div class="custom-control-inline mt-2">
+                                                        <select class="form-control" name="Kcode3">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                            <option  value="13">13</option>
+                                                            <option value="14">14</option>
+                                                            <option value="15">15</option>
+                                                            <option value="16">16</option>
+                                                            <option value="17">17</option>
+                                                            <option value="18">18</option>
+                                                            <option value="19">19</option>
+                                                            <option value="20">20</option>
+                                                            <option value="21">21</option>
+                                                            <option value="22">22</option>
+                                                            <option value="23">23</option>
+                                                            <option value="24">24</option>
+                                                            <option value="25">25</option>
+                                                            <option value="26">26</option>
+                                                            <option value="27">27</option>
+                                                            <option value="28">28</option>
+                                                            <option value="29">29</option>
+                                                            <option value="30">30</option>
+                                                            <option value="31">31</option>
+                                                            <option value="32">32</option>
+                                                            <option value="33">33</option>
+                                                            <option value="34">34</option>
+                                                            <option value="35">35</option>
+                                                            <option value="36">36</option>
+                                                            <option value="37">37</option>
+                                                            <option value="38">38</option>
+                                                            <option value="39">39</option>
+                                                            <option value="40">40</option>
+                                                            <option value="41">41</option>
+                                                            <option value="42">42</option>
+                                                            <option value="43">43</option>
+                                                            <option value="44">44</option>
+                                                            <option value="45">45</option>
+                                                            <option value="46">46</option>
+                                                            <option value="47">47</option>
+                                                            <option value="48">48</option>
+                                                            <option value="49">49</option>
+                                                            <option value="50">50</option>
+                                                            <option value="51">51</option>
+                                                            <option value="52">51</option>
+                                                            <option value="53">53</option>
+                                                            <option value="54">54</option>
+                                                            <option value="55">55</option>
+                                                            <option value="56">56</option>
+                                                            <option value="57">57</option>
+                                                            <option value="58">58</option>
+                                                            <option value="59">54</option>
+                                                            <option value="60">60</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="custom-control-inline">
+                                                        <label class="form_label" >Minute</label>
+                                                    </div>
+                                                </div>			
+                                            </div>
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <div class="custom-control-inline">
+                                                        <label class="form_label" >Delivery period</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="custom-control-inline">
+                                                        <input type="text" class="form-control quantity" name="daibiki">
+                                                    </div>
+                                                    <div class="custom-control-inline">
+                                                        <label class="form_label" >Day</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <div class="custom-control-inline">
+                                                        <label class="form_label" >Longest delivery date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10 mb-3">
+                                                    <div class="custom-control-inline">
+                                                        <input type="text" class="form-control quantity" name="isUriage">
+                                                    </div>
+                                                    <div class="custom-control-inline">
+                                                        <label class="form_label" >Day</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-5" style="text-align:right;">
+
+                                                <div class="custom-control-inline">
+                                                    <input type="submit" class="form-control btn_addsub" value="Save">
+                                                </div>
+
+                                                <div class="custom-control-inline">
+                                                    <a href="shippingview.html" class="btn mt-4 mb-4 ml-3 btn_addsub">Cancel</a>
+
+                                                </div>
+
+                                            </div>
+                                        </form>
+
+                                        <!-- 1st tab button -->
+
+                                    </div>
+                                    <!-- tab two content -->
+                                    <div id="prefecture" class="tabcontent slideInRight">
+                                        <div class="row">
+                                            <!-- row 1 start -->
+                                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 pl-0">
+                                                <form class="form-inline" action="shippingview.html">
+                                                    <!-- 1 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 愛知県</label>
+
+                                                        <label class="">Day </label>
+                                                        <input type="number" class="" name="dataint41" style="width:40px;height:23px">
+
+                                                        <label class=""> Amount</label>
+                                                        <input type="number" class=""  name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+
+                                                    <!-- 2 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 千葉県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 3 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">福岡県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 4 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 群馬県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 5 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">兵庫県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 6 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 岩手県 </label>
+
+                                                        <label>Day </label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label> Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 7 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-2 acolor">神奈川県</label>
+
+                                                        <label class="ml-1">Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 8 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">京都府</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 9 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 宮崎県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 10 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 奈良県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label >Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 11 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">岡山県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label for="email">Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 12 start -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">佐賀県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+                                                    <!-- 12 end -->
+                                                </form>
+                                            </div>
+                                            <!-- row 1 end-->
+
+                                            <!-- row 2 start -->
+                                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 pl-0">
+                                                <form class="form-inline" action="">
+                                                    <!-- 1 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">島根県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+
+                                                    <!-- 2 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">徳島県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 3 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">福岡県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 4 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 富山県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 5 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 山口県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 6 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 秋田県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 7 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">愛媛県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 8 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">福島県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 9 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">広島県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 10 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">茨城県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 11 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">香川県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 12 start -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 高知県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+                                                    <!-- 12 end -->
+                                                </form>
+                                            </div>
+                                            <!-- row 2 end-->
+
+                                            <!-- row 3 start -->
+                                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 pl-0">
+                                                <form class="form-inline" action="">
+                                                    <!-- 1 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">三重県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+
+                                                    <!-- 2 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">長野県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 3 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">新潟県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 4 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">沖縄県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 5 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">埼玉県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 6 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">静岡県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 7 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">東京都</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 8 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-2 acolor">和歌山県</label>
+
+                                                        <label class="ml-1">Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 9 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 山梨県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 10 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">青森県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 11 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">福井県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 12 start -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 岐阜県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="souryou0"  style="width:40px;height:23px">
+                                                    </div>
+                                                    <!-- 12 end -->
+                                                </form>
+                                            </div>
+                                            <!-- row 3 end-->
+
+                                            <!-- row 4 start -->
+                                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 pl-0">
+                                                <form class="form-inline" action="">
+                                                    <!-- 1 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">北海道</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+
+                                                    <!-- 2 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">石川県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 3 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-2 acolor">鹿児島県</label>
+
+                                                        <label class="ml-1">Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 4 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">熊本県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 5 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">宮城県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 6 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">長崎県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 7 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor"> 大分県 </label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 8 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">大阪府</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 9 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">滋賀県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 10 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">栃木県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+                                                    <!-- 11 -->
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" name="kenmei" checked>
+                                                        <label class="mr-4 acolor">鳥取県</label>
+
+                                                        <label>Day</label>
+                                                        <input type="number" class=""  name="dataint41" style="width:40px;height:23px">
+
+                                                        <label>Amount</label>
+                                                        <input type="number" class="" name="name"  style="width:40px;height:23px">
+                                                    </div>
+
+
+                                                    <!-- 11 end -->
+                                                </form>
+                                            </div>
+                                            <!-- row 4 end-->
+
+
+                                        </div> 
+
+                                    </div>
+                                    <!-- tab two content end -->
+
+                                    <!-- tab three content -->
+                                    <div id="calender" class="tabcontent slideInRight">
+
+                                        <!-- 1 -->
+                                        <div class="bheight bg-light mt-5">
+                                            <div class=" row">
+                                                <div class="col-md-9 mini_header_area">
+                                                    <h5 class="mt-4 ml-2">Holiday calendar setting</h5>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <!-- 2 -->
+                                        <div class="row mt-3">
+
+                                            <div class="col-md-12 bg-light text-right">
+
+                                                <div class="custom-control-inline">
+                                                    <button type="reset" class="form-control btn_addsub" value="Cancel">
+                                                        <i class="far fa-times-circle"><a class="link_page" href="#">Cancel</a></i>
+                                                    </button>
+                                                </div>  
+                                                <div class="custom-control-inline">
+                                                    <button type="submit" class="form-control btn_addsub" value="Save">
+                                                        <a class="link_page" href="#">+Add</a> 
+                                                    </button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!-- 3 -->
+                                        <div class="row mt-2 classd mb-5">
+                                            <div class="col-md-12">
+
+                                                <form class="form-inline">
+                                                    <div class="form-group">
+                                                        <label for="sel1" class="mr-2"><h6 class="">Year</h6></label>
+                                                        <select class="form-control" id="sel1" onChange="calendarMap()">
+                                                            
+                                                        </select>
+                                                    </div> 
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                        <!-- 4 -->
+                                        
+
+
+
+
+                                        <!--  --> 
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <!--======================End Point Area==============================-->
+            </div>
+        </section>
+        <!---end section-->
+		<script type="text/javascript">
+		var end = 1900;
+		var start = new Date().getFullYear()+20;
+		var options = "";
+		for(var year = start ; year >=end; year--){
+		  options += "<option value="+year+">"+ year +"</option>";
+		}
+		
+		var e=document.getElementById("sel1");
+		e.innerHTML = options;
+		
+		
+		  var months    = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+		  calendarMap();
+		function calendarMap(){
+			var year = e.options[e.selectedIndex].value;
+			
+			  //main work
+			  removeCalende();
+			
+				var element = document.getElementById('calender');
+				var main_section = document.createElement('div');
+				main_section.setAttribute('id','calendar01');
+				createRowMonth(main_section,0,year);
+				createRowMonth(main_section,2,year);
+				createRowMonth(main_section,4,year);
+				createRowMonth(main_section,6,year);
+				createRowMonth(main_section,8,year);
+				createRowMonth(main_section,10,year);
+				element.appendChild(main_section);
+				}
+			function removeCalende(){
+				var element = document.getElementById('calendar01');
+				if(element){
+				element.parentNode.removeChild(element);
+				}
+			}
+		
+			//element.appendChild(main_section);
+			//create row month
+			function createRowMonth(rowMonth,startMonth,year){
+				var main_section = document.createElement('div');
+				main_section.className += 'row';
+				main_section.setAttribute('style','padding-top:5px');
+				
+				
+				createmonth(main_section,startMonth,year);
+				createmonth(main_section,startMonth+1,year);
+				rowMonth.appendChild(main_section);
+			}
+			
+			//create month
+			function createmonth(month_parent,month,year){
+				var days = new Date(year,month+1, 0).getDate();
+				var first_day = new Date(year,month, 1).getDay();
+				var sub = document.createElement('div');
+				sub.className+='col-md-6';
+				var sub2 = document.createElement('h5');
+				sub2.innerHTML=months[month];
+				sub2.className+='text-center classc p-1';
+				var sub3 = document.createElement('table');
+				sub3.className+='table-responsive table-bordered';
+				
+				var main_tab=document.createElement('tbody');
+				
+				//Day name
+				var label=document.createElement('tr');
+				var labelsList = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+				for(var i = 0; i < labelsList.length; i++){
+				  var label_sub = document.createElement('th');
+				  if(i==0 || i==6){
+					label_sub.className+='classa';
+				  }
+				  //label.className += "cld-label";
+				  label_sub.innerHTML = labelsList[i];
+				  label.appendChild(label_sub);
+				}
+				main_tab.appendChild(label);
+				
+				//month days
+				var dayinput=1;
+				var daycount=0;
+				var id = 0;
+				while(dayinput <= days){
+					var day_element=document.createElement('tr');
+					
+					for(var i = 0; i < 7; i++){
+
+						
+							
+
+						var day_sub = document.createElement('td');
+						day_sub.className+='text-center';
+						
+						
+						day_sub.setAttribute("style","width:10%;padding:0 0 0 5px;");
+						if(daycount>=first_day && dayinput <= days){
+							var day_sub1 = document.createElement('div');
+							day_sub1.setAttribute('style','float:left;padding-top:3px');
+							var day_sub11 = document.createElement('input');
+							day_sub11.setAttribute('type','checkbox');
+							day_sub11.setAttribute('class','checkdata');
+							day_sub11.setAttribute('name',months[month]+id);
+							day_sub11.setAttribute('id',months[month]+id);
+							day_sub11.setAttribute('onclick','checkfield(this)');
+							if(i==0 || i==6){
+								day_sub11.checked =true;
+							}
+							day_sub1.appendChild(day_sub11);
+							
+							var day_sub2 = document.createElement('div');
+							var day_sub21 = document.createElement('label');
+							day_sub21.setAttribute('class','checkbox-inline');
+							day_sub21.innerHTML = dayinput;
+							day_sub2.appendChild(day_sub21);
+							
+							day_sub.appendChild(day_sub1);
+							day_sub.appendChild(day_sub2);
+							dayinput++;
+						}
+						if(i==0 || i==6){
+							
+							day_sub.className+=' classa';
+						}
+						daycount++;
+						id++;
+						
+						day_element.appendChild(day_sub);
+					}
+					
+					
+					
+					main_tab.appendChild(day_element);
+				}
+				
+			
+				
+				
+				sub3.appendChild(main_tab);
+				sub.appendChild(sub2);
+				sub.appendChild(sub3);
+				month_parent.appendChild(sub);
+			}
+			function checkfield(data){
+				if(data.checked == true){
+					data.parentElement.parentElement.style.background="#FFCCCC";
+				}else{
+				
+					data.parentElement.parentElement.style.background="#fff";
+				}
+			}
+		</script>
+		
+		
+
+        <!--Jquery-->
+        <script src="js/jquery.min.js"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!--Bootstrap Js-->
+        <script src="js/bootstrap.min.js"></script>
+        <!--Jquery-->
+        <script src="js/popper.min.js"></script>
+        <!--Custom Js-->
+        <script src="js/custom.js"></script>
+    </body>
+</html>
