@@ -79,4 +79,7 @@ https://pusher.com/tutorials/group-chat-laravel/
 =>datatables 
 https://medium.com/@BishoAtif/integrating-laravel-with-datatables-975b0bbf4009
 
+=>laravel role and permission
+https://itsolutionstuff.com/post/laravel-56-user-roles-and-permissions-acl-using-spatie-tutorialexample.html
+
 
