@@ -22,6 +22,26 @@ Controller
         }
 
     }
+    
+    
+    /* password update*/
+    public function updatePassword(Request $request)
+    {
+        if($request->isMethod('post')){
+            $data = $request->all();
+            $current_pwd = User::where(['email'=>Auth::user()->email])->first();
+            $check_pwd = $data['current_pwd'];
+            if(Hash::check($check_pwd,$current_pwd->password)){
+                $password = bcrypt($data['new_pwd']);
+                User::where(['id'=>Auth::user()->id])->update(['password'=>$password]);
+                return redirect()->route('setting')->with('updatePSuccess','password updated successfully !');
+            }
+            return redirect()->back()->with('updatePError','Incorrect Current Password! !');
+
+        }
+    }
+    
+    
 
 
 View and jQuery
