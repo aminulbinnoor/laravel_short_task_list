@@ -1,0 +1,61 @@
+Route
+=====
+Route::get('/check-pc','Admin\ProductController@productCode');
+
+
+
+Controller
+==========
+
+/*check product code */
+
+    public function productCode(Request $request)
+    {
+        $check_pc = Syouhin1::where('kongouritsu', $request->kongouritsu)->first();
+
+        if ($check_pc['kongouritsu']) {
+            echo "true";
+            die;
+        } else {
+            echo "false";
+            die;
+        }
+
+    }
+
+
+View and jQuery
+===============
+
+<input type="text" class="form-control" style="margin-top: 0" name="kongouritsu"
+                id="current_pc"
+                value="{{old('kongouritsu')}}" tabindex="3" autocomplete="off">
+
+<span id="chkpc"></span>
+
+<script>
+        $(document).ready(function(){
+            $("#current_pc").keyup(function(){
+                var current_pc = $("#current_pc").val();
+                $.ajax({
+                    type:'get',
+                    url :'/check-pc',
+                    data:{kongouritsu:current_pc},
+                    success:function(resp){
+
+                        if(resp == "false")
+                        {
+                            $("#chkpc").html("<font color='green'>product code is available</font>");
+                        }
+                        else if(resp == "true")
+                        {
+                            $("#chkpc").html("<font color='red'>product code already exists</font>");
+                        }
+                    },
+                    error:function(){
+                        alert("Error");
+                    }
+                });
+            });
+        });
+</script>
