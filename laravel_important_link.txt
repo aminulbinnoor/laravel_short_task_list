@@ -86,4 +86,7 @@ https://itsolutionstuff.com/post/laravel-56-user-roles-and-permissions-acl-using
 https://aimeos.org/laravel-ecommerce-package/?fbclid=IwAR34yANpQqNzAKfzwE9cVydh1Zyfk1dZ-wvk5zo1FqUZ-bR5VvSTPhS4pvE
 https://github.com/aimeos/aimeos-laravel
 
+full documentation
+https://github.com/aimeos/aimeos/blob/master/README.md
+
 
