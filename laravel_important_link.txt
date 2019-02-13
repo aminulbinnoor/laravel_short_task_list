@@ -82,6 +82,9 @@ https://medium.com/@BishoAtif/integrating-laravel-with-datatables-975b0bbf4009
 =>laravel role and permission
 https://itsolutionstuff.com/post/laravel-56-user-roles-and-permissions-acl-using-spatie-tutorialexample.html
 
+=>laravel ajax tutorial full 
+https://appdividend.com/2018/02/07/laravel-ajax-tutorial-example/
+
 =>laravel ecommerce docs and demo and package
 https://aimeos.org/laravel-ecommerce-package/?fbclid=IwAR34yANpQqNzAKfzwE9cVydh1Zyfk1dZ-wvk5zo1FqUZ-bR5VvSTPhS4pvE
 https://github.com/aimeos/aimeos-laravel
