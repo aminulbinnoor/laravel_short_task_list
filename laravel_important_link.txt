@@ -92,8 +92,10 @@ https://github.com/aimeos/aimeos-laravel
 full documentation
 https://github.com/aimeos/aimeos/blob/master/README.md
 
-Laravel 5.6 - Prevent Block Multiple Login Of Same Credentials
-
+=>Laravel 5.6 - Prevent Block Multiple Login Of Same Credentials
 https://laravelcode.com/post/laravel-56-prevent-block-multiple-login-of-same-credentials
+
+=>Laravel 5 Chart example using Charts Package
+https://laravelcode.com/post/laravel-5-chart-example-using-charts-package
 
 
