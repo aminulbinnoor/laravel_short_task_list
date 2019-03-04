@@ -98,4 +98,8 @@ https://laravelcode.com/post/laravel-56-prevent-block-multiple-login-of-same-cre
 =>Laravel 5 Chart example using Charts Package
 https://laravelcode.com/post/laravel-5-chart-example-using-charts-package
 
+=>scopeSearch and search result pagination
+https://www.youtube.com/watch?v=ku3Lyy9wIm4
+
+
 
