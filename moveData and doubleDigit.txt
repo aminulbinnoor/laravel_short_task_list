@@ -1,0 +1,23 @@
+<?php
+namespace App\Traits;
+
+trait MoveElement{
+
+    public function moveFrom(&$array, $a, $b){
+        $out = array_splice($array, $a, 1);
+        array_splice($array, $b, 0, $out);
+    }
+
+    public function doubleDigits($arr=[],$digit=2)
+    {
+
+        return array_map(function($n) use ($digit) {
+
+            return sprintf('%0'.$digit.'d', $n);
+        },
+            $arr );
+
+    }
+
+
+}
