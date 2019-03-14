@@ -101,5 +101,8 @@ https://laravelcode.com/post/laravel-5-chart-example-using-charts-package
 =>scopeSearch and search result pagination
 https://www.youtube.com/watch?v=ku3Lyy9wIm4
 
+=>laravel photo upload traits
+https://www.larashout.com/laravel-image-upload-made-easy?fbclid=IwAR0OoEfFaL5llDrByrOk6lSbdnz2TJAA_OppP_2OPiDz1xL-h4sdlhWdJVs
+
 
 
