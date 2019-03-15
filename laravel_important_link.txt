@@ -104,5 +104,7 @@ https://www.youtube.com/watch?v=ku3Lyy9wIm4
 =>laravel photo upload traits
 https://www.larashout.com/laravel-image-upload-made-easy?fbclid=IwAR0OoEfFaL5llDrByrOk6lSbdnz2TJAA_OppP_2OPiDz1xL-h4sdlhWdJVs
 
+=>Laravel performance speed up tutorial
+https://serversforhackers.com/laravel-perf/course?fbclid=IwAR31dxz-RJFa6lUSxuS-VYGd4x9yWp3qFHtQ1h91coaj0PfQ4-Tp1CI55qc
 
 
