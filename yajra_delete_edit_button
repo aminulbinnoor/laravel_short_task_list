@@ -1,0 +1,21 @@
+$customers = DB::table('kaiin')
+                ->select('bango', 'name', 'kaka', 'point', 'mail', 'tel', 'bunrui1',
+                    DB::raw("CASE WHEN (sex = CAST(1 as Char)) THEN 'Male'  WHEN (sex = CAST(2 as Char)) THEN 'Female'  END as gender")
+
+                )
+                ->where($search_by)
+                ->get();
+     return DataTables::of($customers)
+            ->addColumn('action', function ($customer) {
+                return '<a href="' . route('customers.edit', $customer->bango) . '" id="' . $customer->bango . '">
+                    <i class="fas fa-pencil-alt iconfa" style="text-align: center;"></i></a>
+                    <a href="' . route('customers.show', $customer->bango) . '" id="' . $customer->bango . '">
+                    <i class="fas fa-laptop iconfa" style="padding-left:35px; text-align: center;"></i></a>
+                    <form method="POST" action="' . route('customers.destroy', $customer->bango) . '" accept-charset="UTF-8">
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <input type="hidden" name="_token" value="' . csrf_token() . '">
+                                    <input class="btn btn-danger" type="submit" value="del">
+                                </form>';
+            })
+            ->addIndexColumn()
+            ->make(true);
