@@ -1,0 +1,283 @@
+Controller
+=======
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Order;
+use Stripe\Stripe;
+use Stripe\Charge;
+use Session;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class CheckoutController extends Controller
+ {
+    public function shipping()
+    {
+        return view('hs.shipping-info');
+    }
+
+    public function payment()
+    {
+        return view('hs.payment');
+    }
+
+    public function storePayment(Request $request)
+    {
+        // Set your secret key: remember to change this to your live secret key in production
+        // See your keys here: https://dashboard.stripe.com/account/apikeys
+         \Stripe\Stripe::setApiKey("sk_test_U1ZszWVJyY29HHv9CX9zOflt");
+
+        // Get the credit card details submitted by the form
+          $token = $request->stripeToken;
+
+        // Create a charge: this will charge the user's card
+        try {
+            $charge = \Stripe\Charge::create(array(
+                "amount" => Cart::total()*100, // Amount in cents
+                "currency" => "usd",
+                "source" => $token,
+                "description" => "Example charge"
+            ));
+        } catch (\Stripe\Error\Card $e) {
+            // The card has been declined
+        }
+
+      //Create the order
+         Order::createOrder();
+        flash('Welcome Your product have Succesfully purchased! Thank You', 'success');
+        //redirect user to some page
+        return redirect()->route('home');
+    }
+}
+
+
+
+payment Blade
+===========
+@extends('layout.main')
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-lg-offset-1"><br>
+        <h3>Payment with your Stripe Account ID</h3><hr>
+          <form action="{{route('payment.store')}}" method="POST" id="payment-form" class="form-horizontal">
+            {{csrf_field()}}
+            <span class="payment-errors"></span>
+
+            <div class="form-group">
+                <label>
+                    <span>Card Number</span>
+                    <input type="text" size="40" data-stripe="number" class="form-control" placeholder="valid card number">
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <span>Expiration (MM)</span>
+                    <input type="text" data-stripe="exp_month" size="40" class="form-control" placeholder="Expiration month">
+                    <span> Expiration (YY)</span>
+                    <input type="text" data-stripe="exp_year" size="40" class="form-control" placeholder="Expiration year">
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <span>CVC</span>
+                    <input type="text" data-stripe="cvc" size="40" class="form-control" placeholder="CVC number">
+                </label>
+            </div>
+            <input type="submit" class="btn btn-success" size="40" value="Submit Payment">
+         </form>
+        </div>
+      </div>
+    </div>
+@endsection
+
+
+
+Footer Main blade file
+=================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>@yield('title','Daily Home Service')</title>
+<link rel="stylesheet" href="{{ url('dhs/css') }}/bootstrap.min.css"/>
+<link rel="stylesheet" href="{{ url('dhs/css') }}/font-awesome.min.css"/>
+<link rel="stylesheet" href="{{ url('dhs/css') }}/slick.css"/>
+<link rel="stylesheet" href="{{ url('dhs/css') }}/nivo-lightbox.css"/>
+<link rel="stylesheet" href="{{ url('dhs/css') }}/style.css"/>
+<link rel="shortcut icon" href="/favicon.ico" />
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<header class="head-bg all-bg">
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-xs-6">
+			<ul class="list-inline head-icon">
+				<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+			</ul>
+		</div>
+		{{-- <div class="col-sm-6 col-xs-6 login-po">
+			<ul class="list-inline head-right text-right ">
+			<li><a href="#" data-toggle="modal" data-target="#myModal">
+			 <i class="fa fa-user"></i>
+				 Welcome{{-- {{Auth::user()->name}}</a></li>
+				<li class="lo-click"><a href=""><i class="fa fa-sign-out"></i>Logout</a></li>
+			</ul>
+			<!-- Modal -->	
+		</div> --}} 
+	</div>
+</div>
+</header>
+<section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-sm-3  logo-part">
+			<a href="#"><img src="{{url('dhs/img/log.png')}}" alt="logo" class="img-responsive"></a>
+		</div>
+		<div class="col-md-6 col-sm-5">
+			<div class="search">
+				<form action="{{ route('search.product') }}" method="POST">					
+					<div class="input-group">
+						<input type="text" name="search_product" class="form-control search-in" placeholder="type product name..">
+						<span class="input-group-btn">
+				  <button class="btn btn-Search" type="submit"><i class="fa fa-search"></i>
+				 <input type="hidden" name="_token" value="{{ csrf_token() }}">		  
+			    </button>
+			  </span>
+			</div>
+		  </form>
+	    </div>
+			<div class="text-center hed-phon">
+				<span><i class="fa fa-mobile"></i>01756421036</span>
+				<span><i class="fa fa-mobile"></i>01756421036</span>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-4 cart-item text-right pl">
+
+		<li>
+<a href="{{ route('cart.index') }}"><button class="btn btn-warning btn-lg" type="button"> <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+<span class="badge">{{ Cart::count() }}</span></button></a>
+</li>
+			
+		</div>
+	</div>
+</div>
+</section>
+<nav class="navbar">
+<div class="container">
+@include('flash::message')
+	<div class="nav-bg  all-bg">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dhs-nav" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand visible-xs" href="#">Daily Home Service</a>
+		</div>
+		<div class="collapse navbar-collapse" id="dhs-nav">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="{{route('home')}}">HOME <span class="sr-only">(current)</span></a></li>
+				<li><a href="">ABOUT US</a></li>
+				<li><a href="{{route('product')}}">products</a></li>
+				<li><a href="">payment </a></li>
+				<li><a href="">special Offer</a></li>
+				<li><a href="">CONTACT US</a></li>
+				<li><a href="">help </a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</nav>
+<!-- end nav -->
+@yield('content')
+<footer class="footer-bg all-bg">
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4  footer-menu">
+			<h2>popular category</h2>
+			<ul>
+				<li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>grocery store</a></li>
+				<li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>fresh fruits (100% formalin free)</a></li>
+				<li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>fresh meat</a></li>
+				<li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>fish market</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-4 footer-menu footer-ca">
+			<ul>
+				<li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>grocery store</a></li>
+				<li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>fresh fruits (100% formalin free)</a></li>
+				<li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>fresh meat</a></li>
+				<li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>fish market</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-4 contact-fo">
+			<h2>contact us</h2>
+			<p><i class="fa fa-home"></i> dokani.com.bd niketon, gulshan, dhaka - 1212.</p>
+			<p><i class="fa fa-phone"></i> +88 01736 789444 </p>
+			<a href=""><i class="fa fa-envelope-o"></i>info@gamil.com.bd</a>
+		</div>
+	</div>
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div class="footer-br text-center bo-footer">
+				<ul class="list-inline ">
+					<li class="active"><a href="{{route('home')}}">HOME <span class="sr-only">(current)</span></a></li>
+					<li><a href="">ABOUT US</a></li>
+					<li><a href="{{route('product')}}">products</a></li>
+					<li><a href="">payment </a></li>
+					<li><a href="">special Offer</a></li>
+					<li><a href="">CONTACT US</a></li>
+					<li><a href="">help </a></li>
+				</ul>
+				<p>&copy; 2016 Design &amp; Development <a href="#">creative it ltd.</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+</footer>
+<script src="{{ url('dhs/js') }}/jquery-2.2.4.min.js "></script>
+<script src="{{ url('dhs/js') }}/bootstrap.min.js "></script>
+<script src="{{ url('dhs/js') }}/slick.min.js "></script>
+<script src="{{ url('dhs/js') }}/nivo-lightbox.min.js "></script>
+<script src="{{ url('dhs/js') }}/script.js "></script>	
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+Stripe.setPublishableKey('pk_test_sEUVWbBxRpU8tMGNIQbWZIEK');
+</script>
+<script src="{{ url('dhs/js') }}/app.js"></script>
+<script>
+$.ajaxSetup({
+   headers: {
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+</script>	
+<script>
+$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>	
+</body>
+
+</html>
+
+composer.json
+============
+add this in composer.json and write composer update on the terminal  
+
+ "stripe/stripe-php": "4.*"
