@@ -107,4 +107,5 @@ https://www.larashout.com/laravel-image-upload-made-easy?fbclid=IwAR0OoEfFaL5llD
 =>Laravel performance speed up tutorial
 https://serversforhackers.com/laravel-perf/course?fbclid=IwAR31dxz-RJFa6lUSxuS-VYGd4x9yWp3qFHtQ1h91coaj0PfQ4-Tp1CI55qc
 
-
+=> File upload with ajax progressbar and laravel
+https://itsolutionstuff.com/post/php-laravel-file-upload-with-progress-bar-exampleexample.html
