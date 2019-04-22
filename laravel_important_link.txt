@@ -109,3 +109,6 @@ https://serversforhackers.com/laravel-perf/course?fbclid=IwAR31dxz-RJFa6lUSxuS-V
 
 => File upload with ajax progressbar and laravel
 https://itsolutionstuff.com/post/php-laravel-file-upload-with-progress-bar-exampleexample.html
+
+=>dates of holidays for various countries, states and regions by type while considering the applicable timezone.
+https://commenthol.github.io/date-holidays/
