@@ -1,0 +1,143 @@
+Controller
+==========
+
+try {
+
+                $email = $request->mail;
+                $member_id = $request->member_id ? $request->member_id : $member->bango;
+                $name = $request->last_name . " " . $request->first_name;
+
+                $messageData = [
+                    'email' => $email,
+                    'name' => $name,
+                    'order_id' => $orderhenkan->bango,
+                    'member_id' => $member_id,
+                    'msg' => $msg,
+                ];
+
+
+            if (isset($regulars) && isset($repeats)) {
+                $content = ['messageData' => $messageData, 'regulars' => $regulars, 'repeats' => $repeats];
+            } elseif (isset($regulars)) {
+                $content = ['messageData' => $messageData, 'regulars' => $regulars];
+            } elseif (isset($repeats)) {
+                $content = ['messageData' => $messageData, 'repeats' => $repeats];
+            } else {
+
+                $content = ['messageData' => $messageData];
+            }
+
+            Mail::send('emails.callcenter_orderchange', $content, function ($message) use ($email) {
+                $message->to($email)->subject('Order placed from call center- JabaEC Site');
+            });
+
+
+        } catch (Exception $e) {
+            DB::rollback();
+            //return $e->getMessage();
+            return redirect()->back()->with('danger', 'Please provide valid E-mail to get call center order info mail')->withInput();
+        }
+
+
+
+Email-template blade view
+=========================
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Callcenter Order Change mail</title>
+</head>
+<body>
+
+<h2 style="color:green;">{{$messageData['msg']}}</h2>
+
+<h3 class="alert alert-success">Your order has been changed successfully!</h3>
+
+<table width="700px" style="border: 1px solid grey">
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Hello! {{$messageData['name']}} </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Your Email: {{$messageData['email']}}</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Your Order Id: {{$messageData['order_id']}}</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Your Membership Id: {{$messageData['member_id']}}</td>
+    </tr>
+</table>
+@if(isset($regulars))
+<h2> Regular Product Items</h2>
+<table  width="700px" style="border: 1px solid grey">
+    <thead>
+    <tr>
+        <th width="60%">Product Code</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+        @foreach($regulars as $key=>$value)
+
+            <tr>
+                <td>{{$value['syouhinname']}}</td>
+                <td>¥ {{$value['tanka']}}</td>
+                <td> {{$value['yoteisu']}} </td>
+                <td>¥ {{$value['tanka'] * $value['yoteisu']}}</td>
+
+            </tr>
+        @endforeach
+
+    </tbody>
+</table>
+
+@endif
+
+@if(isset($repeats))
+<h2> Repeat Product Items</h2>
+<table  width="700px" style="border: 1px solid grey">
+    <thead>
+    <tr>
+        <th width="60%">Product Code</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+        @foreach($repeats as $key=>$value)
+            <tr>
+                <td>{{$value['syouhinname']}}</td>
+                <td>¥ {{$value['tanka']}}</td>
+                <td> {{$value['yoteisu']}} </td>
+                <td>¥ {{$value['tanka'] * $value['yoteisu']}}</td>
+            </tr>
+        @endforeach
+
+    </tbody>
+</table>
+@endif
+</body>
+</html>
