@@ -112,3 +112,6 @@ https://itsolutionstuff.com/post/php-laravel-file-upload-with-progress-bar-examp
 
 =>dates of holidays for various countries, states and regions by type while considering the applicable timezone.
 https://commenthol.github.io/date-holidays/
+
+=>a lot of complete task of laravel
+https://www.tutsmake.com/laravel-intervention-image-upload-using-ajax/
