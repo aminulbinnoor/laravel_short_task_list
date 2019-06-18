@@ -115,3 +115,6 @@ https://commenthol.github.io/date-holidays/
 
 =>a lot of complete task of laravel
 https://www.tutsmake.com/laravel-intervention-image-upload-using-ajax/
+
+=>json file update/modify using laravel
+https://stackoverflow.com/questions/17806224/how-to-update-edit-a-json-file-using-php
