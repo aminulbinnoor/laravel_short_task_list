@@ -118,3 +118,6 @@ https://www.tutsmake.com/laravel-intervention-image-upload-using-ajax/
 
 =>json file update/modify using laravel
 https://stackoverflow.com/questions/17806224/how-to-update-edit-a-json-file-using-php
+
+=>multiple users table in laravel
+https://stackoverflow.com/questions/46292391/authenticate-users-from-more-than-two-tables-in-laravel-5
