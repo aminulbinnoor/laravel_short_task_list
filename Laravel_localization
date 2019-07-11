@@ -1,0 +1,34 @@
+Controller
+========
+
+public function locale_forms($locale)
+{
+
+    Session::put('locale', $locale);
+    return redirect()->back();
+
+}
+
+
+Route
+======
+/*Localization  Language change*/
+Route::get('locale/{order_id}', 'Admin\ShopController@locale_forms');
+/*End Localization*/
+
+View
+=====
+<div class="" style="text-align:right;">
+
+    <div class="custom-control-inline">
+
+        <a href="{{url('locale/ja')}}" class="btn  font_color">
+            <img src="{{asset('images/jp.png')}}" style="" class="img-responsive img-fluid  mr-2 ">jp</a>
+
+
+        <a href="{{url('locale/en')}}" class="btn  font_color">
+            <img src="{{asset('images/us.png')}}" style="" class="img-responsive  img-fluid ">
+            en</a>
+
+    </div>
+</div>
