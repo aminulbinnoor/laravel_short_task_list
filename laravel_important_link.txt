@@ -121,3 +121,6 @@ https://stackoverflow.com/questions/17806224/how-to-update-edit-a-json-file-usin
 
 =>multiple users table in laravel
 https://stackoverflow.com/questions/46292391/authenticate-users-from-more-than-two-tables-in-laravel-5
+
+=>barcode generator in laravel milon vai package
+https://github.com/moin786/laravel-barcode-generator
