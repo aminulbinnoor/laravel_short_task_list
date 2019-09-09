@@ -124,3 +124,6 @@ https://stackoverflow.com/questions/46292391/authenticate-users-from-more-than-t
 
 =>barcode generator in laravel milon vai package
 https://github.com/moin786/laravel-barcode-generator
+
+=>fast excel import and export in laravel
+https://github.com/rap2hpoutre/fast-excel
