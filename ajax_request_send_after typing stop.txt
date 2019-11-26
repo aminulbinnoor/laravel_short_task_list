@@ -1,0 +1,135 @@
+=====================================
+send ajax request after stop writting
+=====================================
+
+<script>
+
+    function delay(callback, ms) {
+              var timer = 0;
+              return function() {
+                var context = this, args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                  callback.apply(context, args);
+                }, ms || 0);
+              };
+            }
+
+
+
+    $(document).ready(function () {
+        $("#email").keyup(delay(function (e) {
+            var mailcheck = $("#email").val();
+            $.ajax({
+                type: 'get',
+                url: '/mail-check',
+                data: {email: mailcheck},
+                success: function (resp) {
+                    if (resp == "false") {
+                        $("#mail_msg").html("<font></font>");
+                        $("#save").attr('disabled', false);
+                    } else {
+                        $("#mail_msg").html("<font class='prevent_form' color='red' style='font-size: 14px;'>This email already exists</font>");
+                        $("#save").attr('disabled', true);
+
+                    }
+                },
+                error: function (resp) {
+
+                    //alert("Error");
+                }
+            });
+        },1000));
+    });
+</script>
+
+
+===========================
+Dynamic year month and day
+===========================
+</script>
+
+<!-- <script>
+    var now = new Date().getFullYear();
+
+    var first = now;
+    var last = 1899;
+    var select = document.getElementById("year");
+
+
+    var i;
+    var opt1 = document.createElement('option');
+
+    opt1.innerHTML = "@lang('home.select')";
+    select.appendChild(opt1);
+    for (i = parseInt(last); i <= parseInt(first); i++) {
+        var opt = document.createElement('option');
+        opt.value = i;
+        opt.innerHTML = i;
+        select.appendChild(opt);
+
+    }
+
+
+</script> -->
+
+<script>
+
+    function setDates(days) {
+
+        var select_days = document.getElementById("day");
+        var day_count;
+        var day_value = $("#day_value").val();
+        for (day_count = 1; day_count <= days.length; day_count++) {
+
+            var opt = document.createElement('option');
+
+            if ((day_value != 'undefined' || day_value != '') && day_value == day_count) {
+                opt.selected = 'selected';
+            }
+            opt.value = day_count;
+            opt.innerHTML = day_count;
+            select_days.appendChild(opt);
+        }
+    }
+
+</script>
+<script>
+
+   function getDates_onChange() {
+
+        var year_value = $("#year").val();--}}
+        var month_value = parseInt($("#month").val());
+       days = getDatesInMonth(month_value, year_value);
+        setDates(days);--}}
+       //console.log(getDatesInMonth(month_value,year_value));
+   }
+
+</script>
+
+<script>
+
+    function getDates_onChange() {
+        var year_value = $("#years").val();
+        var day = $("#day").val();
+        var month_value = parseInt($("#month").val());
+        days = getDatesInMonth(month_value, year_value);
+        if (days.length < parseInt(day)) {
+
+            var lang = $('html').attr('lang');
+            if (lang == "en") {
+                $("#day-error").html("<font class='prevent_form' color='red' style='font-size: 11px'>Day not exists on selected month</font>");
+            } else {
+
+                $("#day-error").html("<font class='prevent_form' color='red' style='font-size: 11px'>?????????????</font>");
+            }
+
+
+            $("#save").attr('disabled', true);
+        } else {
+            $("#save").attr('disabled', false);
+            $("#day-error").html("");
+        }
+        //setDates(get_days);
+    }
+</script>
