@@ -1,3 +1,4 @@
+<?php
 'debug_blacklist' => [
         '_ENV' => [
             'APP_KEY',
