@@ -1,0 +1,25 @@
+$normalData = DB::table('syouhin1')
+                ->leftJoin('kakaku', 'syouhin1.bango', '=', 'kakaku.syouhinbango')
+                ->select('syouhin1.bango', 'syouhin1.jouhou', 'syouhin1.kongouritsu',
+                    'syouhin1.kakaku', 'kakaku.kakaku','kakaku.dataint01 as quantity',
+                    'kakaku.dataint02 as normal', DB::raw("(CASE WHEN syouhin1.endtime =1 THEN 'Frozen' WHEN syouhin1.endtime =2 THEN 'Refrigerated' ELSE 'NULL' END) AS temp"))                
+                              
+                ;
+
+      $normalData->where(function ($query) use($request) {
+         $query->where('syouhin1.kongouritsu', 'like', "%".$request->kongouritsu."%")
+               ->where('kakaku.dataint02', 1)
+               ->where('syouhin1.isphoto', 0)
+               ->where('kakaku.pcsyuten', 1);
+                    
+     })->orWhere(function($query) use($request){
+       $query->where('syouhin1.jouhou', 'like', "%".$request->kongouritsu."%")
+             ->where('kakaku.dataint02', 1)
+             ->where('syouhin1.isphoto', 0)
+             ->where('kakaku.pcsyuten', 1);
+    });
+                
+
+            
+
+    $normal = $normalData->orderBy('syouhin1.bango', 'DESC')->get();
