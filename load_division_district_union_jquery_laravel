@@ -1,0 +1,382 @@
+blade view file
+===============
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Clean Blog - Start Bootstrap Theme</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{asset('frontend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{{asset ('frontend/css/clean-blog.min.css')}}" rel="stylesheet">
+  
+  
+ 
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="post.html">Sample Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{asset('frontend/img/home-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Clean Blog</h1>
+            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+     <!-- start row -->
+     <form action="#" method="post">
+      {{csrf_field()}}
+      <div class="row">
+      
+
+        <div class="col-lg-3 col-md-3 mx-auto">
+          
+          <!--select a option division start-->
+         
+
+          <select class="form-control" id="divisions">
+
+            <option value="0">Select</option>
+             @foreach($data as $key)
+           
+          
+            <option value="{{$key->id}}">{{$key->name}}</option>
+            
+          @endforeach
+          </select>
+
+          
+          
+        </div>
+        <div class="col-lg-3 col-md-3 mx-auto">
+          
+          <!--select a option districts start-->
+
+          <select class="form-control" id="districts">
+           
+            
+          </select>
+          
+        </div>
+
+
+         <div class="col-lg-3 col-md-3 mx-auto">
+          
+          <!--select a option upazilas start-->
+
+          <select class="form-control" id="upazilas">
+          
+            
+          </select>
+          
+        </div>
+
+        <div class="col-lg-3 col-md-3 mx-auto">
+          
+          <!--select a option unions start-->
+
+          <select class="form-control" id="unions">
+          
+            
+          </select>
+          
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;  Website 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{asset('frontend/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+
+  
+    <!--Here function is passed to the change method-->
+  
+
+  <!-- Custom scripts for this template -->
+  <script src="{{asset('frontend/js/clean-blog.min.js')}}"></script>
+
+   <script type="text/javascript">
+      $(document).ready(function() {
+        $(document).on('change',"#divisions",function() {
+          var division_id = $(this).val();
+          $("#districts").html('<option value="">Select</option>');
+          
+          $.ajax({
+            url: "{{route('getdistricts')}}",
+            type:"POST",
+            data: {
+              "_token": "{{ csrf_token() }}",
+              division_id:division_id
+            },
+            success: function(data,status) {
+              if(data == 0){
+               $("#districts").html('<option value="">Select</option>'); 
+             }else{
+              
+               $.each(data,function(key, value){
+                //console.log(data);
+                  $('#districts')
+                    .append($("<option></option>")
+                    .attr("value",key)
+                    .text(value));
+
+              }) 
+               }
+               
+            },
+            complete:function(){
+              $("#districts").trigger('change');
+
+            },
+            error:function(xhr,desc){
+              console.log('error');
+
+            }
+          });
+        });
+      });   
+    </script>
+
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(document).on('change',"#districts",function() {
+          var upazilas_id = $(this).val();
+         
+          $("#upazilas").html('<option value="">Select</option>');
+          
+          $.ajax({
+            url: "{{route('getupazilas')}}",
+            type:"POST",
+            data: {
+              "_token": "{{ csrf_token() }}",
+              upazilas_id:upazilas_id
+            },
+            success: function(data,status) {
+              if(data == 0){
+               $("#upazilas").html('<option value="">Select</option>'); 
+             }else{
+              
+               $.each(data,function(key, value){
+                //console.log(data);
+                  $('#upazilas')
+                    .append($("<option></option>")
+                    .attr("value",key)
+                    .text(value));
+
+              }) 
+               }
+               
+            },
+            complete:function(){
+              $("#upazilas").trigger('change');
+
+            },
+            error:function(xhr,desc){
+              console.log('error');
+
+            }
+          });
+        });
+      });   
+    </script>
+
+
+     <script type="text/javascript">
+      $(document).ready(function() {
+        $(document).on('change',"#upazilas",function() {
+          var unions_id = $(this).val();
+          //alert(unions_id);
+          $("#unions").html('<option value="">Select</option>');
+          
+          $.ajax({
+            url: "{{route('getunions')}}",
+            type:"POST",
+            data: {
+              "_token": "{{ csrf_token() }}",
+              unions_id:unions_id
+            },
+            success: function(data,status) {
+              if(data == 0){
+               $("#unions").html('<option value="">Select</option>'); 
+             }else{
+              
+               $.each(data,function(key, value){
+                //console.log(data);
+                  $('#unions')
+                    .append($("<option></option>")
+                    .attr("value",key)
+                    .text(value));
+
+              }) 
+               }
+               
+            },
+            complete:function(){
+              $("#unions").trigger('change');
+
+            },
+            error:function(xhr,desc){
+              console.log('error');
+
+            }
+          });
+        });
+      });   
+    </script>
+  
+
+
+</body>
+
+</html>
+
+
+
+Controller
+==========
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use DB;
+
+class new_controller extends Controller
+{
+
+    public function welcome(){
+
+    $data=DB::table('divisions')->get();    
+   	 return view('/welcome',compact('data'));
+   }
+
+
+   public function getDistrict(Request $req){
+
+    	$district =  DB::table('districts')->where('division_id',$req->division_id)->pluck('name','id');
+
+    	return $district;
+   }
+    public function getupazilas(Request $req){
+    	
+
+    	$upazilas =  DB::table('upazilas')->where('district_id',$req->upazilas_id)->pluck('name','id');
+    	return $upazilas;
+   }
+
+    public function getunions(Request $req){
+
+    	$unions =  DB::table('unions')->where('upazila_id',$req->unions_id)->pluck('bn_name','id');
+    	return $unions;
+   }
+
+   
+
+}
+
+
