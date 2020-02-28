@@ -127,3 +127,6 @@ https://github.com/moin786/laravel-barcode-generator
 
 =>fast excel import and export in laravel
 https://github.com/rap2hpoutre/fast-excel
+
+=>real time add to cart laravel
+https://webmobtuts.com/backend-development/creating-a-shopping-cart-with-laravel/
