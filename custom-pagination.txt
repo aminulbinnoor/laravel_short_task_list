@@ -1,0 +1,23 @@
+@php
+    $currentPage  = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+    
+    if($currentPage != $products_lists->lastPage()){
+
+        $lastPageData = ($products_lists->currentPage()-1)* $products_lists->perPage() + $products_lists->perPage(); 
+        
+    }else{
+
+        $lastPageData = $products_lists->lastItem();
+    }
+@endphp
+
+<div class="row">
+    <div class="col-3">
+      <p>@lang('home.all_mypg') {{ $products_lists->total() }} @lang('home.case_mypg') ({{ ($products_lists->currentPage()-1)* $products_lists->perPage() + 1 }} / {{ $lastPageData }})</p>
+    </div>
+    <div class="col-9">
+    <ul class="orul">
+          {{ $products_lists->links() }}
+    </ul>
+ </div>
+</div>
