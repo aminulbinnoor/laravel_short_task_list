@@ -130,3 +130,7 @@ https://github.com/rap2hpoutre/fast-excel
 
 =>real time add to cart laravel
 https://webmobtuts.com/backend-development/creating-a-shopping-cart-with-laravel/
+
+=>role permission laravel
+https://github.com/akiyamaSM/maravel-permissions?fbclid=IwAR2VEVgxYZd3frMnG9jAAh_XuoDABKWib633SJLZ0UwcHS6M3pDu6sppIXQ
+
