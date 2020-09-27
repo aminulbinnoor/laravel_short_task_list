@@ -134,6 +134,9 @@ https://webmobtuts.com/backend-development/creating-a-shopping-cart-with-laravel
 =>role permission laravel
 https://github.com/akiyamaSM/maravel-permissions?fbclid=IwAR2VEVgxYZd3frMnG9jAAh_XuoDABKWib633SJLZ0UwcHS6M3pDu6sppIXQ
 
+=>complete role permission based multiple authentication laravel
+https://github.com/Norbertho/Norbertho-laravel-redirect-users-after-login-multi-authentication
+
 =>add to cart laravel
 https://github.com/webdevmatics/ecom
 
