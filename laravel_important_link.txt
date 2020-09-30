@@ -1,31 +1,36 @@
+=>Laravel and vue google map api
+================================
+https://github.com/aschmelyun/video-populating-google-map-vue-laravel
+
+
 => Restful API In Laravel 5.6 Using passport:
-=========================================
+============================================
 https://tutsforweb.com/laravel-passport-create-rest-api-with-authentication/
 
 
 => Restful API In Laravel 5.6 Using Jwt Authentication:
-====================================================
+======================================================
 https://tutsforweb.com/restful-api-in-laravel-56-using-jwt-authentication/ 
 
 
 => cron job:
-=========
+===========
 https://tutsforweb.com/how-to-set-up-task-scheduling-cron-job-in-laravel/
 email:notify cron job
 https://www.youtube.com/watch?v=jlCWLlLYEDc
 
 
 => hasMany Relation:
-================
+===================
 https://appdividend.com/2018/05/17/laravel-many-to-many-relationship-example/
 
 
 => login in one field:
-==================
+=====================
 https://tutsforweb.com/laravel-auth-login-email-username-one-field/
 
 => Laravel caching details:
-========================
+==========================
 https://scotch.io/tutorials/caching-in-laravel-with-speed-comparisons
 
 => inserting in different tables from one form in Laravel
@@ -34,20 +39,20 @@ https://stackoverflow.com/questions/45564871/inserting-in-different-tables-from-
 https://www.youtube.com/watch?v=HalLXGSglks
 
 => Eloquent example for laravel
-============================
+===============================
 https://eloquentbyexample.com/
 
 => laravel ecommerce project tutorial 95 tutorial complete
-=======================================================
+==========================================================
 https://www.youtube.com/watch?v=-t7oMHzIpBQ&list=PLLUtELdNs2ZY5drPxIWzpq5crhantlzp7
 
 => image upload laravel
-========================
+=======================
 https://blog.hashvel.com/posts/laravel-image-upload
 https://laracasts.com/discuss/channels/laravel/laravel-5-uploading-and-display-image
 
 => delete multiple recorde using ajax in laravel
-=================================================
+================================================
 https://www.webslesson.info/2018/02/delete-multiple-data-using-checkbox-in-laravel.html
 https://www.webslesson.info/search?q=laravel
 
@@ -63,33 +68,43 @@ http://jsfiddle.net/arunpjohny/w3gQJ/
 https://stefanzweifel.io/posts/how-to-encrypt-file-uploads-with-laravel
 
 =>Email Verification for New User After Registration in Laravel 5.5
+===================================================================
 https://www.kodeajaib.com/2016/11/laravel-5-tutorial-email-verification.html
 
 =>Database Transactions block using try and catch in Laravel( page er last a total code deya ace)
 https://fideloper.com/laravel-database-transactions
 
 =>laravel crud full tutorial
+============================
 https://appdividend.com/2018/09/06/laravel-5-7-crud-example-tutorial/
 
 =>messenger chat integrate with website
+=======================================
 https://www.codementor.io/wizzydayo/adding-messenger-customer-chat-to-your-website-jdft3pjue
-=> laravel group chat 
+
+=> laravel group chat
+=====================
 https://pusher.com/tutorials/group-chat-laravel/
 
 =>datatables 
+============
 https://medium.com/@BishoAtif/integrating-laravel-with-datatables-975b0bbf4009
 
 =>laravel role and permission
+=============================
 https://itsolutionstuff.com/post/laravel-56-user-roles-and-permissions-acl-using-spatie-tutorialexample.html
 
 =>laravel ajax tutorial full 
+============================
 https://appdividend.com/2018/02/07/laravel-ajax-tutorial-example/
 
 =>laravel ecommerce docs and demo and package
+=============================================
 https://aimeos.org/laravel-ecommerce-package/?fbclid=IwAR34yANpQqNzAKfzwE9cVydh1Zyfk1dZ-wvk5zo1FqUZ-bR5VvSTPhS4pvE
 https://github.com/aimeos/aimeos-laravel
 
 full documentation
+==================
 https://github.com/aimeos/aimeos/blob/master/README.md
 
 =>Laravel 5.6 - Prevent Block Multiple Login Of Same Credentials
