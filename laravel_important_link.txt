@@ -1,6 +1,7 @@
 =>Laravel and vue google map api
 ================================
 https://github.com/aschmelyun/video-populating-google-map-vue-laravel
+https://www.youtube.com/watch?v=FkibP9Wnreo&ab_channel=AndrewSchmelyun
 
 
 => Restful API In Laravel 5.6 Using passport:
