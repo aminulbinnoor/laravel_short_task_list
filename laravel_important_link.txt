@@ -1,4 +1,8 @@
-=>Laravel and vue google map api
+=> Optimize Laravel Eloquent Queries with Eager Loading
+=======================================================
+https://laravel-news.com/eloquent-eager-loading
+
+=> Laravel and vue google map api
 ================================
 https://github.com/aschmelyun/video-populating-google-map-vue-laravel
 https://www.youtube.com/watch?v=FkibP9Wnreo&ab_channel=AndrewSchmelyun
