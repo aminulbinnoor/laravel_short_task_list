@@ -17,4 +17,27 @@ public function store(Request $request){
         Slider::create($formInput);
         flash('Slider Image have Succesfully inserted!', 'info');
         return redirect()->route('slider.index');
+}
+
+
+I want to delete the stored image while update new image
+=======================================================
+
+public function update($id)
+{
+    $users = AdminLogin::find($id);
+
+    if(Input::hasFile('image_file'))
+    {
+        $usersImage = public_path("uploads/images/{$users->image_file}"); // get previous image from folder
+        if (File::exists($usersImage)) { // unlink or remove previous image from folder
+            unlink($usersImage);
+        }
+        $file = Input::file('image_file');
+        $name = time() . '-' . $file->getClientOriginalName();
+        $file = $file->move(('uploads/images'), $name);
+        $users->image_file= $name;
     }
+    $users->save();
+    return response()->json($users);
+}
