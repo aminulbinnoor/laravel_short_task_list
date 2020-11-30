@@ -58,3 +58,30 @@ trait FileUploadTrait
         return $request;
     }
 }
+
+Use this in Controller
+======================
+
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Question;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Http\Controllers\Controller;
+
+use App\Http\Controllers\Traits\FileUploadTrait;
+
+class QuestionsController extends Controller
+{
+  use FileUploadTrait;    
+  public function store(Request $request)
+  {
+    if(! Gate::allows('question_create')) {
+          return abort(401);
+    }
+    $request = $this->saveFiles($request);
+    $question = Question::create($request->all());
+  }
+}
