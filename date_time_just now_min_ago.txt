@@ -1,7 +1,16 @@
+Date Time Format in Laravel Model
+=================================
+use Carbon\Carbon;
+
+public function getCreatedAtAttribute()
+{
+  $carbondate = Carbon::parse($this->attributes['created_at']);
+  $past = $carbondate->format('d-m-Y  h:i A');
+  return $past;
+}
+
 date and time now, ago 
 =======================
-
-
 <?php
 
   function time_elapsed_string($datetime, $full = false) {
