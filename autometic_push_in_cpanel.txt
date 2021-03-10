@@ -1,0 +1,10 @@
+git push origin main --force
+
+autometic push in cpanel
+https://www.youtube.com/watch?v=xjPkD0aXyPs&ab_channel=WatchandLearn
+
+
+
+Cpanel URL: https://p2pfamily.com:2083/cpsess2359397495/frontend/paper_lantern/index.html?login=1&post_login=87559874191354
+Pass: P2pf@mi1y!@#$%^
+user: p2pfamily
