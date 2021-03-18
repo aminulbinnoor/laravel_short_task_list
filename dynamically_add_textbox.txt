@@ -1,0 +1,90 @@
+one option
+==========
+<div class="service_box">
+       <div class="form">
+           <form class="cmxform">
+               <label>Annauncment :</label>
+               <input type="text" name="annauncment[]" class="form-control">
+                <!-----------------------
+                 multiple textboxes shall be added here as
+                 <input type="text" class="someclass"> ---x> textbox 1
+                 <input type="text" class="someclass"> ---x> textbox 2
+                 ------------------------>
+               <button id="add" class="btn btn-info"> + </button>
+           </form>
+     </div>
+</div>
+
+
+ $(function() {
+        $('#add').on('click', function( e ) {
+            e.preventDefault();
+            $('<div/>').addClass( 'new-text-div' )
+            .html( $('<input type="text" name="annauncment[]" class="form-control">')
+            .addClass( 'someclass') )
+            .append( $('<button/>').addClass( 'remove' ).text( 'x' ) )
+            .insertBefore( this );
+        });
+        $(document).on('click', 'button.remove', function( e ) {
+            e.preventDefault();
+            $(this).closest( 'div.new-text-div' ).remove();
+        });
+ });
+
+=============
+second option
+=============
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form id="form1" runat="server">
+  <div>
+    <input id="btnAdd" type="button" value="Add" />
+    <div id="TextBoxContainer">
+      <!--Textboxes will be added here -->
+    </div>
+  </div>
+</form>
+
+
+jQuery
+======
+
+ $(function() {
+  $("#btnAdd").bind("click", function() {
+    AddControl();
+  });
+
+  $("#btnGet").bind("click", function() {
+    var values = "";
+    $("input[name=DynamicTextBox1]").each(function() {
+      values += $(this).val() + "\n";
+    });
+    var values = "";
+    $("input[name=DynamicTextBox2]").each(function() {
+      values += $(this).val() + "\n";
+    });
+
+    alert(values);
+  });
+
+  $("body").on("click", ".remove", function() {
+    $(this).closest("div").remove();
+  });
+});
+$('form').on('change', 'select', function(e) {
+  $(e.target).siblings('input[type=text][name=DynamicTextBox2]').toggle(e.target.value === '2');
+});
+
+function GetDynamicTextBox1(value) {
+
+  return '<input name = "DynamicTextBox1"  id="ingr_name" type="text" value = "' + value + '" required/>&nbsp' +
+    '<select name="selecval"><option value="">Select</option><option value="1">Yes</option><option value="2">No</option></select>' +
+    '<input name = "DynamicTextBox2" style="display:none" type="text" value = "' + value + '" required/>&nbsp' + '<input type="button" value="Remove" class="remove" />'
+
+}
+
+function AddControl() {
+  var div = $("<div />");
+  div.append(GetDynamicTextBox1(''));
+
+  $("#TextBoxContainer").append(div);
+}
