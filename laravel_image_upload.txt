@@ -1,5 +1,19 @@
 public function store(Request $request){
 
+     //first option
+     
+      $file = $request->file('resume');
+      $fileName = time().'.'.$request->file('resume')->extension();
+      $filePath = public_path() . '/uploads';
+      $file->move($filePath, $fileName);
+
+      $aplicant = new Applicant();
+      $aplicant->first_name =  $request->first_name;     
+      $aplicant->applicant_resume = $fileName;
+      $aplicant->save();      
+      //end first option
+
+      //second option
       $formInput=$request->except('image');
        //validation
       $this->validate($request,[
