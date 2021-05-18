@@ -1,0 +1,62 @@
+ubuntu setup with putty and file zilla
+======================================
+https://www.youtube.com/watch?v=x2MbZKamYaM&ab_channel=CodePickup
+
+command link
+============
+http://codepickup.in/server/deploy-laravel-application-on-ubuntu-server/
+
+and rest command below
+
+1. sudo apt install phpmyadmin
+2. sudo nano /etc/apache2/apache2.conf
+3. include /etc/phpmyadmin/apache.conf
+4. sudo apt-get update
+5. sudo apt-get upgrade
+6. sudo service apache2 restart
+7. sudo nano /etc/phpmyadmin/config-db.php 
+8. sudo mysql
+9. grant all on *.* to phpmyadmin@localhost;
+10. flush privileges;
+11. sudo chown -R ubuntu /var/www/html
+12. /var/www/html=> sudo unzip file.zip
+13. /var/www/html=> sudo chmod -R 777 storage
+14. /var/www/html=> sudo rm filename
+15. root dir => sudo a2enmod rewrite
+16. sudo service apache2 restart
+
+
+linux rds setup
+===============
+https://www.youtube.com/watch?v=mBEdFlw4ybc&ab_channel=CraigPiercyCraigPiercy
+
+command link
+============
+https://github.com/hardcoreprogrammingwarrior/deploy-laravel-8-with-ec2-linux-2-and-rds
+
+codeDeploy & codePipeline using Github
+======================================
+https://www.youtube.com/watch?v=KoNWlnx6E1I&t=591s&ab_channel=KnowledgeIndiaAWSAzureTutorialsKnowledgeIndiaAWSAzureTutorials
+https://github.com/prabhakar2020/aws_code_deploy
+
+Domain link DNS setup
+=====================
+
+https://www.youtube.com/watch?v=qor31Egu0Rg
+
+In this video I will show you guys how to link your domain name with amazon aws ec2 instances. 
+
+set root password : 
+sudo passwd
+
+Login with root : 
+su root
+
+Install httpd: 
+
+yum install httpd 
+
+
+cd /var/www/html
+
+cat  index.html
