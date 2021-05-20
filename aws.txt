@@ -39,10 +39,10 @@ codeDeploy & codePipeline using Github
 https://www.youtube.com/watch?v=KoNWlnx6E1I&t=591s&ab_channel=KnowledgeIndiaAWSAzureTutorialsKnowledgeIndiaAWSAzureTutorials
 https://github.com/prabhakar2020/aws_code_deploy
 
-Domain link DNS setup
-=====================
-
-https://www.youtube.com/watch?v=qor31Egu0Rg
+Domain link DNS setup Route 53
+==============================
+1. https://www.youtube.com/watch?v=qor31Egu0Rg&ab_channel=TricknologyTricknology
+2. https://www.youtube.com/watch?v=qor31Egu0Rg
 
 In this video I will show you guys how to link your domain name with amazon aws ec2 instances. 
 
