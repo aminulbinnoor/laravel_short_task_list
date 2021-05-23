@@ -25,6 +25,9 @@ and rest command below
 15. root dir => sudo a2enmod rewrite
 16. sudo service apache2 restart
 
+Setup Nginx, pm2, AWS EC2 - Ubuntu, Express, Nodejs, Reactjs from gitlab to aws
+===============================================================================
+https://www.youtube.com/watch?v=tSuyz8RQ6BI
 
 linux rds setup
 ===============
