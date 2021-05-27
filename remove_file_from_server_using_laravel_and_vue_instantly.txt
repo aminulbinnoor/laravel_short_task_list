@@ -1,0 +1,57 @@
+route
+=====
+Route::post('/delete_image', 'AdminController@deleteImage');
+
+
+controller
+==========
+public function deleteImage(Request $request)
+    {
+        $fileName = $request->imageName;
+        $this->deleteFileFromServer($fileName, false);
+        return 'done';
+    }
+    public function deleteFileFromServer($fileName, $hasFullPath = false)
+    {
+        if (!$hasFullPath) {
+            $filePath = public_path() . '/uploads/' . $fileName;
+        }
+        if (file_exists($filePath)) {
+            @unlink($filePath);
+        }
+        return;
+    }
+
+vuejs
+=====
+
+<div class="demo-upload-list" v-if="editData.iconImage">
+    <img :src="`${editData.iconImage}`" />
+       <div class="demo-upload-list-cover">
+         <Icon type="ios-trash-outline" @click="deleteImage(false)"></Icon>
+       </div>
+</div>
+
+<script>
+async deleteImage(isAdd = true) {
+      let image;
+      if (!isAdd) {
+        // for editing....
+        this.isIconImageNew = true;
+        image = this.editData.iconImage;
+        this.editData.iconImage = "";
+        this.$refs.editDataUploads.clearFiles();
+      } else {
+        image = this.data.iconImage;
+        this.data.iconImage = "";
+        this.$refs.uploads.clearFiles();
+      }
+      const res = await this.callApi("post", "app/delete_image", {
+        imageName: image
+      });
+      if (res.status != 200) {
+        this.data.iconImage = image;
+        this.swr();
+      }
+    },
+</script>
