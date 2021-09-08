@@ -31,3 +31,15 @@ public function search_product(Request $request){
         return view('hs.product',compact('products','categories'));
     }
 <!-- End Controller-->
+
+using when cluse search
+=======================
+StoreInvoice::with(['store', 'hub'])
+            ->when($request->store_id != null, function ($q) use ($request) {
+                $q->where('store_id', $request->store_id);
+            })->when($request->created_at != null, function ($q) use ($req_date) {
+                $q->where('created_at', 'LIKE', "%{$req_date}%");
+            })->when($request->hub_id != null, function ($q) use ($request) {
+                $q->where('hub_id', $request->hub_id);
+            })->selectRaw('count(*) as total, id,invoice_no,status,sum(amount) as total_amount,store_id,hub_id,created_at')
+            ->get();
