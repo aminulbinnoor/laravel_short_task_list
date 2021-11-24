@@ -1,0 +1,23 @@
+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
+
+server access: ssh payligra@103.84.173.183
+pass: Pay*Li2021!
+
+admin panel: 
+username: payligram@gmail.com
+password: @k1k&Man1k007
+
+sudo rm -fr storage
+
+mysql -u payligram_user -p 
+
+
+tail -f /var/log/nginx/error.log
+
+scp /opt/lampp/htdocs/ismail/payligram.zip payligra@103.84.173.183:~/
+
+
+
+
+
+
