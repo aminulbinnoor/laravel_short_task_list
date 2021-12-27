@@ -2,6 +2,10 @@
 =======================================================
 https://laravel-news.com/eloquent-eager-loading
 
+=> VueX complete idea
+======================
+https://github.com/qirolab/vuex-tutorial-todos-example
+
 => Laravel and vue google map api
 ================================
 https://github.com/aschmelyun/video-populating-google-map-vue-laravel
