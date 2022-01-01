@@ -1,3 +1,7 @@
+=>MySql Shutdown Unexpectedly
+=============================
+https://www.youtube.com/watch?v=ipMedkjMupw
+
 => Optimize Laravel Eloquent Queries with Eager Loading
 =======================================================
 https://laravel-news.com/eloquent-eager-loading
