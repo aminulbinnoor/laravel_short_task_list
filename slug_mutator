@@ -1,0 +1,23 @@
+Fill a column automatically while you persist data to the database
+If you want to fill a column automatically while you persist data to the database (e.g: slug) use Model Observer instead of hard code it every time
+
+use Illuminate\Support\Str;
+
+class Article extends Model
+{
+    ...
+    protected static function boot()
+    {
+        parent:boot();
+        
+        static::saving(function ($model) {
+            $model->slug = Str::slug($model->title);
+        });
+    }
+}
+
+
+public function getCreatedAtFormattedAttribute()
+{
+   return $this->created_at->format('H:i d, M Y');
+}
