@@ -1,0 +1,12 @@
+If you pass the select values from Controller:
+
+$recommended_foods = ["American Black Bear","Asiatic Black Bear","Brown Bear","Giant Panda"];
+
+
+and In the view:
+
+<select required="required" class="form-control" name="recommended_food">
+    @foreach ($recommended_foods as $key => $food)
+        <option value="{{ $food}}" {{ (old("recommended_food") == $food ? "selected":"") }}>{{ $food }}</option>
+    @endforeach
+</select>
