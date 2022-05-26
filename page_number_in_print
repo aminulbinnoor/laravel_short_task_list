@@ -1,0 +1,14 @@
+@page {
+      margin-top: 50px;
+      margin-left: 2px;
+      margin-bottom: 40px;
+      margin-right: 2px;
+      size: landscape;
+      counter-increment: page;
+
+  @bottom-right {
+      padding-right:20px;
+      content: "Page " counter(page);
+  }
+
+}
