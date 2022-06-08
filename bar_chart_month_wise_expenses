@@ -1,0 +1,63 @@
+$maintenance_cost = DB::table('maintenance_infos')->select(
+            DB::raw('LEFT(MONTHNAME(created_at),3) as month'),
+            DB::raw('sum(maintenance_amount) as expenses'),
+            DB::raw('max(created_at) as createdAt')
+        )
+            ->where('status', 4)
+            ->orderBy('createdAt', 'asc')
+            ->groupBy('month')
+            ->get();
+            
+            
+       <link rel="stylesheet" href="https://www.cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" />     
+       <div class="col-md-12">
+          <div class="tile custom-tile-height">
+              <hr>
+              <h3 class="title-heading" style="font-weight: bold;">Month Wise Vehicle Expenses</h3>
+              <div>
+                  <div id="bar-chart"></div>
+              </div>
+          </div><!-- end.tile -->
+      </div>
+      
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <!-- REQUIRED SCRIPTS -->
+    <script>
+        $(document).ready(function() {
+            barChart();
+            $(window).resize(function() {
+                window.barChart.redraw();
+            });
+        });
+
+        function barChart() {
+            window.barChart = Morris.Bar({
+                element: 'bar-chart',
+                data: [
+
+                    @php
+                        if (count($maintenance_cost) > 0) {
+                            foreach ($maintenance_cost as $expense) {
+                                echo '{';
+                                echo 'y:' . '"' . $expense->month . '",';
+                                echo 'a:' . $expense->expenses;
+                                echo '},';
+                            }
+                        }
+                    @endphp
+
+
+                ],
+                xkey: 'y',
+                ykeys: ['a'],
+                labels: ['Expense'],
+                lineColors: ['#1e88e5'],
+                lineWidth: '3px',
+                resize: true,
+                redraw: true
+            });
+        }
+    </script>
