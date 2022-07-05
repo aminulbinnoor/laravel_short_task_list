@@ -1,3 +1,7 @@
+LINK FOR CARBON
+===============
+https://www.digitalocean.com/community/tutorials/easier-datetime-in-laravel-and-php-with-carbon
+
 Date Time Format in Laravel Model
 =================================
 use Carbon\Carbon;
