@@ -16,7 +16,7 @@ View menu and submenu create page:
 </div>
 
 
-using javascript load main menu id in sub menu:
+using JQuery load sub menu id under main menu:
 ===============================================
 
 @section('javascript')
