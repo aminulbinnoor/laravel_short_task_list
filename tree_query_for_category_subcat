@@ -1,3 +1,6 @@
+Query Builder
+==============
+
 $query = DB::table('comments')
             ->selectRaw('id, username, comment, created_at, created_at_str as path, 0 as hierarchy')
             ->whereNull('parent_id')
@@ -11,3 +14,88 @@ $tree = DB::table('tree')
     ->withRecursiveExpression('tree', $query)
     ->orderBy('path')
     ->get();
+
+
+
+Models
+======
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Company extends Model
+{
+    use HasFactory;
+
+    public $timestamps = false;
+
+    public function subcompanies()
+    {
+        return $this->hasMany(Company::class, 'parent_id')
+            ->orderBy('name');
+    }
+}
+
+Eloquent
+==========
+public function index()
+    {
+        $companies = Company::query()
+            ->whereNull('parent_id')
+            ->orderBy('name')
+            ->get();
+
+
+        return view('company.index', compact('companies'));
+    }
+
+
+
+
+View
+index.blade.php
+================
+
+@extends('layouts.app')
+
+@section('template_title')
+    Companies
+@endsection
+
+@section('content')
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        Companies
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                        @include('company.list', ['companies' => $companies, 'hierarchy' => 0])
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+@endsection
+
+list.blade.php
+==============
+
+@foreach($companies as $comp)
+
+        <li style="padding-left: {{ $hierarchy * 20 }}px">{{ $comp->name }}</li>
+        @if(count($comp->subcompanies))
+            @include('company.list', ['companies' => $comp->subcompanies, 'hierarchy' => $hierarchy + 1])
+        @endif
+
+    @endforeach
