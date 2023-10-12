@@ -30,12 +30,14 @@ class Company extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
-
-    public function subcompanies()
+    public function subcategory()
     {
-        return $this->hasMany(Company::class, 'parent_id')
-            ->orderBy('name');
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
     }
 }
 
@@ -43,59 +45,77 @@ Eloquent
 ==========
 public function index()
     {
-        $companies = Company::query()
-            ->whereNull('parent_id')
-            ->orderBy('name')
-            ->get();
-
-
-        return view('company.index', compact('companies'));
+        $categories = Category::where('parent_id', null)->orderby('title', 'asc')->get();
+        return view('category', compact('categories'));
     }
 
 
 
 
 View
-index.blade.php
+category.blade.php
 ================
 
-@extends('layouts.app')
-
-@section('template_title')
-    Companies
-@endsection
-
-@section('content')
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        Companies
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                        @include('company.list', ['companies' => $companies, 'hierarchy' => 0])
-                        </ul>
-                    </div>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<section class="content" style="padding:20px 30%;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Create Category</h3>
                 </div>
+                
+                <form role="form" method="post">
+                    {{csrf_field()}}
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Category name*</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Category name" value="{{old('name')}}" required />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Select parent category*</label>
+                                    <select type="text" name="parent_id" class="form-control">
+                                        <option value="">None</option>
+                                        @if($categories)
+                                            @foreach($categories as $category)
+                                                <?php $dash=''; ?>
+                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                                @if(count($category->subcategory))
+                                                    @include('category-partial',['subcategories' => $category->subcategory])
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Create</button>
+
+                    </div>
+                </form>
+
+                
             </div>
         </div>
     </div>
+    
+</section>
 
-
-
-@endsection
-
-list.blade.php
+category-partial.blade.php
 ==============
 
-@foreach($companies as $comp)
-
-        <li style="padding-left: {{ $hierarchy * 20 }}px">{{ $comp->name }}</li>
-        @if(count($comp->subcompanies))
-            @include('company.list', ['companies' => $comp->subcompanies, 'hierarchy' => $hierarchy + 1])
-        @endif
-
-    @endforeach
+<?php $dash.='-- '; ?>
+@foreach($subcategories as $subcategory)
+    <option value="{{$subcategory->id}}">{{$dash}}{{$subcategory->title}}</option>
+    @if(count($subcategory->subcategory))
+        @include('category-partial',['subcategories' => $subcategory->subcategory])
+    @endif
+@endforeach
