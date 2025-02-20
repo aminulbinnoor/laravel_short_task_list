@@ -1,0 +1,1112 @@
+==================
+      Model
+==================
+
+<?php
+namespace App\Models\Property;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+class DocumentPropertyDetails extends Model
+{
+    use HasFactory;
+    protected $fillable = [
+        'document_detail_id',
+        'document_name',
+        'reference_no',
+        'land_area',
+        'current_status',
+        'page_no',
+        'remarks',
+        'document_scan_url',  // file upload url. Use text to store long URLs
+        'mouza_map_scan_url', // file upload url. Use text to store long URLs
+        'drawing_scan_url', // file upload url. Use text to store long URLs
+    ];
+
+    public function documentDetail()
+    {
+        return $this->belongsTo(DocumentDetail::class, 'document_detail_id', 'id');
+    }
+
+    public function getDocumentScanUrlAttribute($value)
+    {
+        $files = is_array($value) ? $value : json_decode($value, true) ?? [];
+        return collect($files)->map(fn ($file) => url("/storage/$file"))->toArray();
+    }
+
+    public function getMouzaMapScanUrlAttribute($value)
+    {
+        $files = is_array($value) ? $value : json_decode($value, true) ?? [];
+        return collect($files)->map(fn ($file) => url("/storage/$file"))->toArray();
+    }
+
+    public function getDrawingScanUrlAttribute($value)
+    {
+        $files = is_array($value) ? $value : json_decode($value, true) ?? [];
+        return collect($files)->map(fn ($file) => url("/storage/$file"))->toArray();
+    }
+}
+
+===========================
+          Controller
+===========================
+
+public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'document_type_id' => 'required|integer|exists:document_types,id',
+            'company_id' => 'required|integer|exists:companies,id',
+            'company_property_id' => 'required|integer|exists:company_properties,id',
+            'property_details' => 'array',
+            'property_details.*.document_name' => 'required|string|max:255',
+            'property_details.*.reference_no' => 'nullable|string|max:255',
+            'property_details.*.land_area' => 'nullable|numeric',
+            'property_details.*.current_status' => 'nullable|string|max:255',
+            'property_details.*.page_no' => 'nullable|string|max:255',
+            'property_details.*.remarks' => 'nullable|string|max:500',
+            'property_details.*.document_scan_url' => 'nullable|array',
+            'property_details.*.document_scan_url.*' => 'nullable|file|mimes:jpeg,png,pdf',
+            'property_details.*.mouza_map_scan_url' => 'nullable|array',
+            'property_details.*.mouza_map_scan_url.*' => 'nullable|file|mimes:jpeg,png,pdf',
+            'property_details.*.drawing_scan_url' => 'nullable|array',
+            'property_details.*.drawing_scan_url.*' => 'nullable|file|mimes:jpeg,png,pdf',
+        ]);
+
+        try {
+            $documentDetail = $this->documentDetailService->create($validatedData);
+        } catch (\Exception $e) {
+            return $this->apiJsonResponse(424, config('status.code.424'), 'errors', $e->getMessage());
+        }
+
+        return $this->apiJsonResponse(200, config('status.code.200'), 'data', $documentDetail);
+    }
+
+==============================
+        Service Class
+==============================
+public function create(array $validatedData)
+    {
+        return DB::transaction(function () use ($validatedData) {
+            // Define the unique key(s) to find the existing record
+            $uniqueKeys = [
+                'document_type_id' => $validatedData['document_type_id'],
+                'company_id' => $validatedData['company_id'],
+                'company_property_id' => $validatedData['company_property_id'],
+            ];
+
+            // Data to be updated or created
+            $documentDetailData = [
+                'user_id' => auth()->id(),
+                'created_by' => auth()->id(),
+            ];
+
+            // Create or update the Document Detail Record
+            $documentDetail = DocumentDetail::updateOrCreate($uniqueKeys, $documentDetailData);
+
+            // Handle Property Details and File Uploads
+            foreach ($validatedData['property_details'] as $index => $property) {
+                $property['document_detail_id'] = $documentDetail->id;
+                $property = $this->handleFileUploads($property, $index);
+                DocumentPropertyDetails::create($property);
+            }
+
+            return $documentDetail;
+        });
+    }
+
+protected function handleFileUploads(array $data, int $index, DocumentPropertyDetails $documentPropertyDetail = null): array
+    {
+        $fileFields = [
+            'document_scan_url' => 'documents',
+            'mouza_map_scan_url' => 'mouza_maps',
+            'drawing_scan_url' => 'drawings',
+        ];
+
+        foreach ($fileFields as $field => $directory) {
+            if (request()->hasFile("property_details.{$index}.{$field}")) {
+                // Delete old files if they exist
+                if ($documentPropertyDetail && $documentPropertyDetail->$field) {
+                    $existingFiles = json_decode($documentPropertyDetail->$field, true) ?? [];
+                    foreach ($existingFiles as $existingFile) {
+                        if ($existingFile && Storage::disk('public')->exists($existingFile)) {
+                            Storage::disk('public')->delete($existingFile);
+                        }
+                    }
+                }
+
+                // Store the new files
+                $filePaths = [];
+                $files = request()->file("property_details.{$index}.{$field}");
+
+                if (is_array($files)) {
+                    foreach ($files as $file) {
+                        if ($file && $file->isValid()) {
+                            $filePaths[] = $file->store(("uploads/$directory"), 'public');
+                        }
+                    }
+                }
+
+                // Store as JSON array
+                $data[$field] = count($filePaths) > 0 ? json_encode($filePaths) : null;
+            }
+        }
+
+        return $data;
+    }
+
+============================================
+        NuxtJs Frontend Create Form
+============================================
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { refreshStore } from "~/store/refreshStore";
+const swal = inject("$swal");
+const { $bootstrap } = useNuxtApp();
+
+const formBusy = ref(false);
+const store = refreshStore();
+const validation_errors = ref(null);
+const document_types = ref([]);
+const companies = ref([]);
+const company_properties = ref([]);
+const progress = ref({
+  document_scan_url: 0,
+  mouza_map_scan_url: 0,
+  drawing_scan_url: 0,
+});
+
+// Form structure
+const form = ref({
+  document_type_id: null,
+  company_id: null,
+  company_property_id: null,
+  property_details: [
+    {
+      document_name: "",
+      reference_no: "",
+      land_area: null,
+      current_status: "",
+      page_no: "",
+      remarks: "",
+      document_scan_url: [],
+      mouza_map_scan_url: [],
+      drawing_scan_url: [],
+    },
+  ],
+});
+
+// Add a new property detail row
+const addPropertyDetail = () => {
+  form.value.property_details.push({
+    document_name: "",
+    reference_no: "",
+    land_area: null,
+    current_status: "",
+    page_no: "",
+    remarks: "",
+    document_scan_url: [],
+    mouza_map_scan_url: [],
+    drawing_scan_url: [],
+  });
+};
+
+// Remove a property detail row
+const removePropertyDetail = (index) => {
+  form.value.property_details.splice(index, 1);
+};
+
+// Handle file uploads and generate previews
+const handleFileUpload = (event, index, field) => {
+  const files = event.target.files;
+  form.value.property_details[index][field] = Array.from(files);
+
+  // Generate previews for images
+  form.value.property_details[index][`${field}_previews`] = [];
+  Array.from(files).forEach((file) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      form.value.property_details[index][`${field}_previews`].push({
+        url: e.target.result,
+        file: file,
+      });
+    };
+    reader.readAsDataURL(file);
+  });
+};
+
+// Remove a file from the preview and form data
+const removeFile = (index, field, fileIndex) => {
+  // Remove the file from the form data
+  form.value.property_details[index][field].splice(fileIndex, 1);
+
+  // Remove the file from the previews
+  form.value.property_details[index][`${field}_previews`].splice(fileIndex, 1);
+};
+
+// Submit the form
+const submitDocument = async () => {
+  formBusy.value = true;
+
+  const formData = new FormData();
+  formData.append("document_type_id", form.value.document_type_id);
+  formData.append("company_id", form.value.company_id);
+  formData.append("company_property_id", form.value.company_property_id);
+
+  // Append property details
+  form.value.property_details.forEach((detail, index) => {
+    Object.keys(detail).forEach((key) => {
+      if (key.endsWith("_previews")) return;
+
+      if (key.endsWith("_url")) {
+        // Append each file individually
+        if (detail[key] && detail[key].length > 0) {
+          detail[key].forEach((file) => {
+            formData.append(`property_details[${index}][${key}][]`, file);
+          });
+        }
+      } else {
+        // Append other fields
+        if (detail[key] !== null && detail[key] !== undefined) {
+          formData.append(`property_details[${index}][${key}]`, detail[key]);
+        }
+      }
+    });
+  });
+
+  // Debug FormData
+  for (let [key, value] of formData.entries()) {
+    console.log(key, value);
+  }
+
+  try {
+    const { data, error } = await useApiFetch("/property/document-details", {
+      method: "POST",
+      body: formData,
+      onUploadProgress: (progressEvent) => {
+        if (progressEvent.total > 0) {
+          // Calculate progress for each file field
+          const progressPercentage = Math.round(
+            (progressEvent.loaded / progressEvent.total) * 100
+          );
+
+          // Update progress for all file fields
+          progress.value.document_scan_url = progressPercentage;
+          progress.value.mouza_map_scan_url = progressPercentage;
+          progress.value.drawing_scan_url = progressPercentage;
+        }
+      },
+    });
+
+    if (error.value) {
+      validation_errors.value = error.value.data?.message;
+      swal({
+        icon: "error",
+        title: "Error",
+        text: validation_errors.value,
+      });
+    } else {
+      swal({
+        icon: "success",
+        title: "Done",
+        text: "Document Created Successfully!",
+      }).then(() => {
+        return navigateTo("/admin/property?tab=DocumentDetails");
+      });
+    }
+  } catch (e) {
+    swal({
+      icon: "error",
+      title: "Error",
+      text: "An unexpected error occurred.",
+    });
+  } finally {
+    formBusy.value = false;
+  }
+};
+
+const fetchDocumentDetailsPrerequisites = async () => {
+  const { data } = await useApiFetch("/property/document-details-prerequisites");
+  document_types.value = data.value.data.document_types;
+  companies.value = data.value.data.companies;
+  company_properties.value = data.value.data.company_properties;
+};
+
+onMounted(() => {
+  fetchDocumentDetailsPrerequisites();
+});
+</script>
+
+<template>
+  <div class="tab-content mt-5">
+    <div
+      class="tab-pane fade show active"
+      id="info-home"
+      role="tabpanel"
+      aria-labelledby="info-home-tab"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title mb-0">Create Document Details</h4>
+            </div>
+            <div class="card-body">
+              <form
+                id="itemForm"
+                @submit.prevent="submitDocument"
+                enctype="multipart/form-data"
+              >
+                <!-- Document Type and Company Property -->
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <label for="company_id" class="form-label"
+                      >Company <span class="text-danger">*</span></label
+                    >
+                    <select v-model="form.company_id" class="form-select" id="company_id">
+                      <option value="" disabled>Select Company</option>
+                      <option
+                        v-for="company in companies"
+                        :key="company.id"
+                        :value="company.id"
+                      >
+                        {{ company.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="company_property_id" class="form-label"
+                      >Company Property <span class="text-danger">*</span></label
+                    >
+                    <select
+                      v-model="form.company_property_id"
+                      class="form-select"
+                      id="company_property_id"
+                    >
+                      <option value="" disabled>Select Company Property</option>
+                      <option
+                        v-for="company_property in company_properties"
+                        :key="company_property.id"
+                        :value="company_property.id"
+                      >
+                        {{ company_property.property_name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="document_type_id" class="form-label"
+                      >Document Type <span class="text-danger">*</span></label
+                    >
+                    <select
+                      v-model="form.document_type_id"
+                      class="form-select"
+                      id="document_type_id"
+                    >
+                      <option value="" disabled>Select Document Type</option>
+                      <option
+                        v-for="document_type in document_types"
+                        :key="document_type.id"
+                        :value="document_type.id"
+                      >
+                        {{ document_type.name }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="separate">
+                  <!-- Property Details -->
+                  <div
+                    v-for="(detail, index) in form.property_details"
+                    :key="index"
+                    class="mb-4"
+                  >
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label :for="`document_name_${index}`" class="form-label"
+                          >Document Name <span class="text-danger">*</span></label
+                        >
+                        <input
+                          v-model="detail.document_name"
+                          type="text"
+                          class="form-control"
+                          :id="`document_name_${index}`"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label :for="`reference_no_${index}`" class="form-label"
+                          >Reference No</label
+                        >
+                        <input
+                          v-model="detail.reference_no"
+                          type="text"
+                          class="form-control"
+                          :id="`reference_no_${index}`"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label :for="`land_area_${index}`" class="form-label"
+                          >Land Area</label
+                        >
+                        <input
+                          v-model="detail.land_area"
+                          type="number"
+                          class="form-control"
+                          :id="`land_area_${index}`"
+                        />
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                      
+                      <div class="col-md-4">
+                        <!-- select current status -->
+                        <label for="current_status" class="form-label"
+                          >Current Status <span class="text-danger">*</span></label
+                        >
+                        <select
+                          v-model="detail.current_status"
+                          class="form-select"
+                          id="current_status"
+                        >
+                          <option value="" disabled>Select Current Status</option>
+                          <option value="original">Original</option>
+                          <option value="photocopy">Photocopy</option>
+                          <option value="duplicate">Duplicate</option>
+                          <option value="original and duplicate">
+                            Original & Duplicate
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <label :for="`page_no_${index}`" class="form-label"
+                          >Page No</label
+                        >
+                        <input
+                          v-model="detail.page_no"
+                          type="text"
+                          class="form-control"
+                          :id="`page_no_${index}`"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label :for="`remarks_${index}`" class="form-label"
+                          >Remarks</label
+                        >
+                        <textarea
+                          rows="3"
+                          cols="50"
+                          v-model="detail.remarks"
+                          class="form-control"
+                          :id="`remarks_${index}`"
+                        ></textarea>
+                      </div>
+                    </div>                    
+                    <div class="row mt-3">
+                      <div class="col-md-4">
+                        <label :for="`document_scan_url_${index}`" class="form-label"
+                          >Document Scan</label
+                        >
+                        <input
+                          type="file"
+                          multiple
+                          class="form-control"
+                          :id="`document_scan_url_${index}`"
+                          @change="handleFileUpload($event, index, 'document_scan_url')"
+                        />
+                        <!-- File Previews -->
+                        <div
+                          v-if="detail.document_scan_url_previews"
+                          class="preview-container mt-3"
+                        >
+                          <div
+                            v-for="(
+                              preview, fileIndex
+                            ) in detail.document_scan_url_previews"
+                            :key="fileIndex"
+                            class="preview-item"
+                          >
+                            <div class="preview-content">
+                              <img
+                                v-if="preview.url.startsWith('data:image')"
+                                :src="preview.url"
+                                class="preview-image"
+                              />
+                              <div v-else class="file-preview">
+                                <i class="icofont icofont-file-pdf file-icon"></i>
+                                <span>PDF File</span>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-sm close-btn"
+                              @click="removeFile(index, 'document_scan_url', fileIndex)"
+                            >
+                              <i class="icofont icofont-close"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- Progress Bar -->
+                        <div class="mt-2" v-if="progress.document_scan_url">
+                          <div class="progress">
+                            <div
+                              class="progress-bar"
+                              :style="{ width: progress.document_scan_url + '%' }"
+                            >
+                              {{ progress.document_scan_url }}%
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label :for="`mouza_map_scan_url_${index}`" class="form-label"
+                          >Mouza Map Scan</label
+                        >
+                        <input
+                          type="file"
+                          multiple
+                          class="form-control"
+                          :id="`mouza_map_scan_url_${index}`"
+                          @change="handleFileUpload($event, index, 'mouza_map_scan_url')"
+                        />
+                        <!-- File Previews -->
+                        <div
+                          v-if="detail.mouza_map_scan_url_previews"
+                          class="preview-container mt-3"
+                        >
+                          <div
+                            v-for="(
+                              preview, fileIndex
+                            ) in detail.mouza_map_scan_url_previews"
+                            :key="fileIndex"
+                            class="preview-item"
+                          >
+                            <div class="preview-content">
+                              <img
+                                v-if="preview.url.startsWith('data:image')"
+                                :src="preview.url"
+                                class="preview-image"
+                              />
+                              <div v-else class="file-preview">
+                                <i class="icofont icofont-file-pdf file-icon"></i>
+                                <span>PDF File</span>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-sm close-btn"
+                              @click="removeFile(index, 'mouza_map_scan_url', fileIndex)"
+                            >
+                              <i class="icofont icofont-close"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- Progress Bar -->
+                        <div class="mt-2" v-if="progress.mouza_map_scan_url">
+                          <div class="progress">
+                            <div
+                              class="progress-bar"
+                              :style="{ width: progress.mouza_map_scan_url + '%' }"
+                            >
+                              {{ progress.mouza_map_scan_url }}%
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label :for="`drawing_scan_url_${index}`" class="form-label"
+                          >Drawing Scan</label
+                        >
+                        <input
+                          type="file"
+                          multiple
+                          class="form-control"
+                          :id="`drawing_scan_url_${index}`"
+                          @change="handleFileUpload($event, index, 'drawing_scan_url')"
+                        />
+                        <!-- File Previews -->
+                        <div
+                          v-if="detail.drawing_scan_url_previews"
+                          class="preview-container mt-3"
+                        >
+                          <div
+                            v-for="(
+                              preview, fileIndex
+                            ) in detail.drawing_scan_url_previews"
+                            :key="fileIndex"
+                            class="preview-item"
+                          >
+                            <div class="preview-content">
+                              <img
+                                v-if="preview.url.startsWith('data:image')"
+                                :src="preview.url"
+                                class="preview-image"
+                              />
+                              <div v-else class="file-preview">
+                                <i class="icofont icofont-file-pdf file-icon"></i>
+                                <span>PDF File</span>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-sm close-btn"
+                              @click="removeFile(index, 'drawing_scan_url', fileIndex)"
+                            >
+                              <i class="icofont icofont-close"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- Progress Bar -->
+                        <div class="mt-2" v-if="progress.drawing_scan_url">
+                          <div class="progress">
+                            <div
+                              class="progress-bar"
+                              :style="{ width: progress.drawing_scan_url + '%' }"
+                            >
+                              {{ progress.drawing_scan_url }}%
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      v-if="index > 0"
+                      type="button"
+                      class="btn btn-danger btn-sm mt-3 float-end"
+                      @click="removePropertyDetail(index)"
+                    >
+                      <i class="icofont icofont-minus"></i> Remove
+                    </button>
+                    <hr />
+                  </div>
+                </div>
+
+                <!-- Add More Property Details -->
+                <button
+                    type="button"
+                    class="add-property-btn"
+                    @click="addPropertyDetail"
+                    >
+                    <i class="icofont icofont-plus"></i> Add More
+                </button>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button
+                type="submit"
+                form="itemForm"
+                class="btn btn-success me-2 float-end"
+                :disabled="formBusy"
+              >
+                <i v-if="formBusy" class="fa fa-spin fa-spinner me-2"></i>
+                {{ formBusy ? "Saving..." : "Save" }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.media .media-body {
+  flex: unset;
+}
+.file-preview {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.img-thumbnail {
+  max-width: 65px;
+  max-height: 65px;
+  margin: 3px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.end-0 {
+  right: 0;
+}
+
+.btn-danger {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+.progress {
+  height: 20px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+}
+
+/* separate class */
+.separate {
+  background: rgb(244, 244, 244);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.separate .row {
+  margin-bottom: 15px;
+}
+
+.separate .form-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.separate .form-control,
+.separate .form-select {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease-in-out;
+}
+
+.separate .form-control:focus,
+.separate .form-select:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+.separate textarea.form-control {
+  min-height: 100px;
+}
+
+.separate hr {
+  border-top: 2px solid;
+  margin: 20px 0;
+}
+
+.separate .btn-danger {
+  background: #dc3545;
+  border-color: #dc3545;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.separate .btn-danger:hover {
+  background: #a71d2a;
+  border-color: #a71d2a;
+}
+
+.separate .img-thumbnail {
+  border-radius: 6px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.separate .img-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.separate .file-preview {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.separate .progress {
+  height: 6px;
+  border-radius: 6px;
+  background: #e0e0e0;
+}
+
+.separate .progress-bar {
+  background: #007bff;
+  transition: width 0.4s ease-in-out;
+}
+
+.separate .btn-sm {
+  /* padding: 5px 10px; */
+  font-size: 11px;
+}
+
+/* file preview */
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.preview-item {
+  position: relative;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.preview-item:hover {
+  transform: scale(1.05);
+}
+
+.preview-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preview-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.file-preview {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.file-icon {
+  font-size: 24px;
+  color: red;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* add more button design */
+.add-property-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  margin-top: 10px;
+  float: right;
+}
+
+.add-property-btn i {
+  font-size: 16px;
+}
+
+.add-property-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #004494);
+  transform: scale(1.05);
+}
+
+.add-property-btn:active {
+  transform: scale(0.95);
+}
+</style>
+
+============================
+        List View
+============================
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const isLoading = ref(false);
+const documentDetails = ref({});
+
+const props = defineProps({
+  document_details: {
+    type: Object,
+    default: {},
+  },
+});
+
+const getDocumentDetails = async () => {
+  isLoading.value = true;
+  const { data, error } = await useApiFetch(
+    `/property/document-details/${props.document_details?.id}`,
+    { method: 'GET' }
+  );
+
+  if (!error.value) {
+    documentDetails.value = data.value.data;
+  }
+  isLoading.value = false;
+};
+
+const capitalizeFirstLetter = (text) => {
+    if (!text) return "";
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+};
+
+onMounted(getDocumentDetails);
+</script>
+
+<template>
+  <div class="container-fluid mt-4">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">Document Details</h4>
+        <div v-if="isLoading" class="text-center py-5">
+          <div class="spinner-border text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div v-else>
+          <div v-if="documentDetails.document_property_details?.length">
+            <div v-for="(detail, index) in documentDetails.document_property_details" :key="detail.id" class="mb-4">
+              <div class="card p-3">
+                <h5 class="mb-3 bg-secondary text-white p-2 box">Document Name: {{ detail.document_name }}</h5>
+                <!-- Inline Details Section -->
+                <div class="details-grid">
+                  <div class="detail-item">
+                    <strong>Reference No:</strong> {{ detail.reference_no }}
+                  </div>
+                  <div class="detail-item">
+                    <strong>Land Area:</strong> {{ detail.land_area }}
+                  </div>
+                  <div class="detail-item">
+                    <strong>Current Status:</strong> {{ capitalizeFirstLetter(detail.current_status) }}
+                  </div>
+                  <div class="detail-item">
+                    <strong>Page No:</strong> {{ detail.page_no }}
+                  </div>
+                  <div class="detail-item">
+                    <strong>Remarks:</strong> {{ detail.remarks }}
+                  </div>
+                </div>
+                <!-- PDF Scans Section -->
+                <div v-if="detail.document_scan_url?.length" class="mt-3">
+                  <h6>Document Scan Files</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <a v-for="(url, i) in detail.document_scan_url" :key="i" :href="url" target="_blank" class="pdf-files">
+                      <i class="icofont icofont-file-pdf"></i> 
+                      <span> Doc Scan {{ i + 1 }}</span>
+                    </a>
+                  </div>
+                </div>
+                <hr>
+                <div v-if="detail.mouza_map_scan_url?.length" class="mt-3">
+                  <h6>Mouza Scan Files</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <a v-for="(url, i) in detail.mouza_map_scan_url" :key="i" :href="url" target="_blank" class="pdf-files">
+                      <i class="icofont icofont-file-pdf"></i> 
+                      <span> Mouza Scan {{ i + 1 }}</span>
+                    </a>
+                  </div>
+                </div>
+                 <hr>
+                <div v-if="detail.drawing_scan_url?.length" class="mt-3">
+                  <h6>Drawing Scan Files</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <a v-for="(url, i) in detail.drawing_scan_url" :key="i" :href="url" target="_blank" class="pdf-files">
+                      <i class="icofont icofont-file-pdf"></i> 
+                      <span> Drawing Scan {{ i + 1 }}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p v-else class="text-muted text-center">No documents found.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.card {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.list-group-item {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 0;
+}
+.btn-outline-danger i {
+  margin-right: 5px;
+}
+
+/* Inline Details Grid */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.detail-item {
+  padding: 10px;
+}
+
+/* PDF Files Design */
+.pdf-files {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  height: 110px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+.pdf-files:hover {
+  background-color: #e9ecef;
+  border-color: #ccc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.icofont-file-pdf {
+  font-size: 30px;
+  margin-bottom: 8px;
+  color: #ff0000;
+}
+.pdf-files span {
+  font-size: 14px;
+  text-align: center;
+}
+.box {
+  border-radius: 12px;
+}
+</style>
+
